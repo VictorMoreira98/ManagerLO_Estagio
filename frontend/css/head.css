@@ -1,0 +1,64 @@
+/*configura estilo navbar*/
+
+#head ul{
+    padding:0px;
+    margin:0px;
+    height:100px;
+    background-color:rgb(44, 172, 140);
+    list-style:none;
+    float:left;
+    width:100%;
+    
+    display: flex;
+    align-items: center; 
+}
+
+/*deixa itens na horizontal*/
+#titulo { 
+    display: inline-block;
+    padding-right: 4px; 
+    color: white;
+    font-family: cursive;
+    font-size: 30px;
+  
+    
+}
+
+#login { 
+    display: inline-block;
+    padding-right: 30px; 
+    color: white;
+    font-family: cursive;
+    font-size: 25px;
+    position: absolute;
+    right:0;
+}
+
+#login a{
+    text-decoration:none; 
+    color: white;
+    transition: all .2s ease-in-out;
+    
+}
+
+#head ul a img{
+    width: 45px;
+    height: 25px;
+    padding-right: 5px;
+    margin-top: -10px;
+}
+
+#login{
+    transition: all .2s ease-in-out;
+}
+#login:hover{
+    transform: scale(1.2);
+}
+
+#head ul img{
+    width: 70px; 
+    margin-top:-15px;
+    padding-left: 20px;
+    
+    
+}
