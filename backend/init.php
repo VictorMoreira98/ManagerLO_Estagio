@@ -9,9 +9,9 @@ define('BASE_PATH', dirname(__FILE__));
 // define('MYSQL_DBNAME', 'monteiro23');
 
 define('MYSQL_HOST', 'localhost');
-define('MYSQL_USER', 'imed');
-define('MYSQL_PASS', 'imed10741961');
-define('MYSQL_DBNAME', 'connectdoc');
+define('MYSQL_USER', 'root');
+define('MYSQL_PASS', '');
+define('MYSQL_DBNAME', 'managerlo');
  
 // configurações do PHP
 ini_set('display_errors', true);

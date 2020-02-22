@@ -18,10 +18,16 @@ $app->get('/', function ()
     
 });
 
-$app->get('/login', function (){
+$app->post('/cadastrar', function (){
     $UsersController = new \App\Controllers\UsersController;
-    $UsersController->index();
+    $UsersController->store();
 });
+
+$app->post('/login', function (){
+    $UsersController = new \App\Controllers\UsersController;
+    $UsersController->login();
+});
+
 
 
 

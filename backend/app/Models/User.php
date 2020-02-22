@@ -9,85 +9,41 @@ class User {
         $nome,
         $usuario,
         $email,
-        $tipo,
-        $telefone,
-        $crm,
         $cpf,
-        $categoria,
+        $cnpj,
         $senha){
         
-        // validação (bem simples, só pra evitar dados vazios)
-        if (empty($nome)
-        ||  empty($usuario)
-        ||  empty($email)
-        ||  empty($tipo)
-        ||  empty($telefone)
-        ||  empty($senha)){
-            return getJsonResponse(false, 'Campos nao informados');
-        }
-        
-          
-        // insere no banco
-        $DB = new DB;
-        //insere na tabela usuario    
-        $sql = "INSERT INTO usuario(nome, usuario, email, tipo, telefone, senha) VALUES(:nome, :usuario, :email, :tipo, :telefone, :senha)";
-        $stmt = $DB->prepare($sql);
-        $stmt->bindParam(':nome', $nome);
-        $stmt->bindParam(':usuario', $usuario);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':tipo', $tipo);
-        $stmt->bindParam(':telefone', $telefone);
-        $stmt->bindParam(':senha', $senha);
-        $stmt->execute();
-
-        //verifica se é do tipo médico, caso seja, insere os dados
-        if($tipo == 1){
-            if(empty($crm) ||  empty($categoria)){
-                return getJsonResponse(false, 'Campos nao informados');
-            }
-            $idUser = $DB->lastInsertId();
-            $DB = new DB;
-            $sql = "INSERT INTO medicos(id_usuario, categoria, crm) VALUES(:id_usuario,:categoria, :crm)";
-            $stmt = $DB->prepare($sql);
-            $stmt->bindParam(':id_usuario', $idUser);
-            $stmt->bindParam(':categoria', $categoria);
-            $stmt->bindParam(':crm', $crm);
-            $stmt->execute();
-            $controlador = true;
-            } 
-             //verifica se é do tipo secretaria, caso seja, insere os dados
-            else if($tipo == 2){ 
-            $idUser = $DB->lastInsertId();
-            $DB = new DB;
-            $sql = "INSERT INTO secretaria(id_usuario) VALUES(:id_usuario)";
-            $stmt = $DB->prepare($sql);
-            $stmt->bindParam(':id_usuario', $idUser);
-            $stmt->execute();
-            $controlador = true;
-            }
-            //verifica se é do tipo paciente, caso seja, insere os dados
-            else if($tipo == 3){ 
-                
-                if(empty($cpf)){
-                    return getJsonResponse(false, 'Campos nao informados');
-                }
-                $idUser = $DB->lastInsertId();
-                $DB = new DB;
-                $sql = "INSERT INTO paciente(id_usuario, cpf) VALUES(:id_usuario, :cpf)";
-                $stmt = $DB->prepare($sql);
-                $stmt->bindParam(':id_usuario', $idUser);
-                $stmt->bindParam(':cpf', $cpf);
-                $stmt->execute();
-                $controlador = true;
-                }
-
+       // validação (bem simples, só pra evitar dados vazios)
+       if (empty($nome)
+       ||  empty($usuario)
+       ||  empty($email)
+       ||  empty($senha)){
+           return getJsonResponse(false, 'Campos nao informados');
+       } elseif (empty($cpf) &&  empty($cnpj)){
+           return getJsonResponse(false, 'Campos nao informados');
+       } 
        
-        if ($controlador)
-        {
-            return getJsonResponse(true, 'Cadastrado com sucesso');
-        }
-        else return getJsonResponse(false, 'Erro ao cadastrar - ' . $stmt->errorInfo());
-    }
+         
+       // insere no banco
+       $DB = new DB;
+       //insere na tabela usuario    
+       $sql = "INSERT INTO users(nome, usuario, email, cpf, cnpj, senha) VALUES(:nome, :usuario, :email, :cpf, :cnpj, :senha)";
+      $stmt = $DB->prepare($sql);
+       $stmt->bindParam(':nome', $nome);
+       $stmt->bindParam(':usuario', $usuario);
+       $stmt->bindParam(':email', $email);
+       $stmt->bindParam(':cpf', $cpf);
+       $stmt->bindParam(':cnpj', $cnpj);
+       $stmt->bindParam(':senha', $senha);
+      
+       if ($stmt->execute())
+       {
+           return getJsonResponse(true, 'Cadastrado com sucesso');
+       }
+       else return getJsonResponse(false, 'Erro ao cadastrar - ' . $stmt->errorInfo());
+   }
+
+
 
     public static function logar($usuario, $senha){
         $msgErro = 'Usuario ou senha invalidos';
@@ -98,7 +54,7 @@ class User {
         }
 
         $DB = new DB;
-        $sql = "SELECT id, usuario, senha FROM usuario WHERE usuario=:usuario";
+        $sql = "SELECT id, usuario, senha FROM users WHERE usuario=:usuario";
         $stmt = $DB->prepare($sql);
         $stmt->bindParam(':usuario', $usuario);
         
@@ -123,7 +79,7 @@ class User {
                     session_abort();
                     session_start();
                     $_SESSION['user'] = $user['id'];
-                    
+                    $_SESSION['nomeUsuario'] = $user['usuario'];
                     return json_encode($responseUser);
                 }
                 else return getJsonResponse(false, $msgErro);
