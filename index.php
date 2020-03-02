@@ -1,2 +1,2 @@
 <?php
-    header("Location: dash");
+    header("Location: frontend");
