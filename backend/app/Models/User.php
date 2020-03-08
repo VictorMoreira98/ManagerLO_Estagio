@@ -11,6 +11,8 @@ class User {
         $email,
         $cpf,
         $cnpj,
+        $telefone,
+        $tipo,
         $senha){
         
        // validação (bem simples, só pra evitar dados vazios)
@@ -23,20 +25,57 @@ class User {
            return getJsonResponse(false, 'Campos nao informados');
        } 
        
-         
+       if($tipo == '1'){
+
+                $DB = new DB;
+            //insere na tabela usuario    
+            $sql = "INSERT INTO pessoa(nome, cpf) VALUES(:nome, :cpf)";
+            $stmt = $DB->prepare($sql);
+            $stmt->bindParam(':nome', $nome);
+            $stmt->bindParam(':cpf', $cpf);
+            if ($stmt->execute()){
+                $controlador = true;
+            } else{
+                $controlador = false;
+            }
+            $idPessoa = $DB->lastInsertId();
+
+       } else{
+        $DB = new DB;
+        //insere na tabela usuario    
+        $sql = "INSERT INTO empresa(nome, cnpj) VALUES(:nome, :cnpj)";
+        $stmt = $DB->prepare($sql);
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':cnpj', $cnpj);
+        if ($stmt->execute()){
+            $controlador = true;
+        } else{
+            $controlador = false;
+        }
+        $idEmpresa = $DB->lastInsertId();
+
+       }
        // insere no banco
        $DB = new DB;
        //insere na tabela usuario    
-       $sql = "INSERT INTO users(nome, usuario, email, cpf, cnpj, senha) VALUES(:nome, :usuario, :email, :cpf, :cnpj, :senha)";
+       $sql = "INSERT INTO users(usuario, email, telefone, tipo, idPessoa, idEmpresa, senha) VALUES(:usuario, :email, :telefone, :tipo, :idPessoa, :idEmpresa, :senha)";
       $stmt = $DB->prepare($sql);
-       $stmt->bindParam(':nome', $nome);
+      
        $stmt->bindParam(':usuario', $usuario);
        $stmt->bindParam(':email', $email);
-       $stmt->bindParam(':cpf', $cpf);
-       $stmt->bindParam(':cnpj', $cnpj);
+       $stmt->bindParam(':telefone', $telefone);
+       $stmt->bindParam(':tipo', $tipo);
+       $stmt->bindParam(':idPessoa', $idPessoa);
+       $stmt->bindParam(':idEmpresa', $idEmpresa);
        $stmt->bindParam(':senha', $senha);
+       if ($stmt->execute()){
+            $controlador = true;
+        } else{
+            $controlador = false;
+        }
+        
       
-       if ($stmt->execute())
+       if ($controlador)
        {
            return getJsonResponse(true, 'Cadastrado com sucesso');
        }
@@ -54,7 +93,7 @@ class User {
         }
 
         $DB = new DB;
-        $sql = "SELECT id, usuario, senha FROM users WHERE usuario=:usuario";
+        $sql = "SELECT id, usuario, tipo, senha FROM users WHERE usuario=:usuario";
         $stmt = $DB->prepare($sql);
         $stmt->bindParam(':usuario', $usuario);
         
@@ -80,6 +119,7 @@ class User {
                     session_start();
                     $_SESSION['user'] = $user['id'];
                     $_SESSION['nomeUsuario'] = $user['usuario'];
+                    $_SESSION['tipo'] = $user['tipo'];
                     return json_encode($responseUser);
                 }
                 else return getJsonResponse(false, $msgErro);

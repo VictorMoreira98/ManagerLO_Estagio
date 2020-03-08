@@ -1,4 +1,0 @@
-function teste(){
-    window.location = "./";
- 
-}

@@ -7,7 +7,9 @@ body{
     bottom:10px;
     right:10px;
   }
-  
+  .btn-secondary{
+    background-color: rgb(130, 138, 135) !important;
+  }
   .fab button{
     cursor: pointer;
     width: 48px;

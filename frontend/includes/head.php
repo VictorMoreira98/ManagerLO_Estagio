@@ -1,17 +1,64 @@
-<nav id="head">
-        <ul>
-            <img src="assets/logo.png">
-            <li id="titulo"><h1>Manager LO </h1></li>
-            <li id="login"><a href="login"><img src="assets/user.png">
-                <?php session_start(); 
-                //session_destroy(); 
-                if(isset($_SESSION['nomeUsuario'])){echo $_SESSION['nomeUsuario'];} else{echo "Login";} ?></a></li>
-                
+ <!--Navbar -->
+            <nav id="head" class="mb-1 navbar navbar-expand-lg navbar-dark default-color ">
             
-        </ul>
 
-					
-                               
-</nav>
+                    <div  id="nav-icon1" >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    
+                   
+                        <a class="navbar-brand ml-3" href="#">Manager LO</a>
+                       
+                        <div class=" " id="navbarSupportedContent" >
+                        <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item dropdown">
+                                 <?php 
+                                    //session_destroy(); 
+                                    if(isset($_SESSION['nomeUsuario'])){
+                                        if($_SESSION['tipo'] =='2'){
+                                            echo ' <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"> '.$_SESSION['nomeUsuario'].'
+                                            <i class="fas fa-user"></i>
+                                             </a>
+                                             <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                                             aria-labelledby="navbarDropdownMenuLink-333">
+                                             <a class="dropdown-item" href="#">Usuários</a>
+                                             <a class="dropdown-item" href="#">Editar Conta</a>
+                                             <a class="dropdown-item" href="sair" >Sair</a>
+                                             </div>';
 
+                                        } else{
+                                            echo ' <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                                       aria-haspopup="true" aria-expanded="false"> '.$_SESSION['nomeUsuario'].'
+                                       <i class="fas fa-user"></i>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                                        aria-labelledby="navbarDropdownMenuLink-333">
+                                        <a class="dropdown-item" href="#">Editar Conta</a>
+                                        <a class="dropdown-item" href="sair" >Sair</a>
+                                        </div>';
 
+                                        }
+                                       
+                                    } else{ ?>
+                                        <a class="nav-link "  href="login"> Login
+                                        <i class="fas fa-user"></i>
+                                         </a>
+                                   
+                                    <?php }?>
+
+                                    
+                                    
+                                   
+                                    
+                                </li>
+                           
+                        </ul>
+                    </div>
+                          
+                            
+                            
+         
+                 </nav>

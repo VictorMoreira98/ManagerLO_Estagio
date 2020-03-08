@@ -10,8 +10,10 @@ class UsersController {
         $email = isset($_POST['email']) ? $_POST['email'] : null;
         $cpf = isset($_POST['cpf']) ? $_POST['cpf'] : null;
         $cnpj = isset($_POST['cnpj']) ? $_POST['cnpj'] : null;
+        $telefone = isset($_POST['telefone']) ? $_POST['telefone'] : null;
+        $tipo = isset($_POST['tipo']) ? $_POST['tipo'] : null;
         $senha = crypt(isset($_POST['senha']) ? $_POST['senha'] : null, 12);
-        echo User::save($nome, $usuario, $email, $cpf, $cnpj, $senha);
+        echo User::save($nome, $usuario, $email, $cpf, $cnpj, $telefone, $tipo, $senha);
        
     }
 

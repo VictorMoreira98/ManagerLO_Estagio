@@ -25,6 +25,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="./includes/login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="./includes/login/css/main.css">
+	<link rel="stylesheet" type="text/css" href="./includes/login/css/cadastrar.css">
 <!--===============================================================================================-->
 	
 </head>
@@ -33,47 +34,25 @@
 	
 	<div class="limiter">
 		<div class="container-login100" style="background-image: url('./includes/login/images/bg-01.jpg');">
-			<div class="wrap-login100">
-				<form id="loginArea" class="login100-form "  method="post"  >
-					<span class="login100-form-logo">
-						<i class="zmdi zmdi-account"></i>
-					</span>
+		<?php 
+			 $url = (isset($_GET['url'])) ? $_GET['url'] :'';
+			 $url = array_filter(explode('/',$url));
 
-					<span class="login100-form-title p-b-34 p-t-27">
-						Login
-					</span>
 
-					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="usuario" placeholder="Usuário">
-						<span class="focus-input100" data-placeholder="&#xf207;"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="senha" placeholder="Senha">
-						<span class="focus-input100" data-placeholder="&#xf191;"></span>
-					</div>
-
-					<div class="contact100-form-checkbox">
-						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-						<label class="label-checkbox100" for="ckb1">
-							Remember me
-						</label>
-					</div>
-
-					<div class="container-login100-form-btn">
-						<button type="submit" class="login100-form-btn"  > 
-							Login
-						</button>
-					</div>
-
-					<div class="text-center p-t-20">
-						<a class="txt1" href="#">
-							Forgot Password?
-						</a>
-					</div>
-				</form>
-				
-			</div>
+			 if(!empty($url[0])){
+                if($url[0] =="login"){
+                    
+                include "logar.php";
+                } else if($url[0] == "cadastrar"){
+                    include "cadastrar.php";
+                }
+                else{
+                    echo 'error 404';
+                }
+			 }
+		
+		?>
+			
 		</div>
 	</div>
 	
@@ -100,9 +79,8 @@
 	<script src="./js/core/axios.min.js"></script>
     <script src="./js/formAjax.js"></script>
     <script src="./js/login.js"></script>
-
+	<script src="./js/cadastrarUsuario.js"></script>
 	
-	<script src="./js/teste.js"></script>
 	
 
 </body>
