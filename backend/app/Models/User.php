@@ -82,6 +82,83 @@ class User {
        else return getJsonResponse(false, 'Erro ao cadastrar - ' . $stmt->errorInfo());
    }
 
+   //salva no BD o cadastro
+   public static function saveUser(
+    $nome,
+    $usuario,
+    $email,
+    $cpf,
+    $telefone,
+    $tipo, 
+    $senha){
+    
+   // validação (bem simples, só pra evitar dados vazios)
+   if (empty($nome)
+   ||  empty($usuario)
+   ||  empty($email)
+   ||  empty($senha)){
+       return getJsonResponse(false, 'Campos nao informados');
+   } 
+
+             $DB = new DB;
+            //insere na tabela usuario    
+            $sql = "INSERT INTO pessoa(nome, cpf) VALUES(:nome, :cpf)";
+            $stmt = $DB->prepare($sql);
+            $stmt->bindParam(':nome', $nome);
+            $stmt->bindParam(':cpf', $cpf);
+            if ($stmt->execute()){
+                $controlador = true;
+            } else{
+                $controlador = false;
+            }
+            $idPessoa = $DB->lastInsertId();
+  if($controlador){
+   // insere no banco
+   $DB = new DB;
+   //insere na tabela usuario    
+   $sql = "INSERT INTO users(usuario, email, telefone, tipo, idPessoa, senha) VALUES(:usuario, :email, :telefone, :tipo, :idPessoa, :senha)";
+  $stmt = $DB->prepare($sql);
+  
+   $stmt->bindParam(':usuario', $usuario);
+   $stmt->bindParam(':email', $email);
+   $stmt->bindParam(':telefone', $telefone);
+   $stmt->bindParam(':tipo', $tipo);
+   $stmt->bindParam(':idPessoa', $idPessoa);
+   $stmt->bindParam(':senha', $senha);
+   $stmt->execute();
+  }
+   if ($controlador)
+   {
+       return getJsonResponse(true, 'Cadastrado com sucesso');
+   }
+   else return getJsonResponse(false, 'Erro ao cadastrar - ' . $stmt->errorInfo());
+}
+
+    public static function getUsers($id){
+        $DB = new DB;
+        //busca usuários de uma empresa   
+        $sql = "SELECT us.*, p.* FROM users us JOIN pessoa p WHERE us.idEmpresa = :id AND us.idPessoa = p.id";
+        $stmt = $DB->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        if ( $stmt->execute()){
+            $user = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            if(count($user) > 0){
+                for ($i = 0; $i < count($user); $i++) {
+                    $users = $user[$i];
+                    $arrayUsers[$i] = array(
+                        'id' => $users['id'],
+                        'nome' => $users['nome'],
+                        'email' => $users['email'],
+                        'usuario' => $users['usuario'],
+                    );
+                }
+            return json_encode($arrayUsers);
+            }
+        }
+        else return getJsonResponse(false, 'Erro ao buscar usuários - ' . $stmt->errorInfo());
+
+    }
+
 
 
     public static function logar($usuario, $senha){
@@ -117,7 +194,7 @@ class User {
 
                     session_abort();
                     session_start();
-                    $_SESSION['user'] = $user['id'];
+                    $_SESSION['id'] = $user['id'];
                     $_SESSION['nomeUsuario'] = $user['usuario'];
                     $_SESSION['tipo'] = $user['tipo'];
                     return json_encode($responseUser);

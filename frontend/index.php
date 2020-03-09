@@ -62,6 +62,8 @@
                     include "./includes/login/logout.php";
                 } else if($url[0] == "cadastrar"){
                     include "./includes/login/index.php";
+                } else if($url[0] == "usuarios"){
+                    include "./includes/login/addUsuarios.php";
                 }
                 else{
                     echo 'error 404';

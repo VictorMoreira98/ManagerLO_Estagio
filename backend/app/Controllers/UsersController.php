@@ -17,6 +17,22 @@ class UsersController {
        
     }
 
+    public function addUser() { 
+        $nome = isset($_POST['nome']) ? $_POST['nome'] : null;
+        $usuario = isset($_POST['usuario']) ? $_POST['usuario'] : null;
+        $email = isset($_POST['email']) ? $_POST['email'] : null;
+        $cpf = isset($_POST['cpf']) ? $_POST['cpf'] : null;
+        $telefone = isset($_POST['telefone']) ? $_POST['telefone'] : null;
+        $tipo = 1;
+        $senha = crypt(isset($_POST['senha']) ? $_POST['senha'] : null, 12);
+        echo User::saveUser($nome, $usuario, $email, $cpf, $telefone, $tipo, $senha);
+       
+    }
+
+    public function getUsers($id) {
+        echo User::getUsers($id);
+    }
+
     public function login() { 
         // pega os dados do formuário
         $usuario = isset($_POST['usuario']) ? $_POST['usuario'] : null;

@@ -26,6 +26,7 @@
 	<link rel="stylesheet" type="text/css" href="./includes/login/css/util.css">
 	<link rel="stylesheet" type="text/css" href="./includes/login/css/main.css">
 	<link rel="stylesheet" type="text/css" href="./includes/login/css/cadastrar.css">
+	<link rel="stylesheet" type="text/css" href="./includes/login/css/head.css">
 <!--===============================================================================================-->
 	
 </head>
@@ -45,7 +46,7 @@
                 include "logar.php";
                 } else if($url[0] == "cadastrar"){
                     include "cadastrar.php";
-                }
+                }  
                 else{
                     echo 'error 404';
                 }

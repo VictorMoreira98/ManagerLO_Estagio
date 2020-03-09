@@ -1,0 +1,49 @@
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting:before,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_asc:before,
+table.dataTable thead .sorting_asc_disabled:after,
+table.dataTable thead .sorting_asc_disabled:before,
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_desc:before,
+table.dataTable thead .sorting_desc_disabled:after,
+table.dataTable thead .sorting_desc_disabled:before {
+  bottom: .5em;
+}
+
+.table{
+  width: 80%;
+  margin-left: 10%;
+  
+}
+
+.btn {
+  background: rgb(44, 172, 140);
+    background: -webkit-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
+    background: -o-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
+    background: -moz-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
+    background: linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-top: 0px;
+  
+}
+
+.btn i{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  transform: translate(-50%, -50%);
+  display: block;}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: rgb(72, 212, 67);
+  color: white;
+}
+

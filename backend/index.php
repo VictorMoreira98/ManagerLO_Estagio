@@ -23,6 +23,18 @@ $app->post('/cadastrar', function (){
     $UsersController->store();
 });
 
+$app->post('/usuarios', function (){
+    $UsersController = new \App\Controllers\UsersController;
+    $UsersController->addUser();
+});
+
+$app->get('/usuarios/{id}', function ($request){
+    // pega o ID da URL
+    $id = $request->getAttribute('id');
+    $UsersController = new \App\Controllers\UsersController;
+    $UsersController->getUsers($id);
+});
+
 $app->post('/login', function (){
     $UsersController = new \App\Controllers\UsersController;
     $UsersController->login();
