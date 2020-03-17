@@ -34,7 +34,9 @@
             <link rel="stylesheet" href="./includes/login/css/head.css">
             <link rel="stylesheet" href="./includes/login/css/search.css">
             <link rel="stylesheet" href="./includes/login/css/table.css">
-            
+            <link rel="stylesheet" href="./includes/login/css/editarUsuarioModal.css">
+            <link rel="stylesheet" type="text/css" href="./includes/login/css/cadastrar.css">
+            <link rel="stylesheet" href="./includes/login/css/cadastrarUsuarioModal.css">
             
 
         <title></title>
@@ -123,6 +125,7 @@
             <table class="table ">
                 <thead>
                 <tr>
+                 
                     <th scope="col">Nome</th>
                     <th scope="col">Usuário</th>
                     <th scope="col">E-mail</th>
@@ -134,17 +137,26 @@
                 <tbody>
                 <?php 
                  $users = json_decode(file_get_contents(
-                    "http://localhost/backend/usuarios/13"));
+                    "http://localhost/backend/usuarios/".$_SESSION['idEmpresa']));
+                    
 
                     for($i = 0; $i < count($users); $i++) {
+                       
                     echo '
                     <tr>
+                   
+                    
                     <td>'.$users[$i]->{'nome'}.'</td>
                     <td>'.$users[$i]->{'usuario'}.'</td>
                     <td>'.$users[$i]->{'email'}.'</td>
+                    <td style="display: none">'.$users[$i]->{'telefone'}.'</td>
+                    <td style="display: none">'.$users[$i]->{'cpf'}.'</td>
+                    <td style="display: none">'.$users[$i]->{'idPessoa'}.'</td>
+                    <td style="display: none">'.$users[$i]->{'id'}.'</td>
                     <td>
-                    <button class="btn"><i class="fas fa-edit fa-1x"></i></button>
+                    <button class="btn" data-toggle="modal" data-target="#editarUsuario" onclick="editar(this)"><i class="fas fa-edit fa-1x"></i></button>
                     <button class="btn"><i class="fas fa-eye fa-1x"></i></button>
+                   
                      </td>
                 </tr>
                     
@@ -152,12 +164,49 @@
                     }
                 
                 ?>
-               
+             
                
                 </tbody>
             </table>
         </div>
+        <?php require "cadastrarUsuarioModal.php"; ?>
+        <?php require "editarUsuarioModal.php"; ?>
     </div>
     </body>
 </html>
+<script src="./js/core/axios.min.js"></script>
+<script src="./js/cadastrarUsuarioModal.js"></script>
+<script src="./js/editarUsuarioModal.js"></script>
+<script src="./js/formAjax.js"></script>
 
+<script type="text/javascript">
+
+
+function editar(e){
+   
+   var linha = $(e).closest("tr");
+  //pega os dados das colunas
+   var nome = linha.find("td:eq(0)").text().trim(); 
+   var usuario  = linha.find("td:eq(1)").text().trim(); 
+   var email = linha.find("td:eq(2)").text().trim(); 
+   var telefone = linha.find("td:eq(3)").text().trim(); 
+   var cpf = linha.find("td:eq(4)").text().trim(); 
+   var idPessoa = linha.find("td:eq(5)").text().trim(); 
+   var id = linha.find("td:eq(6)").text().trim(); 
+   
+ 
+   $("#nomeEdit").val(nome);
+   $("#usuarioEdit").val(usuario);
+   $("#emailEdit").val(email);
+   $("#telefoneEdit").val(telefone);
+   $("#cpfEdit").val(cpf);
+   $("#idPessoaEdit").val(idPessoa);
+   $("#idEdit").val(id);
+ 
+  
+
+}
+   
+
+  
+ </script>

@@ -12,6 +12,7 @@ class User {
         $cpf,
         $cnpj,
         $telefone,
+        $idEmpresa,
         $tipo,
         $senha){
         
@@ -82,13 +83,16 @@ class User {
        else return getJsonResponse(false, 'Erro ao cadastrar - ' . $stmt->errorInfo());
    }
 
-   //salva no BD o cadastro
-   public static function saveUser(
+   //edita usuario no BD 
+   public static function editUser(
     $nome,
     $usuario,
     $email,
     $cpf,
     $telefone,
+    $idEmpresa,
+    $idPessoa,
+    $id,
     $tipo, 
     $senha){
     
@@ -101,43 +105,43 @@ class User {
    } 
 
              $DB = new DB;
-            //insere na tabela usuario    
-            $sql = "INSERT INTO pessoa(nome, cpf) VALUES(:nome, :cpf)";
+            //atualiza na tabela usuario    
+            $sql = "UPDATE pessoa set nome= :nome, cpf = :cpf where id = :idPessoa";
             $stmt = $DB->prepare($sql);
             $stmt->bindParam(':nome', $nome);
             $stmt->bindParam(':cpf', $cpf);
+            $stmt->bindParam(':idPessoa', $idPessoa);
             if ($stmt->execute()){
                 $controlador = true;
             } else{
                 $controlador = false;
             }
-            $idPessoa = $DB->lastInsertId();
+            
   if($controlador){
-   // insere no banco
+   // atualiza no banco
    $DB = new DB;
-   //insere na tabela usuario    
-   $sql = "INSERT INTO users(usuario, email, telefone, tipo, idPessoa, senha) VALUES(:usuario, :email, :telefone, :tipo, :idPessoa, :senha)";
+   //atualiza user na tabela usuario    
+   $sql = "UPDATE users set usuario=:usuario, email=:email, telefone=:telefone, senha=:senha where id = :id";
   $stmt = $DB->prepare($sql);
   
    $stmt->bindParam(':usuario', $usuario);
    $stmt->bindParam(':email', $email);
    $stmt->bindParam(':telefone', $telefone);
-   $stmt->bindParam(':tipo', $tipo);
-   $stmt->bindParam(':idPessoa', $idPessoa);
+   $stmt->bindParam(':id', $id);
    $stmt->bindParam(':senha', $senha);
    $stmt->execute();
   }
    if ($controlador)
    {
-       return getJsonResponse(true, 'Cadastrado com sucesso');
+       return getJsonResponse(true, 'Atualizado com sucesso');
    }
-   else return getJsonResponse(false, 'Erro ao cadastrar - ' . $stmt->errorInfo());
+   else return getJsonResponse(false, 'Erro ao atualizar usuário - ' . $stmt->errorInfo());
 }
 
     public static function getUsers($id){
         $DB = new DB;
         //busca usuários de uma empresa   
-        $sql = "SELECT us.*, p.* FROM users us JOIN pessoa p WHERE us.idEmpresa = :id AND us.idPessoa = p.id";
+        $sql = "SELECT us.*, p.* FROM users us JOIN pessoa p WHERE us.idEmpresa = :id AND us.idPessoa = p.id AND us.tipo != 2 ";
         $stmt = $DB->prepare($sql);
         $stmt->bindParam(':id', $id);
         if ( $stmt->execute()){
@@ -150,6 +154,10 @@ class User {
                         'nome' => $users['nome'],
                         'email' => $users['email'],
                         'usuario' => $users['usuario'],
+                        'telefone' => $users['telefone'],
+                        'cpf' => $users['cpf'],
+                        'idEmpresa' => $users['idEmpresa'],
+                        'idPessoa' => $users['idPessoa'],
                     );
                 }
             return json_encode($arrayUsers);
@@ -170,7 +178,7 @@ class User {
         }
 
         $DB = new DB;
-        $sql = "SELECT id, usuario, tipo, senha FROM users WHERE usuario=:usuario";
+        $sql = "SELECT id, usuario, tipo, idEmpresa, senha FROM users WHERE usuario=:usuario";
         $stmt = $DB->prepare($sql);
         $stmt->bindParam(':usuario', $usuario);
         
@@ -188,6 +196,7 @@ class User {
                 else if(crypt($senha, $user['senha'])==$user['senha']){
                     $responseUser = array(
                         'success' => true,
+                        'idEmpresa'=>$user['idEmpresa'],
                         'usuario' => $user['usuario'],
                         'id' => $user['id']
                     );
@@ -196,6 +205,7 @@ class User {
                     session_start();
                     $_SESSION['id'] = $user['id'];
                     $_SESSION['nomeUsuario'] = $user['usuario'];
+                    $_SESSION['idEmpresa'] = $user['idEmpresa'];
                     $_SESSION['tipo'] = $user['tipo'];
                     return json_encode($responseUser);
                 }
@@ -211,6 +221,17 @@ class User {
 
         return true;
     }
+
+
+
+
+
+
+
+
+
+
+    //////////////////////////////////////////////////////////////////
 
     public static function remove($id){
         $sql = "DELETE FROM usuario where id = :id"; 

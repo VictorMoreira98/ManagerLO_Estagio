@@ -1,0 +1,103 @@
+body{
+    font-family: sans-serif;
+  }
+  
+  .fab{
+    position: fixed;
+    bottom:10px;
+    right:10px;
+  }
+  .btn-secondary{
+    background-color: rgb(130, 138, 135) !important;
+  }
+  .fab button{
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border-radius: 30px;
+    background-color: rgb(44, 172, 140);
+    border: none;
+    box-shadow: 0 1px 5px rgba(0,0,0,.4);
+    font-size: 24px;
+    color: white;
+      
+    -webkit-transition: .2s ease-out;
+    -moz-transition: .2s ease-out;
+    transition: .2s ease-out;
+  }
+  
+  .fab button:focus{
+    outline: none;
+  }
+  
+  .fab button.main{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: rgb(44, 172, 140);
+    right: 0;
+    bottom: 0;
+    z-index: 20;
+  }
+  
+  .fab button.main:before{
+    content: '+';
+    
+  }
+  
+  
+  .fab button.main:active,
+  .fab button.main:focus{
+    outline: none;
+    background-color: rgb(44, 172, 140);
+    box-shadow: 0 3px 8px rgba(0,0,0,.5);
+   }
+   
+  /*.fab button.main:active:before,
+  .fab button.main:focus:before{
+    content: '↑';
+  }*/
+  
+  .fab button.main:active + ul,
+  .fab button.main:focus + ul{
+    bottom: 70px;
+  }
+  
+  .fab button.main:active + ul li,
+  .fab button.main:focus + ul li{
+    margin-bottom: 10px;
+    opacity: 1;
+  }
+  
+  .fab button.main:active + ul li:hover label,
+  .fab button.main:focus + ul li:hover label{
+    opacity: 1;
+  }
+
+/*form cadastro LO*/
+  .btn-save{
+    background-color:rgb(44, 172, 140) !important;
+    color: cornsilk !important;
+  }
+
+
+  
+  .cadastro input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  .modal-body {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+ 
+  

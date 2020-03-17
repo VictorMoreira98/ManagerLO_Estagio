@@ -18,16 +18,19 @@ $app->get('/', function ()
     
 });
 
+//cadastraUsuarios de dois tipos
 $app->post('/cadastrar', function (){
     $UsersController = new \App\Controllers\UsersController;
     $UsersController->store();
 });
 
-$app->post('/usuarios', function (){
+
+$app->post('/usuarios/edit', function (){
     $UsersController = new \App\Controllers\UsersController;
-    $UsersController->addUser();
+    $UsersController->editUserEmpresa();
 });
 
+//busca usuarios de uma empresa
 $app->get('/usuarios/{id}', function ($request){
     // pega o ID da URL
     $id = $request->getAttribute('id');
