@@ -27,6 +27,8 @@
 	<link rel="stylesheet" type="text/css" href="./includes/login/css/main.css">
 	<link rel="stylesheet" type="text/css" href="./includes/login/css/cadastrar.css">
 	<link rel="stylesheet" type="text/css" href="./includes/login/css/head.css">
+	<link rel="stylesheet" href="./includes/login/css/editarContaUsuario.css">
+	
 <!--===============================================================================================-->
 	
 </head>
@@ -46,7 +48,9 @@
                 include "logar.php";
                 } else if($url[0] == "cadastrar"){
                     include "cadastrar.php";
-                }  
+                } else if($url[0] == "editar-conta"){
+					include "editarContaUsuario.php";
+				} 
                 else{
                     echo 'error 404';
                 }
@@ -79,8 +83,10 @@
 
 	<script src="./js/core/axios.min.js"></script>
     <script src="./js/formAjax.js"></script>
-    <script src="./js/login.js"></script>
-	<script src="./js/cadastrarUsuario.js"></script>
+	<script src="./includes/login/js/login.js"></script>
+	<script src="./includes/login/js/editarContaUsuario.js"></script>
+	<script src="./includes/login/js/cadastrarUsuario.js"></script>
+	
 	
 	
 

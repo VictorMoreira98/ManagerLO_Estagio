@@ -43,6 +43,19 @@ $app->post('/login', function (){
     $UsersController->login();
 });
 
+$app->post('/usuarios/deletar/empresa', function (){
+    $UsersController = new \App\Controllers\UsersController;
+    $UsersController->deleteUserEmpresa();
+});
+
+//busca dados de um usuário especifico
+$app->get('/editar-conta/{id}/{tipo}', function ($request){
+    // pega o ID da URL
+    $id = $request->getAttribute('id');
+    $tipo = $request->getAttribute('tipo');
+    $UsersController = new \App\Controllers\UsersController;
+    $UsersController->getUsuario($id, $tipo);
+});
 
 
 

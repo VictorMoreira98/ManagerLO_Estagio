@@ -23,13 +23,14 @@ class UsersController {
         $usuario = isset($_POST['usuario']) ? $_POST['usuario'] : null;
         $email = isset($_POST['email']) ? $_POST['email'] : null;
         $cpf = isset($_POST['cpf']) ? $_POST['cpf'] : null;
+        $cnpj = isset($_POST['cnpj']) ? $_POST['cnpj'] : null;
         $telefone = isset($_POST['telefone']) ? $_POST['telefone'] : null;
         $idEmpresa = isset($_POST['idEmpresa']) ? $_POST['idEmpresa'] : null;
         $idPessoa = isset($_POST['idPessoa']) ? $_POST['idPessoa'] : null;
         $id = isset($_POST['id']) ? $_POST['id'] : null;
-        $tipo = 1;
+        $tipo = isset($_POST['tipo']) ? $_POST['tipo'] : null;;
         $senha = crypt(isset($_POST['senha']) ? $_POST['senha'] : null, 12);
-        echo User::editUser($nome, $usuario, $email, $cpf, $telefone, $idEmpresa, $idPessoa, $id, $tipo, $senha);
+        echo User::editUser($nome, $usuario, $email, $cpf, $cnpj, $telefone, $idEmpresa, $idPessoa, $id, $tipo, $senha);
        
     }
 
@@ -43,6 +44,20 @@ class UsersController {
         $senha = isset($_POST['senha']) ? $_POST['senha'] : null;
 
         echo User::logar($usuario, $senha);
+    }
+
+    public function deleteUserEmpresa() { 
+        // deletar um usuario de uma empresa, para isso pega o id e o idPessoa
+        $id = isset($_POST['id']) ? $_POST['id'] : null;
+        $idPessoa = isset($_POST['idPessoa']) ? $_POST['idPessoa'] : null;
+     
+
+        echo User::deleteUserEmpresa($id, $idPessoa);
+    }
+
+    //busca dados de um usuario especifico
+    public function getUsuario($id, $tipo) {
+        echo User::getUsuario($id, $tipo);
     }
 
    

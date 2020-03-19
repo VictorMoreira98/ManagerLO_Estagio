@@ -24,7 +24,7 @@
                                              </a>
                                              <div class="dropdown-menu dropdown-menu-right dropdown-default"
                                              aria-labelledby="navbarDropdownMenuLink-333">
-                                             <a class="dropdown-item" href="#">Usuários</a>
+                                             <a class="dropdown-item" href="usuarios">Usuários</a>
                                              <a class="dropdown-item" href="#">Editar Conta</a>
                                              <a class="dropdown-item" href="sair" >Sair</a>
                                              </div>';

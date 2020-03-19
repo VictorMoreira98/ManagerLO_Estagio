@@ -89,6 +89,7 @@ class User {
     $usuario,
     $email,
     $cpf,
+    $cnpj,
     $telefone,
     $idEmpresa,
     $idPessoa,
@@ -100,24 +101,40 @@ class User {
    if (empty($nome)
    ||  empty($usuario)
    ||  empty($email)
+   ||  empty($id)
    ||  empty($senha)){
        return getJsonResponse(false, 'Campos nao informados');
    } 
-
+        if($tipo == 1){
              $DB = new DB;
-            //atualiza na tabela usuario    
+            //atualiza na tabela pessoa    
             $sql = "UPDATE pessoa set nome= :nome, cpf = :cpf where id = :idPessoa";
             $stmt = $DB->prepare($sql);
             $stmt->bindParam(':nome', $nome);
             $stmt->bindParam(':cpf', $cpf);
             $stmt->bindParam(':idPessoa', $idPessoa);
             if ($stmt->execute()){
-                $controlador = true;
+                $controlador1 = true;
             } else{
-                $controlador = false;
+                $controlador1 = false;
             }
+        } else{ 
+            $DB = new DB;
+            //atualiza na tabela empresa    
+            $sql = "UPDATE empresa set nome= :nome, cnpj = :cnpj where id = :idEmpresa";
+            $stmt = $DB->prepare($sql);
+            $stmt->bindParam(':nome', $nome);
+            $stmt->bindParam(':cnpj', $cnpj);
+            $stmt->bindParam(':idEmpresa', $idEmpresa);
+            if ($stmt->execute()){
+                $controlador1 = true;
+            } else{
+                $controlador1 = false;
+            }
+
+        }
             
-  if($controlador){
+  if($controlador1){
    // atualiza no banco
    $DB = new DB;
    //atualiza user na tabela usuario    
@@ -129,19 +146,26 @@ class User {
    $stmt->bindParam(':telefone', $telefone);
    $stmt->bindParam(':id', $id);
    $stmt->bindParam(':senha', $senha);
-   $stmt->execute();
+   if($stmt->execute()){
+    $controlador = true;
+   } else{
+       $controlador = false;
+   }
   }
-   if ($controlador)
+   if ($controlador && $controlador1 == true)
    {
+        $_SESSION['nomeUsuario'] = $usuario;
        return getJsonResponse(true, 'Atualizado com sucesso');
    }
    else return getJsonResponse(false, 'Erro ao atualizar usuário - ' . $stmt->errorInfo());
+
+   
 }
 
     public static function getUsers($id){
         $DB = new DB;
         //busca usuários de uma empresa   
-        $sql = "SELECT us.*, p.* FROM users us JOIN pessoa p WHERE us.idEmpresa = :id AND us.idPessoa = p.id AND us.tipo != 2 ";
+        $sql = "SELECT us.*, p.nome, p.cpf FROM users us JOIN pessoa p WHERE us.idEmpresa = :id AND us.idPessoa = p.id AND us.tipo != 2 ";
         $stmt = $DB->prepare($sql);
         $stmt->bindParam(':id', $id);
         if ( $stmt->execute()){
@@ -222,6 +246,116 @@ class User {
         return true;
     }
 
+     //deleta um usuario de uma empresa
+   public static function deleteUserEmpresa(
+    $id,
+    $idPessoa){
+    
+        // validação (bem simples, só pra evitar dados vazios)
+        if (empty($id)
+        ||  empty($idPessoa)
+        ){
+            return getJsonResponse(false, 'Campos nao informados');
+        } 
+
+
+        $DB = new DB;
+        //deleta usuario na tabela usuario    
+        $sql = "DELETE from users where id = :id";
+        $stmt = $DB->prepare($sql);
+        $stmt->bindParam(':id', $id);
+       
+        if ($stmt->execute()){
+            $controlador1 = true;
+        } else{
+            $controlador1 = false;
+        }
+
+        if($controlador1){
+
+            $DB = new DB;
+            //deleta usuario na tabela usuario    
+            $sql = "DELETE from pessoa where id = :idPessoa";
+            $stmt = $DB->prepare($sql);
+            $stmt->bindParam(':idPessoa', $idPessoa);
+        
+            if ($stmt->execute()){
+                $controlador = true;
+            } else{
+                $controlador = false;
+            }
+
+        }else return getJsonResponse(false, 'Erro ao deletar usuário - ' . $stmt->errorInfo());
+
+
+        if ($controlador && $controlador1 == true)
+        {
+            return getJsonResponse(true, 'Deletado com sucesso');
+        }
+        else return getJsonResponse(false, 'Erro ao deletar usuário - ' . $stmt->errorInfo());
+
+    }
+
+
+    public static function getUsuario($id, $tipo){
+        if($tipo == 1){
+        $DB = new DB;
+        //busca usuários de uma empresa   
+        $sql = "SELECT us.*, p.nome, p.cpf from users us join pessoa p WHERE us.id = :id AND p.id = us.idPessoa ";
+        $stmt = $DB->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        if ( $stmt->execute()){
+            $user = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            if(count($user) > 0){
+                for ($i = 0; $i < count($user); $i++) {
+                    $users = $user[$i];
+                    $arrayUsers[$i] = array(
+                        'id' => $users['id'],
+                        'nome' => $users['nome'],
+                        'email' => $users['email'],
+                        'usuario' => $users['usuario'],
+                        'telefone' => $users['telefone'],
+                        'cpf' => $users['cpf'],
+                        'tipo' => $users['tipo'],
+                        'idEmpresa' => $users['idEmpresa'],
+                        'idPessoa' => $users['idPessoa'],
+                    );
+                }
+            return json_encode($arrayUsers);
+            }
+        }
+        else return getJsonResponse(false, 'Erro ao buscar usuário - ' . $stmt->errorInfo());
+
+    } else{
+        $DB = new DB;
+        //busca usuários de uma empresa   
+        $sql = "SELECT us.*, e.nome, e.cnpj from users us join empresa e WHERE us.id = :id AND e.id = us.idEmpresa ";
+        $stmt = $DB->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        if ( $stmt->execute()){
+            $user = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            if(count($user) > 0){
+                for ($i = 0; $i < count($user); $i++) {
+                    $users = $user[$i];
+                    $arrayUsers[$i] = array(
+                        'id' => $users['id'],
+                        'nome' => $users['nome'],
+                        'email' => $users['email'],
+                        'usuario' => $users['usuario'],
+                        'telefone' => $users['telefone'],
+                        'cnpj' => $users['cnpj'],
+                        'tipo' => $users['tipo'],
+                        'idEmpresa' => $users['idEmpresa'],
+                        'idPessoa' => $users['idPessoa'],
+                    );
+                }
+            return json_encode($arrayUsers);
+            }
+        }
+        else return getJsonResponse(false, 'Erro ao buscar usuário - ' . $stmt->errorInfo());
+    }
+
+    }
 
 
 

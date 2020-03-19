@@ -17,7 +17,7 @@ table.dataTable thead .sorting_desc_disabled:before {
   
 }
 
-.btn {
+.btnActions{
   background: rgb(44, 172, 140);
     background: -webkit-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
     background: -o-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
@@ -33,7 +33,7 @@ table.dataTable thead .sorting_desc_disabled:before {
   
 }
 
-.btn i{
+.btnActions i{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -42,7 +42,7 @@ table.dataTable thead .sorting_desc_disabled:before {
   display: block;}
 
 /* Darker background on mouse-over */
-.btn:hover {
+.btnActions:hover {
   background-color: rgb(72, 212, 67);
   color: white;
 }

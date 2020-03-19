@@ -37,6 +37,7 @@
             <link rel="stylesheet" href="./includes/login/css/editarUsuarioModal.css">
             <link rel="stylesheet" type="text/css" href="./includes/login/css/cadastrar.css">
             <link rel="stylesheet" href="./includes/login/css/cadastrarUsuarioModal.css">
+            <link rel="stylesheet" href="./includes/login/css/deletarUsuario.css">
             
 
         <title></title>
@@ -119,6 +120,7 @@
             aria-label="Search">
         <i class="fas fa-search" aria-hidden="true"></i>
         </form>
+        
 
     
         <div class="table-responsive">
@@ -154,8 +156,8 @@
                     <td style="display: none">'.$users[$i]->{'idPessoa'}.'</td>
                     <td style="display: none">'.$users[$i]->{'id'}.'</td>
                     <td>
-                    <button class="btn" data-toggle="modal" data-target="#editarUsuario" onclick="editar(this)"><i class="fas fa-edit fa-1x"></i></button>
-                    <button class="btn"><i class="fas fa-eye fa-1x"></i></button>
+                    <button class="btn btnActions" data-toggle="modal" data-target="#editarUsuario" onclick="editar(this)"><i class="fas fa-edit fa-1x"></i></button>
+                    <button class="btn btnActions" data-toggle="modal" data-target="#deletarUsuario" onclick="deleteUserEmpresa(this)"><i class="fas fa-trash-alt fa-1x"></i></button>
                    
                      </td>
                 </tr>
@@ -171,42 +173,16 @@
         </div>
         <?php require "cadastrarUsuarioModal.php"; ?>
         <?php require "editarUsuarioModal.php"; ?>
+        <?php require "alertDeleteUsuario.php"; ?>
     </div>
     </body>
 </html>
 <script src="./js/core/axios.min.js"></script>
-<script src="./js/cadastrarUsuarioModal.js"></script>
-<script src="./js/editarUsuarioModal.js"></script>
+<script src="./includes/login/js/cadastrarUsuarioModal.js"></script>
+<script src="./includes/login/js/editarUsuarioModal.js"></script>
+<script src="./includes/login/js/editarUsuarioEmpresa.js"></script>
+<script src="./includes/login/js/deleteUserEmpresa.js"></script>
+<script src="./includes/login/js/deletarUsuarioEmpresa.js"></script>
 <script src="./js/formAjax.js"></script>
 
-<script type="text/javascript">
 
-
-function editar(e){
-   
-   var linha = $(e).closest("tr");
-  //pega os dados das colunas
-   var nome = linha.find("td:eq(0)").text().trim(); 
-   var usuario  = linha.find("td:eq(1)").text().trim(); 
-   var email = linha.find("td:eq(2)").text().trim(); 
-   var telefone = linha.find("td:eq(3)").text().trim(); 
-   var cpf = linha.find("td:eq(4)").text().trim(); 
-   var idPessoa = linha.find("td:eq(5)").text().trim(); 
-   var id = linha.find("td:eq(6)").text().trim(); 
-   
- 
-   $("#nomeEdit").val(nome);
-   $("#usuarioEdit").val(usuario);
-   $("#emailEdit").val(email);
-   $("#telefoneEdit").val(telefone);
-   $("#cpfEdit").val(cpf);
-   $("#idPessoaEdit").val(idPessoa);
-   $("#idEdit").val(id);
- 
-  
-
-}
-   
-
-  
- </script>

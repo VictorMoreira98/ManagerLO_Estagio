@@ -20,7 +20,7 @@
        
     
    
-    <input type="hidden" id="tipo" name="tipo" value="1" >
+    <input type="hidden" id="tipo" name="tipo" value="<?php echo $_SESSION['tipo']?>">
     <input type="hidden" id="idEmpresa" name="idEmpresa" value="<?php echo $_SESSION['idEmpresa']?>" >
     <input type="hidden" id="idPessoaEdit" name="idPessoa" >
     <input type="hidden" id="idEdit" name="id" >
@@ -79,7 +79,7 @@
        
 
         <!-- Sign up button -->
-        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" style="color: white!important">Salvar Alterações</button>
+        <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0 " type="submit">Salvar Alterações</button>
 
        
         <hr>
