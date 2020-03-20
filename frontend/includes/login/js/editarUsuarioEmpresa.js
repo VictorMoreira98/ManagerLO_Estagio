@@ -10,8 +10,8 @@ function editar(e){
    var cpf = linha.find("td:eq(4)").text().trim(); 
    var idPessoa = linha.find("td:eq(5)").text().trim(); 
    var id = linha.find("td:eq(6)").text().trim(); 
+   var tipo = linha.find("td:eq(7)").text().trim();
    
- 
    $("#nomeEdit").val(nome);
    $("#usuarioEdit").val(usuario);
    $("#emailEdit").val(email);
@@ -19,6 +19,9 @@ function editar(e){
    $("#cpfEdit").val(cpf);
    $("#idPessoaEdit").val(idPessoa);
    $("#idEdit").val(id);
+   $("#tipoEdit").val(tipo);
+
+   
  
   
 

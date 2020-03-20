@@ -20,6 +20,8 @@
             <!-- Material Design Bootstrap -->
             <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/css/mdb.min.css" rel="stylesheet">
 
+                         
+
             <!-- JQuery -->
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
             <!-- Bootstrap tooltips -->
@@ -28,7 +30,7 @@
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
             <!-- MDB core JavaScript -->
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/js/mdb.min.js"></script>
-
+                            
                     
            
             <link rel="stylesheet" href="css/sidebar.css">
@@ -87,5 +89,7 @@
         </div>
     </div>
     </body>
+           
 </html>
 
+ 

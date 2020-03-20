@@ -155,6 +155,7 @@
                     <td style="display: none">'.$users[$i]->{'cpf'}.'</td>
                     <td style="display: none">'.$users[$i]->{'idPessoa'}.'</td>
                     <td style="display: none">'.$users[$i]->{'id'}.'</td>
+                    <td style="display: none">'.$users[$i]->{'tipo'}.'</td>
                     <td>
                     <button class="btn btnActions" data-toggle="modal" data-target="#editarUsuario" onclick="editar(this)"><i class="fas fa-edit fa-1x"></i></button>
                     <button class="btn btnActions" data-toggle="modal" data-target="#deletarUsuario" onclick="deleteUserEmpresa(this)"><i class="fas fa-trash-alt fa-1x"></i></button>

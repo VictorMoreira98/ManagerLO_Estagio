@@ -1,12 +1,128 @@
-table.dataTable thead .sorting:after,
-table.dataTable thead .sorting:before,
-table.dataTable thead .sorting_asc:after,
-table.dataTable thead .sorting_asc:before,
-table.dataTable thead .sorting_asc_disabled:after,
-table.dataTable thead .sorting_asc_disabled:before,
-table.dataTable thead .sorting_desc:after,
-table.dataTable thead .sorting_desc:before,
-table.dataTable thead .sorting_desc_disabled:after,
-table.dataTable thead .sorting_desc_disabled:before {
-  bottom: .5em;
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.25;
+}
+
+table {
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table tr:nth-child(odd) {
+  background-color:#fff;
+}  
+table tr:nth-child(even) {
+  background-color:rgb(207, 245, 235);
+} 
+
+table tr {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background: rgb(44, 172, 140);
+  background: -webkit-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
+  background: -o-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
+  background: -moz-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
+  background: linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
+  color: white;
+}
+
+
+.btnActions{
+  background: rgb(44, 172, 140);
+    background: -webkit-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
+    background: -o-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
+    background: -moz-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
+    background: linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-top: 0px;
+  
+}
+
+.btnActions i{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  
+  transform: translate(-50%, -50%);
+  display: block;}
+
+/* Darker background on mouse-over */
+.btnActions:hover {
+  background-color: rgb(72, 212, 67);
+  color: white;
+}
+
+
+@media screen and (max-width: 600px) {
+  table {
+    border: 0;
+  }
+
+  table caption {
+    font-size: 1.3em;
+  }
+  
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+    
+  }
+
+
+  
+  table tr {
+    border-bottom: 3px solid #ddd;
+    display: block;
+    margin-bottom: .625em;
+  }
+  
+  table td {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+  
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  table td:last-child {
+    border-bottom: 0;
+  }
 }

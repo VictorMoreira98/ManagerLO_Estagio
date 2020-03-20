@@ -180,6 +180,7 @@ class User {
                         'usuario' => $users['usuario'],
                         'telefone' => $users['telefone'],
                         'cpf' => $users['cpf'],
+                        'tipo' => $users['tipo'],
                         'idEmpresa' => $users['idEmpresa'],
                         'idPessoa' => $users['idPessoa'],
                     );

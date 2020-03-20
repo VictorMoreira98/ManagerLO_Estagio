@@ -22,9 +22,9 @@
         <div class="camposEdit mt-4">
 
             <input type="hidden" id="tipo" name="tipo" value="<?php echo $users[0]->{'tipo'}?>"/>
-            <input type="hidden" id="tipo" name="id" value="<?php echo $users[0]->{'id'}?>"/>
-            <input type="hidden" id="tipo" name="idEmpresa" value="<?php echo $users[0]->{'idEmpresa'}?>"/>
-            <input type="hidden" id="tipo" name="idPessoa" value="<?php echo $users[0]->{'idPessoa'}?>"/>
+            <input type="hidden" id="id" name="id" value="<?php echo $users[0]->{'id'}?>"/>
+            <input type="hidden" id="idEmpresa" name="idEmpresa" value="<?php echo $users[0]->{'idEmpresa'}?>"/>
+            <input type="hidden" id="idPessoa" name="idPessoa" value="<?php echo $users[0]->{'idPessoa'}?>"/>
             <!-- Nome -->
             <label id="labelNome">Nome</label>
             <div class="md-form mt-0" >

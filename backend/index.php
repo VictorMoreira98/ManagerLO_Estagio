@@ -57,7 +57,10 @@ $app->get('/editar-conta/{id}/{tipo}', function ($request){
     $UsersController->getUsuario($id, $tipo);
 });
 
-
+$app->post('/cadastrar/lo', function (){
+    $UsersController = new \App\Controllers\LicencaController;
+    $UsersController->cadastrarLO();
+});
 
 
 $app->run();

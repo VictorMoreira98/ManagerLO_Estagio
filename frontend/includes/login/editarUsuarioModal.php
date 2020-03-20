@@ -20,10 +20,12 @@
        
     
    
-    <input type="hidden" id="tipo" name="tipo" value="<?php echo $_SESSION['tipo']?>">
+    
     <input type="hidden" id="idEmpresa" name="idEmpresa" value="<?php echo $_SESSION['idEmpresa']?>" >
     <input type="hidden" id="idPessoaEdit" name="idPessoa" >
     <input type="hidden" id="idEdit" name="id" >
+    <input type="hidden" id="tipoEdit" name="tipo" >
+   
 
     <br>
      <div class="camposEdit">
