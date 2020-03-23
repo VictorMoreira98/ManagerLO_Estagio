@@ -9,35 +9,79 @@
 <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="TituloModalCentralizado">Cadastrar LO</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+      <!-- Material form register -->
+        <div class="card cardLO">
+
+        <h5 class="card-header white-text text-center py-4">
+            <strong>Cadastrar LO</strong>
+        </h5>
+
+        <!--Card content-->
+        <div class="card-body px-lg-5 pt-0">
+
+          <!-- Form -->
+          <form id="cadastrarLO" class="text-center" style="color: #757575;" method="post">
+
+            <input type="hidden" id="idUser" name="idUser" value="<?php echo $_SESSION['id']?>" >
+            
+
+            <!--Tipo--->
+            <select class="form-control mt-4" id="tipo" name="tipo">
+            <option value="1">Área</option>
+            <option value="2">Draga</option>
+            <option value="3">Terminal</option>
+            </select>
+              
+            <!-- LO -->
+                <div class="md-form">
+                <input type="number" id="nLO" name="nLO"class="form-control">
+                <label for="materialRegisterFormFirstName">Nº LO</label>
+                </div>
+
+                  <!-- Nome Empresa -->
+                <div class="md-form">
+                <input type="text" id="empresa" name="empresa" class="form-control">
+                <label for="materialRegisterFormFirstName">Empresa</label>
+                </div>
+                        
+                    
+
+                <!-- Data Vencimento -->
+                <div class="md-form mt-0">
+                    <input type="date" id="dtaVenc" name="dtaVenc" class="form-control">
+                    <label for="materialRegisterFormEmail">Data Vencimento</label>
+                </div>
+
+                </div>
+
+                <div class="anexoArea">
+                    <div class="input-file-container">  
+                      <input class="input-file" id="my-file" type="file">
+                      <label tabindex="0" for="my-file" class="input-file-trigger">Anexar LO</label>
+                    </div>
+                    <p class="file-return"></p>
+                </div>
+                    
+                    <div class="btnCadastrarLO">
+                    <!-- Sign up button -->
+                    <button class="btn md-4 btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0 " type="submit">Cadastrar</button>
+                    </div>
+                
+                
+              
+            </form>
+            <!-- Form -->
+
+        </div>
+
+        </div>
+        <!-- Material form register -->
+
       
-        <form action="" class="cadastro">
-          <label for="nLO">Número LO</label>
-          <input type="number" id="nLO" name="nLO" placeholder="número LO..">
-
-          <label for="empreendedor">Empreendedor</label>
-          <input type="text" id="empreendedor" name="empreendedor" placeholder="nome empreendedor..">
-
-          <label for="dtaVenc">Data Vencimento</label>
-          <input type="date" id="dtaVenc" name="dtaVenc" placeholder="Data Vencimento..">
-          
-          <label for="anexo">Anexar LO</label>
-          <input id="anexo" name="anexo" class="input-file" type="file">
-
-        </form>
-
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-save">Salvar</button>
-      </div>
     </div>
   </div>
 </div>
+<script type="text/javascript" src="js/anexoLO.js"></script>
+<script type="text/javascript" src="js/cadastrarLO.js"></script>
+            <script type="text/javascript" src="js/formAjax.js"></script>
+            <script type="text/javascript" src="js/core/axios.min.js"></script>

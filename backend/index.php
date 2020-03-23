@@ -58,8 +58,8 @@ $app->get('/editar-conta/{id}/{tipo}', function ($request){
 });
 
 $app->post('/cadastrar/lo', function (){
-    $UsersController = new \App\Controllers\LicencaController;
-    $UsersController->cadastrarLO();
+    $LicencaController = new \App\Controllers\LicencaController;
+    $LicencaController->cadastrarLO();
 });
 
 
