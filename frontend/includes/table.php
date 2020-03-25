@@ -9,27 +9,27 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td data-label="LO">Visa - 3412</td>
-      <td data-label="Data Vencimento">04/01/2016</td>
-      <td data-label="Empresa">$1,190</td>
-      <td data-label="Ações">
-          <button class="btn btnActions" data-toggle="modal" data-target="#editarUsuario" ><i class="fas fa-edit fa-1x"></i></button>
-          <button class="btn btnActions" data-toggle="modal" data-target="#deletarUsuario" ><i class="fas fa-file-alt fa-1x"></i></button>
-                   
-      </td>
-    </tr>
 
-    <tr>
-      <td data-label="Account">Visa - 3412</td>
-      <td data-label="Due Date">04/01/2016</td>
-      <td data-label="Amount">$1,190</td>
-      <td data-label="Period">
-          <button class="btn btnActions" data-toggle="modal" data-target="#editarUsuario" ><i class="fas fa-edit fa-1x"></i></button>
-          <button class="btn btnActions" data-toggle="modal" data-target="#deletarUsuario" ><i class="fas fa-file-alt fa-1x"></i></button>
-                   
-      </td>
-    </tr>
-   
+
+  <?php  $licencas = json_decode(file_get_contents(
+                    "http://localhost/backend/licenca/".$_SESSION['id']."/".$_SESSION['idEmpresa']));
+                    
+
+                    for($i = 0; $i < count($licencas); $i++) {
+                       
+                    echo '
+                  <tr>
+                    <td data-label="LO">'.$licencas[$i]->{'nlicenca'}.'</td>
+                    <td data-label="Data Vencimento">'.$licencas[$i]->{'dtaVenc'}.'</td>
+                    <td data-label="Empresa">'.$licencas[$i]->{'empresa'}.'</td>
+                    <td data-label="Ações">
+                        <button class="btn btnActions" data-toggle="modal" data-target="#editarUsuario" ><i class="fas fa-edit fa-1x"></i></button>
+                        <button class="btn btnActions" data-toggle="modal" data-target="#deletarUsuario" ><i class="fas fa-file-alt fa-1x"></i></button>
+                                
+                    </td>
+                  </tr>'; }
+                ?>
+  
+                      
   </tbody>
 </table>

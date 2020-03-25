@@ -16,4 +16,8 @@ class LicencaController {
         //echo "$nLO $dtaVenc $empresa $tipo $idEmpresa $idUser";
     }
 
+    public function getLicenca($idUser, $idEmpresa) { 
+       echo Licenca::getLicenca($idUser, $idEmpresa);
+    }
+
 }

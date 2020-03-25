@@ -219,11 +219,23 @@ class User {
                 if($user['usuario'] == null)
                     return getJsonResponse(false, $msgErro);
                 else if(crypt($senha, $user['senha'])==$user['senha']){
+                    
+                    if(!empty($user['idEmpresa'])){
+                        $DB = new DB;
+                        $sql = "SELECT * FROM empresa WHERE id=:idEmpresa";
+                        $stmt = $DB->prepare($sql);
+                        $stmt->bindParam(':idEmpresa', $user['idEmpresa']);
+                        $stmt->execute();
+                        $empresas = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+                        $empresa = $empresas[0];
+                    }
+
                     $responseUser = array(
                         'success' => true,
                         'idEmpresa'=>$user['idEmpresa'],
                         'usuario' => $user['usuario'],
-                        'id' => $user['id']
+                        'id' => $user['id'],
+                        'nomeEmpresa' => $empresa['nome']
                     );
 
                     session_abort();
@@ -232,6 +244,7 @@ class User {
                     $_SESSION['nomeUsuario'] = $user['usuario'];
                     $_SESSION['idEmpresa'] = $user['idEmpresa'];
                     $_SESSION['tipo'] = $user['tipo'];
+                    $_SESSION['nomeEmpresa'] = $empresa['nome'];
                     return json_encode($responseUser);
                 }
                 else return getJsonResponse(false, $msgErro);

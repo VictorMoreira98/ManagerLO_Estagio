@@ -57,6 +57,15 @@ $app->get('/editar-conta/{id}/{tipo}', function ($request){
     $UsersController->getUsuario($id, $tipo);
 });
 
+//busca as licencas de um usuário ou empresa
+$app->get('/licenca/{id}/{idEmpresa}', function ($request){
+    // pega o ID da URL
+    $id = $request->getAttribute('id');
+    $idEmpresa = $request->getAttribute('idEmpresa');
+    $LicencaController = new \App\Controllers\LicencaController;
+    $LicencaController->getLicenca($id,$idEmpresa);
+});
+
 $app->post('/cadastrar/lo', function (){
     $LicencaController = new \App\Controllers\LicencaController;
     $LicencaController->cadastrarLO();

@@ -48,5 +48,42 @@ class Licenca {
 
     }
 
+    public static function getLicenca($idUser, $idEmpresa){
+
+         // validação (bem simples, só pra evitar dados vazios)
+       if (empty($idUser)
+       ||  empty($idEmpresa)){
+           return getJsonResponse(false, 'Campos nao informados');
+       }
+
+            $DB = new DB;
+            //insere na tabela LO    
+            $sql = "SELECT * FROM licenca WHERE idUser=:idUser || idEmpresa=:idEmpresa";
+            $stmt = $DB->prepare($sql);
+            $stmt->bindParam(':idUser', $idUser);
+            $stmt->bindParam(':idEmpresa', $idEmpresa);
+            if ( $stmt->execute()){
+                $licenca = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+                if(count($licenca) > 0){
+                    for ($i = 0; $i < count($licenca); $i++) {
+                        $licencas = $licenca[$i];
+                        $arrayLicencas[$i] = array(
+                            'id' => $licencas['id'],
+                            'nlicenca' => $licencas['nlicenca'],
+                            'empresa' => $licencas['empresa'],
+                            'dtaVenc' => $licencas['dtaVenc'],
+                            'tipo' => $licencas['tipo']
+                           
+                        );
+                    }
+                return json_encode($arrayLicencas);
+                }
+            }
+            else return getJsonResponse(false, 'Erro ao buscar usuário - ' . $stmt->errorInfo());
+
+
+
+    }
+
 
 }

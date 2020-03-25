@@ -23,7 +23,7 @@
           <form id="cadastrarLO" class="text-center" style="color: #757575;" method="post">
 
             <input type="hidden" id="idUser" name="idUser" value="<?php echo $_SESSION['id']?>" >
-            
+            <input type="hidden" id="idEmpresa" name="idEmpresa" value="<?php echo $_SESSION['idEmpresa']?>" >
 
             <!--Tipo--->
             <select class="form-control mt-4" id="tipo" name="tipo">
@@ -38,11 +38,23 @@
                 <label for="materialRegisterFormFirstName">Nº LO</label>
                 </div>
 
+                
+                <?php if(!empty($_SESSION['nomeEmpresa'])){ ?>
                   <!-- Nome Empresa -->
+                <div class="md-form">
+                <input type="text" id="empresa" name="empresa" class="form-control" value="<?php echo $_SESSION['nomeEmpresa'];?>">
+                <label for="materialRegisterFormFirstName">Empresa</label>
+                </div>
+
+                <?php } else{ ?>
+
+                <!-- Nome Empresa -->
                 <div class="md-form">
                 <input type="text" id="empresa" name="empresa" class="form-control">
                 <label for="materialRegisterFormFirstName">Empresa</label>
                 </div>
+                <?php } ?>
+
                         
                     
 

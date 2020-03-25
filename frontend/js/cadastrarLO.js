@@ -8,7 +8,7 @@ cadastrarFormLO.onsubmit = event => {
         
         callAction('/backend/cadastrar/lo', bodyFormData, (response) => {
             if(response.success){
-                window.location.href = 'usuarios';
+                window.location.href = '/';
             }
             else{
                 console.error(`Erro: ${response.message}`);
