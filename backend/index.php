@@ -71,5 +71,11 @@ $app->post('/cadastrar/lo', function (){
     $LicencaController->cadastrarLO();
 });
 
+$app->post('/editar/lo', function (){
+    $LicencaController = new \App\Controllers\LicencaController;
+    $LicencaController->editarLO();
+});
+
+
 
 $app->run();

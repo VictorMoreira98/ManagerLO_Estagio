@@ -42,12 +42,13 @@
             <link rel="stylesheet" href="css/table.css">
             <script type="text/javascript" src="js/buttonMenu.js"></script>
             <script type="text/javascript" src="js/table.js"></script>
+            <script type="text/javascript" src="js/functionEditarLO.js"></script>
             
 
         <title></title>
     </head>
  
-    <body>
+    <body >
     <div class="wrapper">   
 
     <?php 
@@ -88,6 +89,8 @@
         ?>
         </div>
     </div>
+
+    
     </body>
            
 </html>
