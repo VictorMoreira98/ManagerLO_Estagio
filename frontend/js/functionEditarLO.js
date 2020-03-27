@@ -38,6 +38,5 @@ function editarLO(e){
     var linha = $(e).closest("tr");
     //pega os dados das colunas
      var pdf = linha.find("td:eq(6)").text().trim(); 
-     
-     window.open('C:/xampp/htdocs/ManagerLO_Estagio/anexos/discursivaMatematica_G1.pdf', '_blank');
+     window.open(pdf, '_blank'); return false;
  }

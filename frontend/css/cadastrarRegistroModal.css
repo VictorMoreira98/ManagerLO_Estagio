@@ -115,7 +115,7 @@ body{
 }
 
 
-
+/*-------------Anexos-------------------*/
 .input-file-container {
   position: relative;
   width: 225px;
@@ -162,10 +162,22 @@ body{
   font-weight: normal;
 }
 
-.anexoArea{
-  padding-left: 45px;
+.js .anexo-prorrogacao-return:not(:empty):before {
+  content: "Prorrogação anexada: ";
+  font-style: normal;
+  font-weight: normal;
 }
 
+.anexoArea {
+  padding-left: 45px;
+}
+.anexoProrrogacao{
+  padding-left: 45px;
+}
+.input-file-container{
+  width: 55%;
+}
+/*----------------Fim Anexo-----------*/
 
 
 

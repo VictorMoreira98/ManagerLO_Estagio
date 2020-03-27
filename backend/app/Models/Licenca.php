@@ -40,6 +40,7 @@ class Licenca {
             if ($stmt->execute()){
                
                 $controlador = true;
+              
                 if(move_uploaded_file($_FILES['anexo']['tmp_name'], $anexo)){
 
                 }

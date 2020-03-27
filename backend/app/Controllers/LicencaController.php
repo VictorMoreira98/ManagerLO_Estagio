@@ -13,7 +13,7 @@ class LicencaController {
         $status = isset($_POST['status']) ? $_POST['status'] : null;
         $idEmpresa = isset($_POST['idEmpresa']) ? $_POST['idEmpresa'] : null;
         $idUser = isset($_POST['idUser']) ? $_POST['idUser'] : null;
-        $dir = "C:/xampp/htdocs/ManagerLO_Estagio/anexos/";
+        $dir = "../anexos";
         $anexo =  $dir . basename($_FILES['anexo']['name']);
         echo Licenca::save($nLO, $dtaVenc, $empresa, $tipo, $status, $idEmpresa, $idUser, $anexo);
         //echo "$nLO $dtaVenc $empresa $tipo $idEmpresa $idUser";

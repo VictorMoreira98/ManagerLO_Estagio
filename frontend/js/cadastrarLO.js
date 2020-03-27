@@ -17,3 +17,17 @@ cadastrarFormLO.onsubmit = event => {
     }
 }
 
+
+$('select[name="tipo"]').change(function () {
+    if ($('select[name="tipo"]').val() === "2") {
+        $('.divNomeDraga').show();
+    }
+});
+
+$('select[name="status"]').change(function () {
+    if ($('select[name="status"]').val() === "2") {
+        $('.anexoProrrogacao').show();
+    }
+});
+
+

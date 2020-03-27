@@ -27,7 +27,7 @@
             <input type="hidden" id="idUser" name="idUser" value="<?php echo $_SESSION['id']?>" >
             <input type="hidden" id="idEmpresa" name="idEmpresa" value="<?php echo $_SESSION['idEmpresa']?>" >
 
-
+       
            
 
             <!--Tipo--->
@@ -53,6 +53,15 @@
                 </select>
               </label>
             </div>
+
+            <div class="divNomeDraga"style="display: none">
+            <!-- Nome Draga -->
+            <div class="md-form mt-7">
+                <input type="text" id="nomeDraga" name="nomeDraga"class="form-control">
+                <label for="materialRegisterFormFirstName">Nome Draga</label>
+                </div>
+            </div>
+
             <!-- LO -->
                 <div class="md-form mt-7">
                 <input type="number" id="nLO" name="nLO"class="form-control">
@@ -89,13 +98,21 @@
 
                 <div class="anexoArea">
                     <div class="input-file-container">  
-                      <input class="input-file" id="anexo" name="anexo" type="file">
-                      <label tabindex="0" for="my-file" class="input-file-trigger">Anexar LO</label>
+                      <input class="input-file input-anexo-lo" id="anexo" name="anexo" type="file" >
+                      <label tabindex="0" for="my-file" class="input-file-trigger input-anexo-lo-trigger" >Anexar LO</label>
                     </div>
-                    <p class="file-return"></p>
+                    <p class="file-return anexo-lo-return" ></p>
                 </div>
 
-                <input class="" id="t" name="t" type="file">
+                <div class="anexoProrrogacao" style="display: none"> 
+                    <div class="input-file-container">  
+                      <input class="input-file input-file-prorrogacao"  name="anexoProrrogacao" type="file">
+                      <label tabindex="0" for="my-file" class="input-file-trigger input-anexo-prorrogacao-trigger" id="testeT">Anexar Prorogação</label>
+                    </div>
+                    <p class="file-return anexo-prorrogacao-return" id="teste"></p>
+                </div>
+
+              
                     
                     <div class="btnCadastrarLO">
                    
@@ -119,7 +136,5 @@
 </div>
 <script type="text/javascript" src="js/anexoLO.js"></script>
 <script type="text/javascript" src="js/cadastrarLO.js"></script>
-            <script type="text/javascript" src="js/formAjax.js"></script>
-            <script type="text/javascript" src="js/core/axios.min.js"></script>
-
-            
+<script type="text/javascript" src="js/formAjax.js"></script>
+<script type="text/javascript" src="js/core/axios.min.js"></script>
