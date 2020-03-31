@@ -55,11 +55,32 @@
             
             $url = (isset($_GET['url'])) ? $_GET['url'] :'';
             $url = array_filter(explode('/',$url));
-         
-           
-            if(!empty($url[0])){
-                if($url[0] =="login"){
+
+            if(empty($url[0]) || $url[0] == "areas" || $url[0] == "dragas" || $url[0] == "terminais")
+            {
+                if(empty($url[0]) || $url[0] == "areas"){
+                    $_SESSION['tipoURL'] = 1;
+                } else if($url[0] =="dragas"){
+                    $_SESSION['tipoURL'] = 2;
+                } else if($url[0] == "terminais"){
+                    $_SESSION['tipoURL'] = 3;
+                } 
+                
+                require_once 'includes/sidebar.php'; 
+    
+                //<!-- Page Content  -->
+                echo '<div id="content">';
                     
+                require_once 'includes/head.php'; 
+                require_once 'includes/search.php';
+                require_once 'includes/table.php'; 
+                require_once 'includes/cadastrarRegistroModal.php';       
+                require_once "includes/editRegistroModal.php";  
+            
+                
+            } else{
+                if($url[0] =="login"){
+                
                 include "./includes/login/index.php";
                 } else if($url[0] == "sair"){
                     include "./includes/login/logout.php";
@@ -74,18 +95,7 @@
                 else{
                     echo 'error 404';
                 }
-            } else{
-        
-                require_once 'includes/sidebar.php'; 
-
-        //<!-- Page Content  -->
-        echo '<div id="content">';
-               
-         require_once 'includes/head.php'; 
-            require_once 'includes/search.php';
-            require_once 'includes/table.php'; 
-            require_once 'includes/cadastrarRegistroModal.php';       
-            require_once "includes/editRegistroModal.php";  }
+            }
         ?>
         </div>
     </div>
@@ -95,4 +105,3 @@
            
 </html>
 
- 

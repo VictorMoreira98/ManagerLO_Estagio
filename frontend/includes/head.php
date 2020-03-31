@@ -9,7 +9,10 @@
                     </div>
                     
                    
-                        <a class="navbar-brand ml-3" href="#">Manager LO</a>
+                        <a class="navbar-brand ml-3" href="#">
+                            <?php if($_SESSION['tipoURL'] == 1){ echo 'Áreas';}
+                            else if($_SESSION['tipoURL'] == 2) {echo 'Dragas'; }
+                            else if($_SESSION['tipoURL'] == 3) { echo 'Terminais'; }?></a>
                        
                         <div class=" " id="navbarSupportedContent" >
                         <ul class="nav navbar-nav ml-auto">

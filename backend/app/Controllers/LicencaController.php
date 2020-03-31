@@ -14,8 +14,12 @@ class LicencaController {
         $idEmpresa = isset($_POST['idEmpresa']) ? $_POST['idEmpresa'] : null;
         $idUser = isset($_POST['idUser']) ? $_POST['idUser'] : null;
         $dir = "../anexos";
-        $anexo =  $dir . basename($_FILES['anexo']['name']);
-        echo Licenca::save($nLO, $dtaVenc, $empresa, $tipo, $status, $idEmpresa, $idUser, $anexo);
+        $anexoLO =  $dir . basename($_FILES['anexoLO']['name']);
+        $anexoProrrogacao =  $dir . basename($_FILES['anexoProrrogacao']['name']);
+        $nomeDraga = isset($_POST['nomeDraga']) ? $_POST['nomeDraga'] : null;
+        $dnpm = isset($_POST['dnpm']) ? $_POST['dnpm'] : null;
+        echo Licenca::save($nLO, $dtaVenc, $empresa, $tipo, $status, $idEmpresa, $idUser, $anexoLO, $anexoProrrogacao,
+        $nomeDraga, $dnpm);
         //echo "$nLO $dtaVenc $empresa $tipo $idEmpresa $idUser";
         //echo $anexo;
     }
@@ -23,6 +27,18 @@ class LicencaController {
     public function getLicenca($idUser, $idEmpresa) { 
        echo Licenca::getLicenca($idUser, $idEmpresa);
     }
+
+    public function getLicencaAreas($idUser, $idEmpresa) { 
+        echo Licenca::getLicencaAreas($idUser, $idEmpresa);
+     }
+
+     public function getLicencaDragas($idUser, $idEmpresa) { 
+        echo Licenca::getLicencaDragas($idUser, $idEmpresa);
+     }
+
+     public function getLicencaTerminais($idUser, $idEmpresa) { 
+        echo Licenca::getLicencaTerminais($idUser, $idEmpresa);
+     }
 
     public function editarLO() { 
         $nLO = isset($_POST['nLO']) ? $_POST['nLO'] : null;

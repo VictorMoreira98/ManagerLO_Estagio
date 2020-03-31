@@ -8,22 +8,32 @@
 
             <ul class="list-unstyled components">
               
-                <li>
-                    <a href="#">
+                <li >
+                    <a href="areas" <?php if($_SESSION['tipoURL'] == 1): ?>
+                    style="color: rgb(18, 148, 120);
+                    background: #fff;";
+                    <?php endif ?>
+                    >
                     <i class="fas fa-chart-area"></i>
                         Áreas
                     </a>
                 </li>
                 <br>
                 <li>
-                    <a href="#">
+                    <a href="dragas" <?php if($_SESSION['tipoURL'] == 2): ?>
+                    style="color: rgb(18, 148, 120);
+                    background: #fff;";
+                    <?php endif ?>>
                     <i class="fas fa-ship"></i>
                         Dragas
                     </a>
                 </li>
                 <br>
                 <li>
-                    <a href="#">
+                    <a href="terminais" <?php if($_SESSION['tipoURL'] == 3): ?>
+                    style="color: rgb(18, 148, 120);
+                    background: #fff;";
+                    <?php endif ?>>
                     <i class="fas fa-wave-square"></i>
                         Terminais
                     </a>

@@ -66,6 +66,34 @@ $app->get('/licenca/{id}/{idEmpresa}', function ($request){
     $LicencaController->getLicenca($id,$idEmpresa);
 });
 
+//busca licencas de areas
+$app->get('/licenca/areas/{id}/{idEmpresa}', function ($request){
+    // pega o ID da URL
+    $id = $request->getAttribute('id');
+    $idEmpresa = $request->getAttribute('idEmpresa');
+    $LicencaController = new \App\Controllers\LicencaController;
+    $LicencaController->getLicencaAreas($id,$idEmpresa);
+});
+
+//busca licencas de dragas
+$app->get('/licenca/dragas/{id}/{idEmpresa}', function ($request){
+    // pega o ID da URL
+    $id = $request->getAttribute('id');
+    $idEmpresa = $request->getAttribute('idEmpresa');
+    $LicencaController = new \App\Controllers\LicencaController;
+    $LicencaController->getLicencaDragas($id,$idEmpresa);
+});
+
+//busca licencas de terminais
+$app->get('/licenca/terminais/{id}/{idEmpresa}', function ($request){
+    // pega o ID da URL
+    $id = $request->getAttribute('id');
+    $idEmpresa = $request->getAttribute('idEmpresa');
+    $LicencaController = new \App\Controllers\LicencaController;
+    $LicencaController->getLicencaTerminais($id,$idEmpresa);
+});
+
+
 $app->post('/cadastrar/lo', function (){
     $LicencaController = new \App\Controllers\LicencaController;
     $LicencaController->cadastrarLO();
