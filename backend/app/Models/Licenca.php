@@ -301,14 +301,8 @@ class Licenca {
 
 
     public static function editarLO(
-        $nLO,
-        $dtaVenc,
-        $empresa, 
-        $tipo,
-        $status,
-        $idEmpresa,
-        $idUser,
-        $idLO){
+        $nLO, $dtaVenc, $empresa, $tipo, $status, $idArea, $idDraga,
+        $idTerminal, $nomeDraga, $dnpm, $anexoLO, $anexoProrrogacao, $idEmpresa, $idUser, $idLO){
         
         // validação (bem simples, só pra evitar dados vazios)
        if (empty($nLO)
@@ -321,11 +315,14 @@ class Licenca {
 
             $DB = new DB;
             //atualiza na tabela LO    
-            $sql = "update licenca SET nlicenca=:nLO, empresa=:empresa, dtaVenc=:dtaVenc, tipo=:tipo, status=:status WHERE id= :idLO";
+            $sql = "update licenca SET nlicenca=:nLO, empresa=:empresa, dtaVenc=:dtaVenc, anexoLO = :anexoLO, 
+            anexoProrrogacao = :anexoProrrogacao, tipo=:tipo, status=:status WHERE id= :idLO";
             $stmt = $DB->prepare($sql);
             $stmt->bindParam(':nLO', $nLO);
             $stmt->bindParam(':empresa', $empresa);
             $stmt->bindParam(':dtaVenc', $dtaVenc);
+            $stmt->bindParam(':anexoLO', $anexoLO);
+            $stmt->bindParam(':anexoProrrogacao', $anexoProrrogacao);
             $stmt->bindParam(':tipo', $tipo);
             $stmt->bindParam(':status', $status);
             $stmt->bindParam(':idLO', $idLO);
@@ -334,6 +331,35 @@ class Licenca {
                 $controlador = true;
             } else{
                 $controlador = false;
+            }
+
+
+            if($tipo == 1){
+                $DB = new DB;
+                //atualiza na tabela LO    
+                $sql = "UPDATE area SET dnpm=:dnpm WHERE id_licenca = :idLO";
+                $stmt = $DB->prepare($sql);
+                $stmt->bindParam(':dnpm', $dnpm);
+                $stmt->bindParam(':idLO', $idLO);
+        
+                if ($stmt->execute()){
+                    $controlador1 = true;
+                } else{
+                    $controlador1 = false;
+                }
+            } else if($tipo == 2){
+                $DB = new DB;
+                //atualiza na tabela LO    
+                $sql = "UPDATE draga SET nome =:nomeDraga WHERE id_licenca = :idLO";
+                $stmt = $DB->prepare($sql);
+                $stmt->bindParam(':nomeDraga', $nomeDraga);
+                $stmt->bindParam(':idLO', $idLO);
+        
+                if ($stmt->execute()){
+                    $controlador1 = true;
+                } else{
+                    $controlador1 = false;
+                }
             }
             
 

@@ -47,10 +47,19 @@ class LicencaController {
         $empresa = isset($_POST['empresa']) ? $_POST['empresa'] : null;
         $tipo = isset($_POST['tipo']) ? $_POST['tipo'] : null;
         $status = isset($_POST['status']) ? $_POST['status'] : null;
+        $idArea = isset($_POST['idArea']) ? $_POST['idArea'] : null;
+        $idDraga = isset($_POST['idDraga']) ? $_POST['idDraga'] : null;
+        $idTerminal = isset($_POST['idTerminal']) ? $_POST['idTerminal'] : null;
+        $nomeDraga = isset($_POST['nomeDraga']) ? $_POST['nomeDraga'] : null;
+        $dnpm = isset($_POST['dnpm']) ? $_POST['dnpm'] : null;
+        $dir = "../anexos";
+        $anexoLO =  $dir . basename($_FILES['anexoLO']['name']);
+        $anexoProrrogacao =  $dir . basename($_FILES['anexoProrrogacao']['name']);
         $idEmpresa = isset($_POST['idEmpresa']) ? $_POST['idEmpresa'] : null;
         $idUser = isset($_POST['idUser']) ? $_POST['idUser'] : null;
         $idLO = isset($_POST['idLO']) ? $_POST['idLO'] : null;
-        echo Licenca::editarLO($nLO, $dtaVenc, $empresa, $tipo, $status, $idEmpresa, $idUser, $idLO);
+        echo Licenca::editarLO($nLO, $dtaVenc, $empresa, $tipo, $status, $idArea, $idDraga,
+        $idTerminal, $nomeDraga, $dnpm, $anexoLO, $anexoProrrogacao, $idEmpresa, $idUser, $idLO);
         //echo "$nLO $dtaVenc $empresa $tipo $idEmpresa $idUser";
     }
 

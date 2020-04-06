@@ -18,7 +18,12 @@
           <!-- Form -->
           <form id="editarLO" class="text-center" style="color: #757575;" method="post" >
 
-            <input type="hidden" id="idLO" name="idLO"  >
+            <input type="hidden" id="idLOEdit" name="idLO"  >
+            <input type="hidden" id="idAreaEdit" name="idArea"  >
+            <input type="hidden" id="idDragaEdit" name="idDraga"  >
+            <input type="hidden" id="idTerminalEdit" name="idTerminal"  >
+            <input type="hidden" id="idUser" name="idUser" value="<?php echo $_SESSION['id']?>" >
+            <input type="hidden" id="idEmpresa" name="idEmpresa" value="<?php echo $_SESSION['idEmpresa']?>" >
             
 
 
@@ -33,6 +38,9 @@
               </label>
             </div>
 
+            
+           
+
             <!-- Status -->
             <div class="md-form">
               <label for="favcity">
@@ -45,11 +53,31 @@
                 </select>
               </label>
             </div>
+
+            
+
+
             <!-- LO -->
                 <div class="md-form mt-7">
                 <input type="number" id="nLOEdit" name="nLO"class="form-control"  >
                 <label for="materialRegisterFormFirstName">Nº LO</label>
                 </div>
+
+                <div class="divNomeDraga" <?php if($_SESSION['tipoURL']==1 || $_SESSION['tipoURL']==3 ){echo 'style="display: none"';}?>>
+            <!-- Nome Draga -->
+            <div class="md-form mt-7">
+                <input type="text" id="nomeDragaEdit" name="nomeDraga"class="form-control">
+                <label for="materialRegisterFormFirstName">Nome Draga</label>
+                </div>
+            </div>
+
+              <div class="divDNPM" <?php if($_SESSION['tipoURL']==2 || $_SESSION['tipoURL']==3 ){echo 'style="display: none"';}?> >
+                 <!-- DNPM -->
+                <div class="md-form mt-7">
+                <input type="number" id="dnpmEdit" name="dnpm"class="form-control">
+                <label for="materialRegisterFormFirstName">DNPM</label>
+                </div>
+              </div>
 
                 
                
@@ -70,10 +98,19 @@
            
                 <div class="anexoArea">
                     <div class="input-file-container">  
-                      <input class="input-file" id="" name="anexo"type="file" value="teste">
-                      <label tabindex="0" for="my-file" class="input-file-trigger">Anexar LO</label>
+                      <input class="input-file input-anexo-lo" id="anexoLOEdit" name="anexoLO" type="file" >
+                      <label tabindex="0" for="my-file" class="input-file-trigger input-anexo-lo-trigger" >Anexar LO</label>
                     </div>
-                    <p class="file-return" id="anexoEdit"></p>
+                    <p class="file-return anexo-lo-return"></p>
+                </div>
+
+                <div class="anexoProrrogacao" style="display: none"> 
+                    <div class="input-file-container">  
+                      <input class="input-file input-file-prorrogacao" id="anexoProrrogacaoEdit" name="anexoProrrogacao" type="file">
+                      <label tabindex="0" for="my-file" class="input-file-trigger input-anexo-prorrogacao-trigger" id="testeT">Anexar Prorogação</label>
+                    </div>
+                    <p class="file-return anexo-prorrogacao-return" ></p>
+                   
                 </div>
               
                     <div class="btnCadastrarLO">
@@ -99,7 +136,6 @@
 <script type="text/javascript" src="js/editarLO.js"></script>
 <script type="text/javascript" src="js/formAjax.js"></script>
 <script type="text/javascript" src="js/core/axios.min.js"></script>
-
 
 
 
