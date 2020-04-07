@@ -29,7 +29,7 @@ function editarLO(e){
     
     var anexoLO = linha.find("td:eq(8)").text().trim();
     var anexoProrrogacao = linha.find("td:eq(9)").text().trim(); 
-    anexoLO = anexoLO.substring(9);
+    nomeAnexoLO = anexoLO.substring(9);
     anexoProrrogacao = anexoProrrogacao.substring(9);
    
    
@@ -43,13 +43,12 @@ function editarLO(e){
     $("#idDragaEdit").val(idDraga);
     $("#idTerminalEdit").val(idTerminal);
     $("#idLOEdit").val(idLicenca);
-   // $("#anexoLOEdit").val(anexoLO);
+    //$("#anexoLOEdit").val(anexoLO);
+    
     //$("#anexoProrrogacaoEdit").val(anexoProrrogacao);
     
-  
-//abastece o campo paragrafo do anexo com o documento trazido do BD
-   //var p = document.getElementById("anexoLOEdit").innerText;
-    //p.innerText = anexoLO;
+    var a = " <p><strong>LO Anexada</strong>: <a href='" + anexoLO + "' target='_blank' class='linkLO' id='link'>" + nomeAnexoLO + "</a></p>";
+    $("#linkAnexo").html(a);
     
 
     
@@ -72,7 +71,7 @@ function editarLO(e){
  function abrirLO(e){
     var linha = $(e).closest("tr");
     //pega os dados das colunas
-     var pdf = linha.find("td:eq(6)").text().trim(); 
+     var pdf = linha.find("td:eq(8)").text().trim(); 
      window.open(pdf, '_blank'); return false;
  }
 

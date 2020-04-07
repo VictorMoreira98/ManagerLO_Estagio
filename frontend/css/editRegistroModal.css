@@ -6,3 +6,16 @@ pointer-events: none;
 margin-right: 500px;
 
 }
+
+.linkLO{
+  color: #8d9292!important;
+}
+
+.linkLO:hover{
+  border-bottom: 2px solid #8d9292!important;
+}
+
+#linkAnexo{
+  padding-left: 45px;
+}
+

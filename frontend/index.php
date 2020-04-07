@@ -44,6 +44,7 @@
             <script type="text/javascript" src="js/table.js"></script>
             <script type="text/javascript" src="js/functionEditarLO.js"></script>
             
+            
 
         <title></title>
     </head>
@@ -75,7 +76,7 @@
                 require_once 'includes/search.php';
                 require_once 'includes/table.php'; 
                 require_once 'includes/cadastrarRegistroModal.php';       
-                require_once "includes/editRegistroModal.php";  
+                require_once 'includes/editRegistroModal.php';  
             
                 
             } else{

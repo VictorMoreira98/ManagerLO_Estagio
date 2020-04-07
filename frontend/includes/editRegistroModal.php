@@ -1,6 +1,5 @@
 
 
-
 <!-- Modal -->
 <div class="modal fade" id="editarRegistro" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -98,18 +97,23 @@
            
                 <div class="anexoArea">
                     <div class="input-file-container">  
-                      <input class="input-file input-anexo-lo" id="anexoLOEdit" name="anexoLO" type="file" >
-                      <label tabindex="0" for="my-file" class="input-file-trigger input-anexo-lo-trigger" >Anexar LO</label>
+                      <input class="input-file input-anexo-lo-edit" id="anexoLOEdit" name="anexoLO" type="file" >
+                 
+                      <label tabindex="0" for="my-file" class="input-file-trigger input-anexo-lo-trigger-edit" >Anexar LO</label>
                     </div>
-                    <p class="file-return anexo-lo-return"></p>
+                    <p class="file-return anexo-lo-return-edit" ></p>
+                    
                 </div>
-
+                <div id="linkAnexo" >
+               
+                </div>
+                
                 <div class="anexoProrrogacao" style="display: none"> 
                     <div class="input-file-container">  
-                      <input class="input-file input-file-prorrogacao" id="anexoProrrogacaoEdit" name="anexoProrrogacao" type="file">
-                      <label tabindex="0" for="my-file" class="input-file-trigger input-anexo-prorrogacao-trigger" id="testeT">Anexar Prorogação</label>
+                      <input class="input-file input-file-prorrogacao-edit" id="anexoProrrogacaoEdit" name="anexoProrrogacao" type="file">
+                      <label tabindex="0" for="my-file" class="input-file-trigger input-anexo-prorrogacao-trigger-edit" id="testeT">Anexar Prorogação</label>
                     </div>
-                    <p class="file-return anexo-prorrogacao-return" ></p>
+                    <p class="file-return anexo-prorrogacao-return-edit" ></p>
                    
                 </div>
               
@@ -132,7 +136,7 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="js/anexoLO.js"></script>
+<script type="text/javascript" src="js/anexoLOEdit.js"></script>
 <script type="text/javascript" src="js/editarLO.js"></script>
 <script type="text/javascript" src="js/formAjax.js"></script>
 <script type="text/javascript" src="js/core/axios.min.js"></script>
