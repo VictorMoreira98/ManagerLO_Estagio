@@ -18,17 +18,7 @@ editarFormLO.onsubmit = event => {
 }
 
 
-window.onload = function(){ 
 
-    if ($('select[id="anexoProrrogacaoEdit"]').val() ==="2") {
-        $('.anexoProrrogacao').show();
-    }else{
-        $('.anexoProrrogacao').hide();
-    };
-    
-      
-   
-}
 
 $('select[id="tipoEdit"]').change(function () {
     if ($('select[id="tipoEdit"]').val() === "2") {

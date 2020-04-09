@@ -314,18 +314,54 @@ class Licenca {
        }
 
             $DB = new DB;
-            //atualiza na tabela LO    
-            $sql = "update licenca SET nlicenca=:nLO, empresa=:empresa, dtaVenc=:dtaVenc, anexoLO = :anexoLO, 
-            anexoProrrogacao = :anexoProrrogacao, tipo=:tipo, status=:status WHERE id= :idLO";
-            $stmt = $DB->prepare($sql);
-            $stmt->bindParam(':nLO', $nLO);
-            $stmt->bindParam(':empresa', $empresa);
-            $stmt->bindParam(':dtaVenc', $dtaVenc);
-            $stmt->bindParam(':anexoLO', $anexoLO);
-            $stmt->bindParam(':anexoProrrogacao', $anexoProrrogacao);
-            $stmt->bindParam(':tipo', $tipo);
-            $stmt->bindParam(':status', $status);
-            $stmt->bindParam(':idLO', $idLO);
+            //atualiza na tabela LO 
+            if($anexoLO != null && $anexoProrrogacao!=null){
+                $sql = "update licenca SET nlicenca=:nLO, empresa=:empresa, dtaVenc=:dtaVenc, anexoLO = :anexoLO,
+                anexoProrrogacao = :anexoProrrogacao, tipo=:tipo, status=:status WHERE id= :idLO";
+                $stmt = $DB->prepare($sql);
+                $stmt->bindParam(':nLO', $nLO);
+                $stmt->bindParam(':empresa', $empresa);
+                $stmt->bindParam(':dtaVenc', $dtaVenc);
+                $stmt->bindParam(':anexoLO', $anexoLO);
+                $stmt->bindParam(':anexoProrrogacao', $anexoProrrogacao);
+                $stmt->bindParam(':tipo', $tipo);
+                $stmt->bindParam(':status', $status);
+                $stmt->bindParam(':idLO', $idLO);
+            } else if($anexoLO == null && $anexoProrrogacao!=null){
+                $sql = "update licenca SET nlicenca=:nLO, empresa=:empresa, dtaVenc=:dtaVenc, 
+                anexoProrrogacao = :anexoProrrogacao, tipo=:tipo, status=:status WHERE id= :idLO";
+                $stmt = $DB->prepare($sql);
+                $stmt->bindParam(':nLO', $nLO);
+                $stmt->bindParam(':empresa', $empresa);
+                $stmt->bindParam(':dtaVenc', $dtaVenc);
+                $stmt->bindParam(':anexoProrrogacao', $anexoProrrogacao);
+                $stmt->bindParam(':tipo', $tipo);
+                $stmt->bindParam(':status', $status);
+                $stmt->bindParam(':idLO', $idLO);
+            }
+            else if($anexoLO != null && $anexoProrrogacao == null){
+                $sql = "update licenca SET nlicenca=:nLO, empresa=:empresa, dtaVenc=:dtaVenc, 
+                anexoLO = :anexoLO, tipo=:tipo, status=:status WHERE id= :idLO";
+                $stmt = $DB->prepare($sql);
+                $stmt->bindParam(':nLO', $nLO);
+                $stmt->bindParam(':empresa', $empresa);
+                $stmt->bindParam(':dtaVenc', $dtaVenc);
+                $stmt->bindParam(':anexoLO', $anexoLO);
+                $stmt->bindParam(':tipo', $tipo);
+                $stmt->bindParam(':status', $status);
+                $stmt->bindParam(':idLO', $idLO);
+            } else{
+                $sql = "update licenca SET nlicenca=:nLO, empresa=:empresa, dtaVenc=:dtaVenc,
+                tipo=:tipo, status=:status WHERE id= :idLO";
+                $stmt = $DB->prepare($sql);
+                $stmt->bindParam(':nLO', $nLO);
+                $stmt->bindParam(':empresa', $empresa);
+                $stmt->bindParam(':dtaVenc', $dtaVenc);
+                $stmt->bindParam(':tipo', $tipo);
+                $stmt->bindParam(':status', $status);
+                $stmt->bindParam(':idLO', $idLO);
+            }
+           
       
             if ($stmt->execute()){
                 $controlador = true;

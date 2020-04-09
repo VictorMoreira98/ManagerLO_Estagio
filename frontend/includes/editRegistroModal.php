@@ -104,7 +104,7 @@
                     <p class="file-return anexo-lo-return-edit" ></p>
                     
                 </div>
-                <div id="linkAnexo" >
+                <div id="linkAnexo" class="divAnexos">
                
                 </div>
                 
@@ -116,6 +116,9 @@
                     <p class="file-return anexo-prorrogacao-return-edit" ></p>
                    
                 </div>
+                <div id="linkAnexoProrrogacao" class="divAnexos">
+               
+               </div>
               
                     <div class="btnCadastrarLO">
                     <!-- Sign up button -->

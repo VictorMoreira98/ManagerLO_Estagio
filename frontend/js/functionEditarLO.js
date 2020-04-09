@@ -30,7 +30,7 @@ function editarLO(e){
     var anexoLO = linha.find("td:eq(8)").text().trim();
     var anexoProrrogacao = linha.find("td:eq(9)").text().trim(); 
     nomeAnexoLO = anexoLO.substring(9);
-    anexoProrrogacao = anexoProrrogacao.substring(9);
+    nomeAnexoProrrogacao = anexoProrrogacao.substring(9);
    
    
     $("#nLOEdit").val(nLO);
@@ -47,8 +47,15 @@ function editarLO(e){
     
     //$("#anexoProrrogacaoEdit").val(anexoProrrogacao);
     
-    var a = " <p><strong>LO Anexada</strong>: <a href='" + anexoLO + "' target='_blank' class='linkLO' id='link'>" + nomeAnexoLO + "</a></p>";
-    $("#linkAnexo").html(a);
+    if(nomeAnexoLO!=""){{
+        var a = " <p>LO Anexada: <a href='" + anexoLO + "' target='_blank' class='linkLO' id='link'><strong>" + nomeAnexoLO + "</strong></a></p>";
+        $("#linkAnexo").html(a);
+    }}
+    if(nomeAnexoProrrogacao!=""){{
+        var a = " <p>Prorrogação Anexada: <a href='" + anexoLO + "' target='_blank' class='linkLO' id='link'><strong>" + nomeAnexoProrrogacao + "</strong></a></p>";
+        $("#linkAnexoProrrogacao").html(a);
+    }}
+    
     
 
     
@@ -62,6 +69,13 @@ function editarLO(e){
         //devido a questao de ordem, foi setado aqui a data para aparecer o valor
         $("#dtaVencEdit").val(dtaVenc);
     })
+
+    //mostra o campo de anexar prorrogacao
+    if ($('select[id="statusEdit"]').val() =="2") {
+        $('.anexoProrrogacao').show();
+    }else{
+        $('.anexoProrrogacao').hide();
+    };
 }
     
    

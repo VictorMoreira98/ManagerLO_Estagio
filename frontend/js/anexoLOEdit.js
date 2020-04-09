@@ -18,6 +18,7 @@ button.addEventListener( "click", function( event ) {
 });  
 fileInput.addEventListener( "change", function( event ) {  
     the_returnLO.innerHTML = this.value;  
+    $("#linkAnexo").remove();
 });  
 
 
@@ -37,7 +38,8 @@ button.addEventListener( "click", function( event ) {
    return false;
 });  
 fileInput.addEventListener( "change", function( event ) {  
-    the_return.innerHTML = this.value;  
+    the_return.innerHTML = this.value; 
+    $("#linkAnexoProrrogacao").remove(); 
 });  
 
 

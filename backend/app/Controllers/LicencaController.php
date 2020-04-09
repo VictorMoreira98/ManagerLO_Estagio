@@ -53,8 +53,8 @@ class LicencaController {
         $nomeDraga = isset($_POST['nomeDraga']) ? $_POST['nomeDraga'] : null;
         $dnpm = isset($_POST['dnpm']) ? $_POST['dnpm'] : null;
         $dir = "../anexos";
-        $anexoLO =  file_exists($anexoLO) ? $dir . basename($_FILES['anexoLO']['name']) : null;
-        $anexoProrrogacao =  $dir . basename($_FILES['anexoProrrogacao']['name']);
+        if(!$_FILES['anexoLO']['error'] == 4) { $anexoLO = $dir . basename($_FILES['anexoLO']['name']);} else{$anexoLO=null;}
+        if(!$_FILES['anexoProrrogacao']['error'] == 4) { $anexoProrrogacao = $dir . basename($_FILES['anexoProrrogacao']['name']);} else{$anexoProrrogacao=null;}
         $idEmpresa = isset($_POST['idEmpresa']) ? $_POST['idEmpresa'] : null;
         $idUser = isset($_POST['idUser']) ? $_POST['idUser'] : null;
         $idLO = isset($_POST['idLO']) ? $_POST['idLO'] : null;
