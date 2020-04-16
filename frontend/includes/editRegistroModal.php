@@ -139,10 +139,10 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="js/anexoLOEdit.js"></script>
-<script type="text/javascript" src="js/editarLO.js"></script>
-<script type="text/javascript" src="js/formAjax.js"></script>
-<script type="text/javascript" src="js/core/axios.min.js"></script>
+<script type="text/javascript" src="<?php echo SITE_URL; ?>/js/anexoLOEdit.js"></script>
+<script type="text/javascript" src="<?php echo SITE_URL; ?>/js/editarLO.js"></script>
+<script type="text/javascript" src="<?php echo SITE_URL; ?>/js/formAjax.js"></script>
+<script type="text/javascript" src="<?php echo SITE_URL; ?>/js/core/axios.min.js"></script>
 
 
 

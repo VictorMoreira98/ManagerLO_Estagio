@@ -29,8 +29,8 @@ function editarLO(e){
     
     var anexoLO = linha.find("td:eq(8)").text().trim();
     var anexoProrrogacao = linha.find("td:eq(9)").text().trim(); 
-    nomeAnexoLO = anexoLO.substring(9);
-    nomeAnexoProrrogacao = anexoProrrogacao.substring(9);
+    nomeAnexoLO = anexoLO.substring(10);
+    nomeAnexoProrrogacao = anexoProrrogacao.substring(10);
    
    
     $("#nLOEdit").val(nLO);

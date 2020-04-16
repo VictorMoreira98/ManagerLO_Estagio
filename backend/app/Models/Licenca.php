@@ -327,6 +327,10 @@ class Licenca {
                 $stmt->bindParam(':tipo', $tipo);
                 $stmt->bindParam(':status', $status);
                 $stmt->bindParam(':idLO', $idLO);
+                if(move_uploaded_file($_FILES['anexoLO']['tmp_name'], $anexoLO)){
+                }
+                if(move_uploaded_file($_FILES['anexoProrrogacao']['tmp_name'], $anexoProrrogacao)){
+                }
             } else if($anexoLO == null && $anexoProrrogacao!=null){
                 $sql = "update licenca SET nlicenca=:nLO, empresa=:empresa, dtaVenc=:dtaVenc, 
                 anexoProrrogacao = :anexoProrrogacao, tipo=:tipo, status=:status WHERE id= :idLO";
@@ -338,6 +342,9 @@ class Licenca {
                 $stmt->bindParam(':tipo', $tipo);
                 $stmt->bindParam(':status', $status);
                 $stmt->bindParam(':idLO', $idLO);
+                
+                if(move_uploaded_file($_FILES['anexoProrrogacao']['tmp_name'], $anexoProrrogacao)){
+                }
             }
             else if($anexoLO != null && $anexoProrrogacao == null){
                 $sql = "update licenca SET nlicenca=:nLO, empresa=:empresa, dtaVenc=:dtaVenc, 
@@ -350,6 +357,8 @@ class Licenca {
                 $stmt->bindParam(':tipo', $tipo);
                 $stmt->bindParam(':status', $status);
                 $stmt->bindParam(':idLO', $idLO);
+                if(move_uploaded_file($_FILES['anexoLO']['tmp_name'], $anexoLO)){
+                }
             } else{
                 $sql = "update licenca SET nlicenca=:nLO, empresa=:empresa, dtaVenc=:dtaVenc,
                 tipo=:tipo, status=:status WHERE id= :idLO";

@@ -13,7 +13,7 @@ class LicencaController {
         $status = isset($_POST['status']) ? $_POST['status'] : null;
         $idEmpresa = isset($_POST['idEmpresa']) ? $_POST['idEmpresa'] : null;
         $idUser = isset($_POST['idUser']) ? $_POST['idUser'] : null;
-        $dir = "../anexos";
+        $dir = "../anexos/";
         $anexoLO =  $dir . basename($_FILES['anexoLO']['name']);
         $anexoProrrogacao =  $dir . basename($_FILES['anexoProrrogacao']['name']);
         $nomeDraga = isset($_POST['nomeDraga']) ? $_POST['nomeDraga'] : null;
@@ -52,7 +52,7 @@ class LicencaController {
         $idTerminal = isset($_POST['idTerminal']) ? $_POST['idTerminal'] : null;
         $nomeDraga = isset($_POST['nomeDraga']) ? $_POST['nomeDraga'] : null;
         $dnpm = isset($_POST['dnpm']) ? $_POST['dnpm'] : null;
-        $dir = "../anexos";
+        $dir = "../anexos/";
         if(!$_FILES['anexoLO']['error'] == 4) { $anexoLO = $dir . basename($_FILES['anexoLO']['name']);} else{$anexoLO=null;}
         if(!$_FILES['anexoProrrogacao']['error'] == 4) { $anexoProrrogacao = $dir . basename($_FILES['anexoProrrogacao']['name']);} else{$anexoProrrogacao=null;}
         $idEmpresa = isset($_POST['idEmpresa']) ? $_POST['idEmpresa'] : null;

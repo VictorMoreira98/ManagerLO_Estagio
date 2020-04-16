@@ -1,4 +1,7 @@
-<?php session_start(); ?>
+<?php session_start(); 
+    define('SITE_URL', ' http://localhost/frontend/');
+
+?>
 
 <!doctype html>
 
@@ -31,18 +34,21 @@
             <!-- MDB core JavaScript -->
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/js/mdb.min.js"></script>
                             
+            
+            
                     
            
-            <link rel="stylesheet" href="css/sidebar.css">
-            <link rel="stylesheet" href="css/head.css">
-            <link rel="stylesheet" href="css/buttonMenu.css">
-            <link rel="stylesheet" href="css/search.css">
-            <link rel="stylesheet" href="css/cadastrarRegistroModal.css">
-            <link rel="stylesheet" href="css/editRegistroModal.css">
-            <link rel="stylesheet" href="css/table.css">
-            <script type="text/javascript" src="js/buttonMenu.js"></script>
-            <script type="text/javascript" src="js/table.js"></script>
-            <script type="text/javascript" src="js/functionEditarLO.js"></script>
+            <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/sidebar.css">
+            <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/head.css">
+            <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/buttonMenu.css">
+            <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/search.css">
+            <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/cadastrarRegistroModal.css">
+            <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/editRegistroModal.css">
+            <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/table.css">
+            <script type="text/javascript" src="<?php echo SITE_URL; ?>js/buttonMenu.js"></script>
+            <script type="text/javascript" src="<?php echo SITE_URL; ?>js/table.js"></script>
+            <script type="text/javascript" src="<?php echo SITE_URL; ?>js/functionEditarLO.js"></script>
+            
             
             
 
@@ -56,8 +62,9 @@
             
             $url = (isset($_GET['url'])) ? $_GET['url'] :'';
             $url = array_filter(explode('/',$url));
-
-            if(empty($url[0]) || $url[0] == "areas" || $url[0] == "dragas" || $url[0] == "terminais")
+           
+            if(empty($url[0]) || !empty($url[1]) || $url[0] == "areas" ||  $url[0] == "dragas" || $url[0] == "terminais")
+           
             {
                 if(empty($url[0]) || $url[0] == "areas"){
                     $_SESSION['tipoURL'] = 1;
@@ -106,3 +113,6 @@
            
 </html>
 
+
+
+        

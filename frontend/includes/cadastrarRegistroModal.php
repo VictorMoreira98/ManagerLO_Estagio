@@ -144,7 +144,7 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="js/anexoLO.js"></script>
-<script type="text/javascript" src="js/cadastrarLO.js"></script>
-<script type="text/javascript" src="js/formAjax.js"></script>
-<script type="text/javascript" src="js/core/axios.min.js"></script>
+<script type="text/javascript" src="<?php echo SITE_URL; ?>/js/anexoLO.js"></script>
+<script type="text/javascript" src="<?php echo SITE_URL; ?>/js/cadastrarLO.js"></script>
+<script type="text/javascript" src="<?php echo SITE_URL; ?>/js/formAjax.js"></script>
+<script type="text/javascript" src="<?php echo SITE_URL; ?>/js/core/axios.min.js"></script>
