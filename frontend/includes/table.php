@@ -8,6 +8,7 @@
 <?php
   ///// AREAS ////////////  
   if($_SESSION['tipoURL'] == 1){
+    $_SESSION['nomeTipoURL'] = "areas";
     echo '
   <thead>
     <tr class="cabecalho" >
@@ -29,12 +30,7 @@
                     $num_pag = ceil($num_total/$itens_pag);
                     $pagAtual = (isset($_GET['url'])) ? $_GET['url'] : 1;
                     $pagAtual = array_filter(explode('/',$pagAtual));
-                    echo $_GET['pag'];
-                    //$pagAtual = array_filter(explode('=',$pagAtual));
-                    //$pagAtual = (isset($_GET['areas'])) ? $_GET['areas'] : 1;
-                   // $pagAtual = substr($pagAtual,6);
-                   // var_dump($pagAtual[1]);
-
+                    $pagAtual[1] = (!empty($pagAtual[1])) ? $pagAtual[1] : 1;
                     $i = ($itens_pag*$pagAtual[1]) - $itens_pag;
                     $fimPag = $itens_pag*$pagAtual[1];
                     for($i = $i; $i < $fimPag; $i++) {
@@ -62,6 +58,7 @@
 
     ///// Dragas ////////////  
   else if($_SESSION['tipoURL'] == 2){
+    $_SESSION['nomeTipoURL'] = "dragas";
     echo '
   <thead>
     <tr class="cabecalho" >
@@ -78,10 +75,16 @@
 
   $licencas = json_decode(file_get_contents(
                     "http://localhost/backend/licenca/dragas/".$_SESSION['id']."/".$_SESSION['idEmpresa']));
-                    
-
-                    for($i = 0; $i < count($licencas); $i++) {
-                       
+                    $itens_pag = 3;
+                    $num_total = count($licencas);
+                    $num_pag = ceil($num_total/$itens_pag);
+                    $pagAtual = (isset($_GET['url'])) ? $_GET['url'] : 1;
+                    $pagAtual = array_filter(explode('/',$pagAtual));
+                    $pagAtual[1] = (!empty($pagAtual[1])) ? $pagAtual[1] : 1;
+                    $i = ($itens_pag*$pagAtual[1]) - $itens_pag;
+                    $fimPag = $itens_pag*$pagAtual[1];
+                    for($i = $i; $i < $fimPag; $i++) {
+                       if(!empty($licencas[$i])){
                     echo '
                   <tr>
                     
@@ -100,11 +103,12 @@
                         <button class="btn btnActions" data-toggle="modal" data-target="#deletarUsuario" onclick="abrirLO(this)"><i class="fas fa-file-alt fa-1x"></i></button>
                              
                     </td>
-                  </tr>'; }
+                  </tr>'; }}
     }      
     
     ///// Terminais ////////////  
   else if($_SESSION['tipoURL'] == 3){
+    $_SESSION['nomeTipoURL'] = "terminais";
     echo '
   <thead>
     <tr class="cabecalho" >
@@ -120,10 +124,16 @@
 
   $licencas = json_decode(file_get_contents(
                     "http://localhost/backend/licenca/terminais/".$_SESSION['id']."/".$_SESSION['idEmpresa']));
-                    
-
-                    for($i = 0; $i < count($licencas); $i++) {
-                       
+                    $itens_pag = 3;
+                    $num_total = count($licencas);
+                    $num_pag = ceil($num_total/$itens_pag);
+                    $pagAtual = (isset($_GET['url'])) ? $_GET['url'] : 1;
+                    $pagAtual = array_filter(explode('/',$pagAtual));
+                    $pagAtual[1] = (!empty($pagAtual[1])) ? $pagAtual[1] : 1;
+                    $i = ($itens_pag*$pagAtual[1]) - $itens_pag;
+                    $fimPag = $itens_pag*$pagAtual[1];
+                    for($i = $i; $i < $fimPag; $i++) {
+                       if(!empty($licencas[$i])){
                     echo '
                   <tr>
                     
@@ -142,7 +152,7 @@
                         <button class="btn btnActions" data-toggle="modal" data-target="#deletarUsuario" onclick="abrirLO(this)"><i class="fas fa-file-alt fa-1x"></i></button>
                              
                     </td>
-                  </tr>'; }
+                  </tr>'; }}
     }      
     
     
@@ -155,35 +165,33 @@
 
  
 </table>
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li>
-    <?php for($i = 1; $i <= $num_pag; $i++) { ?>
-     <li class="page-item"><a class="page-link" href="/areas/<?php echo $i; ?>"><?php echo $i; ?></a></li>
-   <?php }?>
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li>
-  </ul>
-</nav>
 
-<nav aria-label="Page navigation example ">
-  <ul  class="pagination pg-blue justify-content-center paginacao">
-    <li class="page-item disabled">
-      <a class="page-link" tabindex="-1">Previous</a>
+<nav aria-label="Page navigation example">
+  <ul  class="pagination pg-blue justify-content-center paginacao mt-5">
+    <li class="page-item ">
+      <a class="page-link" href="/<?php 
+          if($pagAtual[1]>1) {
+            $pagina = $pagAtual[1]-1;
+            echo $_SESSION['nomeTipoURL']."/". $pagina;} 
+          else{ echo $_SESSION['nomeTipoURL']."/". $pagAtual;} ?>">Voltar</a>
     </li>
-    <li class="page-item"><a class="page-link">1</a></li>
-    <li class="page-item"><a class="page-link">2</a></li>
-    <li class="page-item"><a class="page-link">3</a></li>
+    <?php for($i = 1; $i <= $num_pag; $i++) { 
+      $estilo = "";
+      if($i == $pagAtual[1]){
+        $estilo = "active";
+      }?>
+     <li class="page-item <?php echo $estilo; ?> " ><a class="page-link" href="/<?php echo $_SESSION['nomeTipoURL']."/".$i; ?>"><?php echo $i; ?></a></li>
+   <?php }?>
     <li class="page-item">
-      <a class="page-link">Next</a>
+      <a class="page-link" href="/<?php 
+          if($pagAtual[1]<$i-1) {
+            $pagina = $pagAtual[1]+1;
+            echo  $_SESSION['nomeTipoURL']."/".$pagina;
+          } 
+          else{ 
+            echo $_SESSION['nomeTipoURL']."/".$pagAtual[1];
+          } 
+          ?>">Próximo</a>
     </li>
   </ul>
 </nav>

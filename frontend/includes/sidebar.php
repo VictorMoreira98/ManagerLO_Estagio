@@ -9,7 +9,7 @@
             <ul class="list-unstyled components">
               
                 <li >
-                    <a href="areas" <?php if($_SESSION['tipoURL'] == 1): ?>
+                    <a href="/areas" <?php if($_SESSION['tipoURL'] == 1): ?>
                     style="color: rgb(18, 148, 120);
                     background: #fff;";
                     <?php endif ?>
@@ -20,7 +20,7 @@
                 </li>
                 <br>
                 <li>
-                    <a href="dragas" <?php if($_SESSION['tipoURL'] == 2): ?>
+                    <a href="/dragas" <?php if($_SESSION['tipoURL'] == 2): ?>
                     style="color: rgb(18, 148, 120);
                     background: #fff;";
                     <?php endif ?>>
@@ -30,7 +30,7 @@
                 </li>
                 <br>
                 <li>
-                    <a href="terminais" <?php if($_SESSION['tipoURL'] == 3): ?>
+                    <a href="/terminais" <?php if($_SESSION['tipoURL'] == 3): ?>
                     style="color: rgb(18, 148, 120);
                     background: #fff;";
                     <?php endif ?>>
