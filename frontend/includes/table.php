@@ -25,6 +25,13 @@
 
   $licencas = json_decode(file_get_contents(
                     "http://localhost/backend/licenca/areas/".$_SESSION['id']."/".$_SESSION['idEmpresa']));
+                    $arrayJson = array(
+                      "nome"  => "joao",
+                      "idade" => 35
+                    );       
+                   
+                    $json = json_encode($arrayJson);    
+   
                     $itens_pag = 3;
                     $num_total = count($licencas);
                     $num_pag = ceil($num_total/$itens_pag);
@@ -33,10 +40,16 @@
                     $pagAtual[1] = (!empty($pagAtual[1])) ? $pagAtual[1] : 1;
                     $i = ($itens_pag*$pagAtual[1]) - $itens_pag;
                     $fimPag = $itens_pag*$pagAtual[1];
+                    $licencasEncode = json_encode($licencas);
+    echo'
+    <script type="text/javascript">
+           var obj = '.$licencasEncode.';   
+        </script>
+   ';
                     for($i = $i; $i < $fimPag; $i++) {
                        if(!empty($licencas[$i])){
                     echo '
-                  <tr>
+                  <tr id="id_registro-'.$licencas[$i]->{'idLicenca'}.'">
                     <td style="display: none">'.$licencas[$i]->{'tipo'}.'</td>
                     <td data-label="LO">'.$licencas[$i]->{'nlicenca'}.'</td>
                     <td data-label="DNPM">'.$licencas[$i]->{'dnpm'}.'</td>
@@ -83,10 +96,16 @@
                     $pagAtual[1] = (!empty($pagAtual[1])) ? $pagAtual[1] : 1;
                     $i = ($itens_pag*$pagAtual[1]) - $itens_pag;
                     $fimPag = $itens_pag*$pagAtual[1];
+                    $licencasEncode = json_encode($licencas);
+                    echo'
+                    <script type="text/javascript">
+                           var obj = '.$licencasEncode.';   
+                        </script>
+                   ';
                     for($i = $i; $i < $fimPag; $i++) {
                        if(!empty($licencas[$i])){
                     echo '
-                  <tr>
+                  <tr id="id_registro-'.$licencas[$i]->{'idLicenca'}.'">
                     
                   <td style="display: none">'.$licencas[$i]->{'tipo'}.'</td>
                   <td data-label="LO">'.$licencas[$i]->{'nlicenca'}.'</td>
@@ -124,6 +143,7 @@
 
   $licencas = json_decode(file_get_contents(
                     "http://localhost/backend/licenca/terminais/".$_SESSION['id']."/".$_SESSION['idEmpresa']));
+                   
                     $itens_pag = 3;
                     $num_total = count($licencas);
                     $num_pag = ceil($num_total/$itens_pag);
@@ -132,10 +152,16 @@
                     $pagAtual[1] = (!empty($pagAtual[1])) ? $pagAtual[1] : 1;
                     $i = ($itens_pag*$pagAtual[1]) - $itens_pag;
                     $fimPag = $itens_pag*$pagAtual[1];
+                    $licencasEncode = json_encode($licencas);
+                    echo'
+                    <script type="text/javascript">
+                           var obj = '.$licencasEncode.';   
+                        </script>
+                   ';
                     for($i = $i; $i < $fimPag; $i++) {
                        if(!empty($licencas[$i])){
                     echo '
-                  <tr>
+                  <tr id="id_registro-'.$licencas[$i]->{'idLicenca'}.'">
                     
                   <td style="display: none">'.$licencas[$i]->{'tipo'}.'</td>
                   <td data-label="LO">'.$licencas[$i]->{'nlicenca'}.'</td>
@@ -150,15 +176,15 @@
                     <td data-label="Ações">
                         <button class="btn btnActions" data-toggle="modal" data-target="#editarRegistro" onclick="editarLO(this)"><i class="fas fa-edit fa-1x"></i></button>
                         <button class="btn btnActions" data-toggle="modal" data-target="#deletarUsuario" onclick="abrirLO(this)"><i class="fas fa-file-alt fa-1x"></i></button>
-                             
                     </td>
                   </tr>'; }}
     }      
+   
+  
     
-    
-    
-    
+
     ?>
+     
   
                       
   </tbody>
@@ -195,3 +221,4 @@
     </li>
   </ul>
 </nav>
+
