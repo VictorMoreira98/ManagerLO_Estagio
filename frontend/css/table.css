@@ -82,6 +82,52 @@ table th {
   background-color: rgb(99, 201, 175)!important;
 }
 
+.circulo-verde {
+  border-radius: 50%;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background: rgb(13, 201, 54);
+  background: -webkit-linear-gradient(bottom, rgb(29, 163, 58), #68f5ae);
+  background: -o-linear-gradient(bottom,  rgb(29, 163, 58), #68f5ae);
+  background: -moz-linear-gradient(bottom, rgb(29, 163, 58), #68f5ae);
+  background: linear-gradient(bottom, rgb(29, 163, 58), #68f5ae);
+}
+.circulo-azul {
+  border-radius: 50%;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background: rgb(13, 79, 201);
+  background: -webkit-linear-gradient(bottom, rgb(29, 98, 163), #68a0f5);
+  background: -o-linear-gradient(bottom,  rgb(29, 98, 163), #68a0f5);
+  background: -moz-linear-gradient(bottom, rgb(29, 98, 163), #68a0f5);
+  background: linear-gradient(bottom, rgb(29, 98, 163), #68a0f5);
+}
+.circulo-amarelo {
+  border-radius: 50%;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background: rgb(187, 199, 27);
+  background: -webkit-linear-gradient(bottom, rgb(188, 190, 39), #f6f872);
+  background: -o-linear-gradient(bottom,  rgb(188, 190, 39), #f6f872);
+  background: -moz-linear-gradient(bottom,  rgb(188, 190, 39), #f6f872);
+  background: linear-gradient(bottom,  rgb(188, 190, 39), #f6f872);
+}
+
+.circulo-vermelho {
+  border-radius: 50%;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  background: rgb(199, 27, 27);
+  background: -webkit-linear-gradient(bottom, rgb(190, 39, 39), #f87272);
+  background: -o-linear-gradient(bottom,  rgb(190, 39, 39), #f87272);
+  background: -moz-linear-gradient(bottom,  rgb(190, 39, 39), #f87272);
+  background: linear-gradient(bottom,  rgb(190, 39, 39), #f87272);
+}
+
 @media screen and (max-width: 600px) {
   table {
     border: 0;

@@ -48,6 +48,17 @@
    ';
                     for($i = $i; $i < $fimPag; $i++) {
                        if(!empty($licencas[$i])){
+
+                        if($licencas[$i]->{'status'} == 1){
+                          $circulo = '<div class="circulo-verde"></div></td>';
+                        } else if($licencas[$i]->{'status'} == 2){
+                          $circulo = '<div class="circulo-amarelo"></div></td>';
+                        }else if($licencas[$i]->{'status'} == 4){
+                          $circulo = '<div class="circulo-azul"></div></td>';
+                        }else if($licencas[$i]->{'status'} == 3 || $licencas[$i]->{'status'} == 5){
+                          $circulo = '<div class="circulo-vermelho"></div></td>';
+                        }
+
                     echo '
                   <tr id="id_registro-'.$licencas[$i]->{'idLicenca'}.'">
                     <td style="display: none">'.$licencas[$i]->{'tipo'}.'</td>
@@ -55,7 +66,7 @@
                     <td data-label="DNPM">'.$licencas[$i]->{'dnpm'}.'</td>
                     <td data-label="Data Vencimento">'.$licencas[$i]->{'dtaVenc'}.'</td>
                     <td data-label="Empresa">'.$licencas[$i]->{'empresa'}.'</td>
-                    <td data-label="Status">'.$licencas[$i]->{'status'}.'</td>
+                    <td data-label="Status">'.$circulo.'</td>
                     <td style="display: none">'.$licencas[$i]->{'idLicenca'}.'</td>
                     <td style="display: none">'.$licencas[$i]->{'idArea'}.'</td>
                     <td style="display: none">'.$licencas[$i]->{'anexoLO'}.'</td>
@@ -104,6 +115,17 @@
                    ';
                     for($i = $i; $i < $fimPag; $i++) {
                        if(!empty($licencas[$i])){
+
+                          if($licencas[$i]->{'status'} == 1){
+                            $circulo = '<div class="circulo-verde"></div></td>';
+                          } else if($licencas[$i]->{'status'} == 2){
+                            $circulo = '<div class="circulo-amarelo"></div></td>';
+                          }else if($licencas[$i]->{'status'} == 4){
+                            $circulo = '<div class="circulo-azul"></div></td>';
+                          }else if($licencas[$i]->{'status'} == 3 || $licencas[$i]->{'status'} == 5){
+                            $circulo = '<div class="circulo-vermelho"></div></td>';
+                          }
+                        
                     echo '
                   <tr id="id_registro-'.$licencas[$i]->{'idLicenca'}.'">
                     
@@ -112,7 +134,7 @@
                   <td data-label="Draga">'.$licencas[$i]->{'nomeDraga'}.'</td>
                   <td data-label="Data Vencimento">'.$licencas[$i]->{'dtaVenc'}.'</td>
                   <td data-label="Empresa">'.$licencas[$i]->{'empresa'}.'</td>
-                  <td data-label="Status">'.$licencas[$i]->{'status'}.'</td>
+                  <td data-label="Status">'.$circulo.'</td>
                   <td style="display: none">'.$licencas[$i]->{'idLicenca'}.'</td>
                   <td style="display: none">'.$licencas[$i]->{'idDraga'}.'</td>
                   <td style="display: none">'.$licencas[$i]->{'anexoLO'}.'</td>
@@ -160,6 +182,18 @@
                    ';
                     for($i = $i; $i < $fimPag; $i++) {
                        if(!empty($licencas[$i])){
+
+                        if($licencas[$i]->{'status'} == 1){
+                          $circulo = '<div class="circulo-verde"></div></td>';
+                        } else if($licencas[$i]->{'status'} == 2){
+                          $circulo = '<div class="circulo-amarelo"></div></td>';
+                        }else if($licencas[$i]->{'status'} == 4){
+                          $circulo = '<div class="circulo-azul"></div></td>';
+                        }else if($licencas[$i]->{'status'} == 3 || $licencas[$i]->{'status'} == 5){
+                          $circulo = '<div class="circulo-vermelho"></div></td>';
+                        }
+
+
                     echo '
                   <tr id="id_registro-'.$licencas[$i]->{'idLicenca'}.'">
                     
@@ -168,7 +202,7 @@
                   <td style="display: none">padrao</td>
                   <td data-label="Data Vencimento">'.$licencas[$i]->{'dtaVenc'}.'</td>
                   <td data-label="Empresa">'.$licencas[$i]->{'empresa'}.'</td>
-                  <td data-label="Status">'.$licencas[$i]->{'status'}.'</td>
+                  <td data-label="Status">'.$circulo.'</td>
                   <td style="display: none">'.$licencas[$i]->{'idLicenca'}.'</td>
                   <td style="display: none">'.$licencas[$i]->{'idTerminal'}.'</td>
                   <td style="display: none">'.$licencas[$i]->{'anexoLO'}.'</td>
@@ -201,13 +235,20 @@
             echo $_SESSION['nomeTipoURL']."/". $pagina;} 
           else{ echo $_SESSION['nomeTipoURL']."/". $pagAtual;} ?>">Voltar</a>
     </li>
-    <?php for($i = 1; $i <= $num_pag; $i++) { 
+    <?php 
+    $lim = 1; 
+    $inicio = ((($pagAtual[1] - $lim) > 1) ? $pagAtual[1] - $lim : 1);
+    $fim = ((($pagAtual[1]+$lim) < $num_pag) ? $pagAtual[1]+$lim : $num_pag);
+   
+    for($i = $inicio; $i <= $fim; $i++) { 
       $estilo = "";
       if($i == $pagAtual[1]){
         $estilo = "active";
       }?>
-     <li class="page-item <?php echo $estilo; ?> " ><a class="page-link" href="/<?php echo $_SESSION['nomeTipoURL']."/".$i; ?>"><?php echo $i; ?></a></li>
-   <?php }?>
+     <li class="page-item <?php echo $estilo; ?> " >
+        <a class="page-link" href="/<?php echo $_SESSION['nomeTipoURL']."/".$i; ?>"><?php echo $i; ?></a>
+      </li>
+   <?php } ?>
     <li class="page-item">
       <a class="page-link" href="/<?php 
           if($pagAtual[1]<$i-1) {
@@ -217,7 +258,7 @@
           else{ 
             echo $_SESSION['nomeTipoURL']."/".$pagAtual[1];
           } 
-          ?>">Próximo</a>
+          ?>" <?php if($pagAtual[1]>=$i-1) { echo 'style="background-color: rgb(99, 201, 175)!important;"'; } ?>>Próximo</a>
     </li>
   </ul>
 </nav>

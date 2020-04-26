@@ -137,6 +137,7 @@
 
       
     </div>
+    <?php  require_once 'includes/growl.php'; ?>
   </div>
 </div>
 <script type="text/javascript" src="<?php echo SITE_URL; ?>/js/anexoLOEdit.js"></script>

@@ -21,9 +21,9 @@ class User {
        ||  empty($usuario)
        ||  empty($email)
        ||  empty($senha)){
-           return getJsonResponse(false, 'Campos nao informados');
+           return getJsonResponse(false, 'Campos não informados');
        } elseif (empty($cpf) &&  empty($cnpj)){
-           return getJsonResponse(false, 'Campos nao informados');
+           return getJsonResponse(false, 'Campos não informados');
        } 
        
        if($tipo == '1'){
@@ -103,7 +103,7 @@ class User {
    ||  empty($email)
    ||  empty($id)
    ||  empty($senha)){
-       return getJsonResponse(false, 'Campos nao informados');
+       return getJsonResponse(false, 'Campos não informados');
    } 
         if($tipo == 1){
              $DB = new DB;
@@ -199,7 +199,7 @@ class User {
 
         if (empty($usuario) || empty($senha))
         {   
-            return getJsonResponse(false, 'Campos nao informados');
+            return getJsonResponse(false, 'Campos não informados');
         }
 
         $DB = new DB;
@@ -269,7 +269,7 @@ class User {
         if (empty($id)
         ||  empty($idPessoa)
         ){
-            return getJsonResponse(false, 'Campos nao informados');
+            return getJsonResponse(false, 'Campos não informados');
         } 
 
 
@@ -502,7 +502,7 @@ class User {
         ||  empty($tipo)
         ||  empty($telefone)
         ||  empty($senha)){
-            return getJsonResponse(false, 'Campos nao informados');
+            return getJsonResponse(false, 'Campos não informados');
         }
        
           
@@ -543,7 +543,7 @@ class User {
             else if($tipo == 3){ 
                 
                 if(empty($cpf)){
-                    return getJsonResponse(false, 'Campos nao informados');
+                    return getJsonResponse(false, 'Campos não informados');
                 }
              
                 $DB = new DB;

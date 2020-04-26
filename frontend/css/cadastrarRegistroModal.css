@@ -52,6 +52,7 @@ body{
     outline: none;
     background-color: rgb(44, 172, 140);
     box-shadow: 0 3px 8px rgba(0,0,0,.5);
+    
    }
    
   /*.fab button.main:active:before,

@@ -25,7 +25,7 @@ class Licenca {
        ||  empty($status)
        ||  empty($idUser)
        ||  empty($anexoLO)){
-           return getJsonResponse(false, 'Campos nao informados');
+           return getJsonResponse(false, 'Campos não informados');
        }
 
             $DB = new DB;
@@ -120,7 +120,7 @@ class Licenca {
          // validação (bem simples, só pra evitar dados vazios)
        if (empty($idUser)
        ||  empty($idEmpresa)){
-           return getJsonResponse(false, 'Campos nao informados');
+           return getJsonResponse(false, 'Campos não informados');
        }
 
             $DB = new DB;
@@ -161,7 +161,7 @@ class Licenca {
         // validação (bem simples, só pra evitar dados vazios)
       if (empty($idUser)
       ||  empty($idEmpresa)){
-          return getJsonResponse(false, 'Campos nao informados');
+          return getJsonResponse(false, 'Campos não informados');
       }
 
            $DB = new DB;
@@ -208,7 +208,7 @@ class Licenca {
     // validação (bem simples, só pra evitar dados vazios)
   if (empty($idUser)
   ||  empty($idEmpresa)){
-      return getJsonResponse(false, 'Campos nao informados');
+      return getJsonResponse(false, 'Campos não informados');
   }
 
        $DB = new DB;
@@ -255,7 +255,7 @@ class Licenca {
         // validação (bem simples, só pra evitar dados vazios)
       if (empty($idUser)
       ||  empty($idEmpresa)){
-          return getJsonResponse(false, 'Campos nao informados');
+          return getJsonResponse(false, 'Campos não informados');
       }
     
            $DB = new DB;
@@ -310,7 +310,7 @@ class Licenca {
        ||  empty($tipo)
        ||  empty($status)
        ||  empty($idLO)){
-           return getJsonResponse(false, 'Campos nao informados');
+           return getJsonResponse(false, 'Campos não informados');
        }
 
             $DB = new DB;

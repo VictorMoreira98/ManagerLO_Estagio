@@ -8,10 +8,27 @@ cadastrarFormLO.onsubmit = event => {
         
         callAction('/backend/cadastrar/lo', bodyFormData, (response) => {
             if(response.success){
-                window.location.href = '/';
+                //location.reload();
+                $('#cadastrarRegistro').css({opacity: 0}).hide(); 
+                
+                //displayGrowl('Notification has been displayed.');
+                
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'LO adicionada',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  setTimeout(function(){ 
+                    location.reload();
+                  }, 1500);
+                 
+                
             }
             else{
                 console.error(`Erro: ${response.message}`);
+                displayGrowl(response.message);
             }
         });
     }

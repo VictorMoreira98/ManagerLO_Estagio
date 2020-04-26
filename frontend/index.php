@@ -23,6 +23,10 @@
             <!-- Material Design Bootstrap -->
             <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/css/mdb.min.css" rel="stylesheet">
 
+           
+
+         
+
                          
 
             <!-- JQuery -->
@@ -33,9 +37,9 @@
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
             <!-- MDB core JavaScript -->
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/js/mdb.min.js"></script>
-                            
-            
-            
+         
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+           
                     
            
             <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/sidebar.css">
@@ -45,9 +49,11 @@
             <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/cadastrarRegistroModal.css">
             <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/editRegistroModal.css">
             <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/table.css">
+            <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/growl.css">
             <script type="text/javascript" src="<?php echo SITE_URL; ?>js/buttonMenu.js"></script>
             <script type="text/javascript" src="<?php echo SITE_URL; ?>js/table.js"></script>
             <script type="text/javascript" src="<?php echo SITE_URL; ?>js/functionEditarLO.js"></script>
+            <script type="text/javascript" src="<?php echo SITE_URL; ?>js/growl.js"></script>
             
             
 
@@ -83,7 +89,8 @@
                 require_once 'includes/table.php'; 
                 require_once 'includes/cadastrarRegistroModal.php';       
                 require_once 'includes/editRegistroModal.php';  
-            
+               
+           
                 
             } else{
                 if($url[0] =="login"){
