@@ -19,7 +19,7 @@
                        
                        ?>
 
-        <div class="camposEdit mt-4">
+        <div class="camposEditarConta mt-4">
 
             <input type="hidden" id="tipo" name="tipo" value="<?php echo $users[0]->{'tipo'}?>"/>
             <input type="hidden" id="id" name="id" value="<?php echo $users[0]->{'id'}?>"/>
@@ -104,7 +104,7 @@
    
 </form>
 <!-- Form -->
-
+    <?php  require_once 'includes/growl.php'; ?>
     </div>
 
 </div>

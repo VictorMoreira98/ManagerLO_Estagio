@@ -1,8 +1,9 @@
-.camposEdit label{
+.camposEditarConta label{
     color: #26a69a;
   font-size: 15px;
   top: 0px; 
   text-align: left;
+  width: auto;
 }
 
 #editarContaUsuario{
@@ -14,3 +15,4 @@
     width: auto;
   }
 }
+

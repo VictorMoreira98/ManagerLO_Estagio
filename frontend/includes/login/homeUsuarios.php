@@ -31,13 +31,13 @@
                     
            
        
-            <link rel="stylesheet" href="./includes/login/css/head.css">
-            <link rel="stylesheet" href="./includes/login/css/search.css">
-            <link rel="stylesheet" href="./includes/login/css/table.css">
-            <link rel="stylesheet" href="./includes/login/css/editarUsuarioModal.css">
-            <link rel="stylesheet" type="text/css" href="./includes/login/css/cadastrar.css">
-            <link rel="stylesheet" href="./includes/login/css/cadastrarUsuarioModal.css">
-            <link rel="stylesheet" href="./includes/login/css/deletarUsuario.css">
+            <link rel="stylesheet" href="<?php echo SITE_URL; ?>includes/login/css/head.css">
+            <link rel="stylesheet" href="<?php echo SITE_URL; ?>includes/login/css/search.css">
+            <link rel="stylesheet" href="<?php echo SITE_URL; ?>includes/login/css/table.css">
+            <link rel="stylesheet" href="<?php echo SITE_URL; ?>includes/login/css/editarUsuarioModal.css">
+            <link rel="stylesheet" type="text/css" href="<?php echo SITE_URL; ?>includes/login/css/cadastrar.css">
+            <link rel="stylesheet" href="<?php echo SITE_URL; ?>includes/login/css/cadastrarUsuarioModal.css">
+            <link rel="stylesheet" href="<?php echo SITE_URL; ?>includes/login/css/deletarUsuario.css">
             
 
         <title></title>
@@ -140,9 +140,18 @@
                 <?php 
                  $users = json_decode(file_get_contents(
                     "http://localhost/backend/usuarios/".$_SESSION['idEmpresa']));
-                    
 
-                    for($i = 0; $i < count($users); $i++) {
+                    $itens_pag = 3;
+                    $num_total = count($users);
+                    $num_pag = ceil($num_total/$itens_pag);
+                    $pagAtual = (isset($_GET['url'])) ? $_GET['url'] : 1;
+                    $pagAtual = array_filter(explode('/',$pagAtual));
+                    $pagAtual[1] = (!empty($pagAtual[1])) ? $pagAtual[1] : 1;
+                    $i = ($itens_pag*$pagAtual[1]) - $itens_pag;
+                    $fimPag = $itens_pag*$pagAtual[1];
+              
+
+                    for($i = $i; $i < $fimPag; $i++) {
                        
                     echo '
                     <tr>
@@ -171,19 +180,58 @@
                
                 </tbody>
             </table>
+            
+            <nav aria-label="Page navigation example">
+                    <ul  class="pagination pg-blue justify-content-center paginacao mt-5">
+                        <li class="page-item ">
+                        <a class="page-link" href="/<?php 
+                            if($pagAtual[1]>1) {
+                                $pagina = $pagAtual[1]-1;
+                                echo "usuarios/". $pagina;} 
+                            else{ echo "usuarios/". $pagAtual;} ?>">Voltar</a>
+                        </li>
+                        <?php 
+                        $lim = 1; 
+                        $inicio = ((($pagAtual[1] - $lim) > 1) ? $pagAtual[1] - $lim : 1);
+                        $fim = ((($pagAtual[1]+$lim) < $num_pag) ? $pagAtual[1]+$lim : $num_pag);
+                    
+                        for($i = $inicio; $i <= $fim; $i++) { 
+                        $estilo = "";
+                        if($i == $pagAtual[1]){
+                            $estilo = "active";
+                        }?>
+                        <li class="page-item <?php echo $estilo; ?> " >
+                            <a class="page-link" href="/<?php echo "usuarios/".$i; ?>"><?php echo $i; ?></a>
+                        </li>
+                    <?php } ?>
+                        <li class="page-item">
+                        <a class="page-link" href="/<?php 
+                            if($pagAtual[1]<$i-1) {
+                                $pagina = $pagAtual[1]+1;
+                                echo "usuarios/".$pagina;
+                            } 
+                            else{ 
+                                echo "usuarios/".$pagAtual[1];
+                            } 
+                            ?>" <?php if($pagAtual[1]>=$i-1) { echo 'style="background-color: rgb(99, 201, 175)!important;"'; } ?>>Próximo</a>
+                        </li>
+                    </ul>
+            </nav>
         </div>
         <?php require "cadastrarUsuarioModal.php"; ?>
         <?php require "editarUsuarioModal.php"; ?>
         <?php require "alertDeleteUsuario.php"; ?>
     </div>
+
+
     </body>
 </html>
-<script src="./js/core/axios.min.js"></script>
-<script src="./includes/login/js/cadastrarUsuarioModal.js"></script>
-<script src="./includes/login/js/editarUsuarioModal.js"></script>
-<script src="./includes/login/js/editarUsuarioEmpresa.js"></script>
-<script src="./includes/login/js/deleteUserEmpresa.js"></script>
-<script src="./includes/login/js/deletarUsuarioEmpresa.js"></script>
-<script src="./js/formAjax.js"></script>
+<script src="<?php echo SITE_URL; ?>js/core/axios.min.js"></script>
+<script src="<?php echo SITE_URL; ?>includes/login/js/cadastrarUsuarioModal.js"></script>
+<script src="<?php echo SITE_URL; ?>includes/login/js/editarUsuarioModal.js"></script>
+<script src="<?php echo SITE_URL; ?>includes/login/js/editarUsuarioEmpresa.js"></script>
+<script src="<?php echo SITE_URL; ?>includes/login/js/deleteUserEmpresa.js"></script>
+<script src="<?php echo SITE_URL; ?>includes/login/js/deletarUsuarioEmpresa.js"></script>
+<script src="<?php echo SITE_URL; ?>js/formAjax.js"></script>
 
 

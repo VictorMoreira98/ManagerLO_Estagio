@@ -8,10 +8,22 @@ editarFormContaUsuario.onsubmit = event => {
         
         callAction('/backend/usuarios/edit', bodyFormData, (response) => {
             if(response.success){
-                window.location.href = 'usuarios';
+                
+
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Sua conta foi atualizada',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  setTimeout(function(){ 
+                    window.location.href = '/';
+                  }, 1500);
             }
             else{
                 console.error(`Erro: ${response.message}`);
+                displayGrowl(response.message);
             }
         });
     }

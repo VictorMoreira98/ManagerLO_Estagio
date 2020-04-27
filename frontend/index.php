@@ -68,7 +68,7 @@
             $url = (isset($_GET['url'])) ? $_GET['url'] :'';
             $url = array_filter(explode('/',$url));
            
-            if(empty($url[0]) || !empty($url[1]) || $url[0] == "areas" ||  $url[0] == "dragas" || $url[0] == "terminais")
+            if(empty($url[0]) || !empty($url[1]) && !$url[0] == "usuarios" || $url[0] == "areas" ||  $url[0] == "dragas" || $url[0] == "terminais")
            
             {
                 if(empty($url[0]) || $url[0] == "areas"){
