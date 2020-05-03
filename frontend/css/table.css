@@ -64,13 +64,12 @@ table th {
   position: absolute;
   top: 50%;
   left: 50%;
-  
+  color: white;
   transform: translate(-50%, -50%);
   display: block;}
 
 /* Darker background on mouse-over */
 .btnActions:hover {
-  background-color: rgb(72, 212, 67);
   color: white;
 }
 

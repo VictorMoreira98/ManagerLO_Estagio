@@ -17,7 +17,7 @@ table.dataTable thead .sorting_desc_disabled:before {
   
 }
 
-.btnActions{
+.btnActions, .btnActionsPesquisar{
   background: rgb(44, 172, 140);
     background: -webkit-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
     background: -o-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
@@ -33,17 +33,28 @@ table.dataTable thead .sorting_desc_disabled:before {
   
 }
 
+.btnActionsPesquisar{
+  padding: 1px 8px;
+}
+
 .btnActions i{
+  
   position: absolute;
   top: 50%;
   left: 50%;
-  
+  color: white;
   transform: translate(-50%, -50%);
-  display: block;}
+  display: block;
+}
+
+
 
 /* Darker background on mouse-over */
 .btnActions:hover {
-  background-color: rgb(72, 212, 67);
+  color: white;
+}
+
+.btnActionsPesquisar:hover {
   color: white;
 }
 

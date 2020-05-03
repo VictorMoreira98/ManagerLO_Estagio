@@ -28,7 +28,7 @@
             <!-- MDB core JavaScript -->
             <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.13.0/js/mdb.min.js"></script>
 
-                    
+            
            
        
             <link rel="stylesheet" href="<?php echo SITE_URL; ?>includes/login/css/head.css">
@@ -111,20 +111,18 @@
             </div>
              
          </nav>
+         
 
+        <?php 
         
-    
-        <!-- Search form -->
-        <form class="form-inline d-flex justify-content-center md-form form-sm active-cyan-2 mt-2">
-        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search"
-            aria-label="Search">
-        <i class="fas fa-search" aria-hidden="true"></i>
-        </form>
+        require_once "searchUsers.php"; ?>
+
+       
         
 
     
         <div class="table-responsive">
-            <table class="table ">
+            <table class="table " id="tablePesquisa">
                 <thead>
                 <tr>
                  
@@ -136,25 +134,41 @@
                     
                 </tr>
                 </thead>
-                <tbody>
+                <tbody id="tableBody">
                 <?php 
-                 $users = json_decode(file_get_contents(
+                
+                $users = json_decode(file_get_contents(
                     "http://localhost/backend/usuarios/".$_SESSION['idEmpresa']));
-
-                    $itens_pag = 3;
+                    
+                   // $variavelphp = "<script>$('#campoPesquisaUser').keyup(function(){ document.write(variaveljs); });</script>";
+                
+                  
+                    /*function teste($param) {
+                        $te = '<script>document.write(variaveljs);</script>';
+                        echo $param;
+                    }*/
+                
+                    
                     $num_total = count($users);
+                    $itens_pag = 3;
                     $num_pag = ceil($num_total/$itens_pag);
                     $pagAtual = (isset($_GET['url'])) ? $_GET['url'] : 1;
                     $pagAtual = array_filter(explode('/',$pagAtual));
                     $pagAtual[1] = (!empty($pagAtual[1])) ? $pagAtual[1] : 1;
                     $i = ($itens_pag*$pagAtual[1]) - $itens_pag;
                     $fimPag = $itens_pag*$pagAtual[1];
-              
-
+                    
+                    $usersEncode = json_encode($users);
+                        echo'
+                        <script type="text/javascript">
+                            var objUser = '.$usersEncode.';   
+                            </script>
+                    ';
+                
                     for($i = $i; $i < $fimPag; $i++) {
-                       
+                        if(!empty($users[$i])){
                     echo '
-                    <tr>
+                    <tr id="id_registro-user-'.$users[$i]->{'id'}.'"  >
                    
                     
                     <td>'.$users[$i]->{'nome'}.'</td>
@@ -173,7 +187,7 @@
                 </tr>
                     
                     ';
-                    }
+                    }}
                 
                 ?>
              
@@ -181,7 +195,7 @@
                 </tbody>
             </table>
             
-            <nav aria-label="Page navigation example">
+            <nav aria-label="Page navigation example" id="paginacao">
                     <ul  class="pagination pg-blue justify-content-center paginacao mt-5">
                         <li class="page-item ">
                         <a class="page-link" href="/<?php 
