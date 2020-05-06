@@ -72,6 +72,7 @@
                     <td style="display: none">'.$licencas[$i]->{'idArea'}.'</td>
                     <td style="display: none">'.$licencas[$i]->{'anexoLO'}.'</td>
                     <td style="display: none">'.$licencas[$i]->{'anexoProrrogacao'}.'</td>
+                    <td style="display: none">'.$licencas[$i]->{'status'}.'</td>
                     <td data-label="Ações">
                         <button class="btn btnActions" data-toggle="modal" data-target="#editarRegistro" onclick="editarLO(this)"><i class="fas fa-edit fa-1x"></i></button>
                         <button class="btn btnActions" data-toggle="modal" data-target="#deletarUsuario" onclick="abrirLO(this)"><i class="fas fa-file-alt fa-1x"></i></button>
@@ -141,6 +142,7 @@
                   <td style="display: none">'.$licencas[$i]->{'idDraga'}.'</td>
                   <td style="display: none">'.$licencas[$i]->{'anexoLO'}.'</td>
                   <td style="display: none">'.$licencas[$i]->{'anexoProrrogacao'}.'</td>
+                  <td style="display: none">'.$licencas[$i]->{'status'}.'</td>
                     <td data-label="Ações">
                         <button class="btn btnActions" data-toggle="modal" data-target="#editarRegistro" onclick="editarLO(this)"><i class="fas fa-edit fa-1x"></i></button>
                         <button class="btn btnActions" data-toggle="modal" data-target="#deletarUsuario" onclick="abrirLO(this)"><i class="fas fa-file-alt fa-1x"></i></button>
@@ -210,6 +212,7 @@
                   <td style="display: none">'.$licencas[$i]->{'idTerminal'}.'</td>
                   <td style="display: none">'.$licencas[$i]->{'anexoLO'}.'</td>
                   <td style="display: none">'.$licencas[$i]->{'anexoProrrogacao'}.'</td>
+                  <td style="display: none">'.$licencas[$i]->{'status'}.'</td>
                     <td data-label="Ações">
                         <button class="btn btnActions" data-toggle="modal" data-target="#editarRegistro" onclick="editarLO(this)"><i class="fas fa-edit fa-1x"></i></button>
                         <button class="btn btnActions" data-toggle="modal" data-target="#deletarUsuario" onclick="abrirLO(this)"><i class="fas fa-file-alt fa-1x"></i></button>

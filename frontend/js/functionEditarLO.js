@@ -17,7 +17,6 @@ function editarLO(e){
     }
     var dtaVenc  = linha.find("td:eq(3)").text().trim(); 
     var empresa = linha.find("td:eq(4)").text().trim(); 
-    var status = linha.find("td:eq(5)").text().trim(); 
     var idLicenca = linha.find("td:eq(6)").text().trim(); 
     if(tipo==1){
         var idDraga = linha.find("td:eq(7)").text().trim(); 
@@ -28,7 +27,8 @@ function editarLO(e){
      }
     
     var anexoLO = linha.find("td:eq(8)").text().trim();
-    var anexoProrrogacao = linha.find("td:eq(9)").text().trim(); 
+    var anexoProrrogacao = linha.find("td:eq(9)").text().trim();
+    var status = linha.find("td:eq(10)").text().trim();  
     nomeAnexoLO = anexoLO.substring(10);
     nomeAnexoProrrogacao = anexoProrrogacao.substring(10);
    
