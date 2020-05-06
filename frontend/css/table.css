@@ -44,7 +44,7 @@ table th {
 }
 
 
-.btnActions{
+.btnActions, .btnActionsPesquisar {
   background: rgb(44, 172, 140);
     background: -webkit-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
     background: -o-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
@@ -60,6 +60,10 @@ table th {
   
 }
 
+.btnActionsPesquisar{
+  padding: 1px 8px;
+}
+
 .btnActions i{
   position: absolute;
   top: 50%;
@@ -70,6 +74,10 @@ table th {
 
 /* Darker background on mouse-over */
 .btnActions:hover {
+  color: white;
+}
+
+.btnActionsPesquisar:hover {
   color: white;
 }
 

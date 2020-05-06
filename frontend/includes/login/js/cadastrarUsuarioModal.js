@@ -8,10 +8,23 @@ cadastrarFormUsuarioEmpresa.onsubmit = event => {
         
         callAction('/backend/cadastrar', bodyFormData, (response) => {
             if(response.success){
-                window.location.href = 'usuarios';
+                //fecha modal
+                $('#modalUserEmpresa').css({opacity: 0}).hide(); 
+
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Usuário adicionado',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  setTimeout(function(){ 
+                    location.reload();
+                  }, 1500);
             }
             else{
                 console.error(`Erro: ${response.message}`);
+                displayGrowl(response.message);
             }
         });
     }

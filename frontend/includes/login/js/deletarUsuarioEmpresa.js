@@ -8,7 +8,18 @@ deletarFormUsuarioEmpresa.onsubmit = event => {
         
         callAction('/backend/usuarios/deletar/empresa', bodyFormData, (response) => {
             if(response.success){
-                window.location.href = 'usuarios';
+
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Usuário removido',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                  setTimeout(function(){ 
+                    location.reload();
+                  }, 1500);
+               
             }
             else{
                 console.error(`Erro: ${response.message}`);

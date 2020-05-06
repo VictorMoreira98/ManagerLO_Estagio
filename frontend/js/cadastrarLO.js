@@ -9,6 +9,8 @@ cadastrarFormLO.onsubmit = event => {
         callAction('/backend/cadastrar/lo', bodyFormData, (response) => {
             if(response.success){
                 //location.reload();
+
+                //fecha modal
                 $('#cadastrarRegistro').css({opacity: 0}).hide(); 
                 
                 //displayGrowl('Notification has been displayed.');
@@ -28,6 +30,7 @@ cadastrarFormLO.onsubmit = event => {
             }
             else{
                 console.error(`Erro: ${response.message}`);
+                //exibe o erro em um grow
                 displayGrowl(response.message);
             }
         });

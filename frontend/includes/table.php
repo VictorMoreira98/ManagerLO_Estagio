@@ -1,4 +1,4 @@
-<table >
+<table id="tabelaLicenca">
   
 
 
@@ -20,7 +20,7 @@
       <th scope="col">Ações</th>
     </tr>
   </thead>
-  <tbody>';
+  <tbody id="bodyArea">';
 
 
   $licencas = json_decode(file_get_contents(
@@ -43,7 +43,8 @@
                     $licencasEncode = json_encode($licencas);
     echo'
     <script type="text/javascript">
-           var obj = '.$licencasEncode.';   
+           var obj = '.$licencasEncode.';
+           var tipoUrl = 1;   
         </script>
    ';
                     for($i = $i; $i < $fimPag; $i++) {
@@ -94,7 +95,7 @@
       <th scope="col">Ações</th>
     </tr>
   </thead>
-  <tbody>';
+  <tbody id="bodyDraga">';
 
 
   $licencas = json_decode(file_get_contents(
@@ -110,7 +111,8 @@
                     $licencasEncode = json_encode($licencas);
                     echo'
                     <script type="text/javascript">
-                           var obj = '.$licencasEncode.';   
+                           var obj = '.$licencasEncode.'; 
+                           var tipoUrl = 2;   
                         </script>
                    ';
                     for($i = $i; $i < $fimPag; $i++) {
@@ -160,7 +162,7 @@
       <th scope="col">Ações</th>
     </tr>
   </thead>
-  <tbody>';
+  <tbody id="bodyTerminal">';
 
 
   $licencas = json_decode(file_get_contents(
@@ -177,7 +179,8 @@
                     $licencasEncode = json_encode($licencas);
                     echo'
                     <script type="text/javascript">
-                           var obj = '.$licencasEncode.';   
+                           var obj = '.$licencasEncode.'; 
+                           var tipoUrl = 3;   
                         </script>
                    ';
                     for($i = $i; $i < $fimPag; $i++) {
@@ -226,7 +229,7 @@
  
 </table>
 
-<nav aria-label="Page navigation example">
+<nav aria-label="Page navigation example" id="paginacao">
   <ul  class="pagination pg-blue justify-content-center paginacao mt-5">
     <li class="page-item ">
       <a class="page-link" href="/<?php 
@@ -263,3 +266,4 @@
   </ul>
 </nav>
 
+<h4 style="display: none; text-align: center" id="nenhumLicenca">Nenhuma licenca encontrada!</h4>

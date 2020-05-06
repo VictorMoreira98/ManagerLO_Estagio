@@ -1,12 +1,12 @@
 <div class="fab">
-  <button class="main" data-toggle="modal" data-target="#ExemploModalCentralizado" >
+  <button class="main" data-toggle="modal" data-target="#modalUserEmpresa" >
   </button>
   
 </div>
 
 
 <!-- Modal -->
-<div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+<div class="modal fade" id="modalUserEmpresa" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
     <div class="card">
@@ -91,7 +91,7 @@
     <!-- Form -->
 
 </div>
-
+<?php  require_once 'includes/growl.php'; ?>
 </div>
     </div>
   </div>

@@ -171,9 +171,9 @@
                     <tr id="id_registro-user-'.$users[$i]->{'id'}.'"  >
                    
                     
-                    <td>'.$users[$i]->{'nome'}.'</td>
-                    <td>'.$users[$i]->{'usuario'}.'</td>
-                    <td>'.$users[$i]->{'email'}.'</td>
+                    <td data-label="Nome" >'.$users[$i]->{'nome'}.'</td>
+                    <td data-label="Usuário">'.$users[$i]->{'usuario'}.'</td>
+                    <td data-label="E-mail">'.$users[$i]->{'email'}.'</td>
                     <td style="display: none">'.$users[$i]->{'telefone'}.'</td>
                     <td style="display: none">'.$users[$i]->{'cpf'}.'</td>
                     <td style="display: none">'.$users[$i]->{'idPessoa'}.'</td>
