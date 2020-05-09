@@ -124,7 +124,7 @@ body{
 .js .input-file-trigger {
   display: block;
   padding: 14px 45px;
-  background: rgb(104, 209, 178);
+  background: rgb(99, 189, 166);
   color: #fff;
   font-size: 1em;
   transition: all .4s;
@@ -142,7 +142,7 @@ body{
 .js .input-file:focus + .input-file-trigger,
 .js .input-file-trigger:hover,
 .js .input-file-trigger:focus {
-  background: rgb(50, 126, 111);
+  background: rgb(44, 172, 140);
   color:#fff;
 }
 
@@ -175,13 +175,34 @@ body{
 .anexoProrrogacao{
   padding-left: 45px;
 }
+
+
+
 .input-file-container{
   width: 55%;
 }
 /*----------------Fim Anexo-----------*/
 
 
+.divDNPM button{
+  margin-right: 85%;
+  height: auto;
+  width: 132px;
+  text-align: center;
+  font-size: 13px;
+  color:rgb(255, 255, 255);
+  border: 0px;
+  background-color: rgb(99, 189, 166);
+}
 
+.divDNPM button:hover{
+background-color: rgb(44, 172, 140);
+}
+
+
+.formDNPM{
+  margin-bottom: 0px;
+}
 select.classSelect {
   -webkit-appearance: none;
   -moz-appearance: none;

@@ -73,10 +73,13 @@
               
               <div class="divDNPM" style="display: none" >
                  <!-- DNPM -->
-                <div class="md-form mt-7">
+                <div class="md-form formDNPM mt-7">
                 <input type="number" id="dnpm" name="dnpm"class="form-control">
                 <label for="materialRegisterFormFirstName">DNPM</label>
                 </div>
+                <div id="addDnpm" >
+                </div>
+                <button type="button" class="btnAddCampo" onclick="addDnpm()">Adicionar DNPM <i class="fas fa-plus"></i></button>
               </div>
                 
                 <?php if(!empty($_SESSION['nomeEmpresa'])){ ?>
