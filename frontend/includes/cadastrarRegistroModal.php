@@ -79,7 +79,8 @@
                 </div>
                 <div id="addDnpm" >
                 </div>
-                <button type="button" class="btnAddCampo" onclick="addDnpm()">Adicionar DNPM <i class="fas fa-plus"></i></button>
+                <button type="button" class="btnAddCampo" id="addCampo"  onclick="addDnpm()">Adicionar DNPM <i class="fas fa-plus"></i></button>
+                <button type="button" class="btnAddCampo" id="removerCampo" style="display: none" onclick="removerDnpm()">Remover DNPM <i class="fas fa-plus"></i></button>
               </div>
                 
                 <?php if(!empty($_SESSION['nomeEmpresa'])){ ?>

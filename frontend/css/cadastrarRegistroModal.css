@@ -193,7 +193,13 @@ body{
   color:rgb(255, 255, 255);
   border: 0px;
   background-color: rgb(99, 189, 166);
+  
 }
+
+.btnAddCampo{
+  margin-bottom: 10px;
+}
+
 
 .divDNPM button:hover{
 background-color: rgb(44, 172, 140);

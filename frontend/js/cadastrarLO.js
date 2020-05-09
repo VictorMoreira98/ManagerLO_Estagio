@@ -67,9 +67,23 @@ function addDnpm(){
     var divs = $('.formDNPM');
     var qtd = divs.length; 
     
-    var content = '<div class="md-form formDNPM mt-7"><input type="number" id="dnpm" name="dnpm"class="form-control"><label for="materialRegisterFormFirstName">DNPM' + qtd + '</label></div>';
+    var content = '<div class="md-form formDNPM mt-7"id="dnpm'+qtd+'"><input type="number" id="dnpm" name="dnpm'+qtd+'"class="form-control"><label for="materialRegisterFormFirstName">DNPM' + qtd + '</label></div>';
     $("#addDnpm").append(content);
+    $("#removerCampo").show();
 }
 
+function removerDnpm(){
+    var divs = $('.formDNPM');
+    var qtd = divs.length; 
+    qtd = qtd - 1;
+    $('#dnpm'+qtd+'').remove();
+    if(qtd == 1){
+        $('#removerCampo').hide();
+    }
+    if(qtd == 6){
+        $('#addCampo').hide();
+    }
+
+}
 
 

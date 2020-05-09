@@ -18,10 +18,10 @@ class LicencaController {
         $anexoProrrogacao =  $dir . basename($_FILES['anexoProrrogacao']['name']);
         $nomeDraga = isset($_POST['nomeDraga']) ? $_POST['nomeDraga'] : null;
         $dnpm = isset($_POST['dnpm']) ? $_POST['dnpm'] : null;
+        //if(isset($_POST['dnpm1']))
         echo Licenca::save($nLO, $dtaVenc, $empresa, $tipo, $status, $idEmpresa, $idUser, $anexoLO, $anexoProrrogacao,
         $nomeDraga, $dnpm);
-        //echo "$nLO $dtaVenc $empresa $tipo $idEmpresa $idUser";
-        //echo $anexo;
+        
     }
 
     public function getLicenca($idUser, $idEmpresa) { 
