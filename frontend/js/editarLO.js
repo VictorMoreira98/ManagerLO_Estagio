@@ -59,3 +59,31 @@ $('select[id="statusEdit"]').change(function () {
     }
 });
 
+
+function addDnpmEditar(){
+    var divs = $('.formDNPMEditar');
+    var qtd = divs.length; 
+    
+    var content = '<div class="md-form formDNPMEditar mt-7" id="formdnpmedit'+qtd+'"><input type="number" id="dnpmEdit'+qtd+'" name="dnpm'+qtd+'"class="form-control"><label for="materialRegisterFormFirstName">DNPM' + qtd + '</label></div>';
+    $("#addDnpmEditar").append(content);
+    $("#removerCampoEditar").show();
+    
+    if(qtd == 6){
+        $('#addCampoEditar').hide();
+    }
+    
+}
+
+function removerDnpmEditar(){
+    var divs = $('.formDNPMEditar');
+    var qtd = divs.length; 
+    qtd = qtd - 1;
+    $('#formdnpmedit'+qtd+'').remove();
+    if(qtd == 1){
+        $('#removerCampoEditar').hide();
+    }
+    if(qtd < 7){
+        $('#addCampoEditar').show();
+    }
+}
+

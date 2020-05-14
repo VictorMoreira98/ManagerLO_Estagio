@@ -73,6 +73,12 @@
                     <td style="display: none">'.$licencas[$i]->{'anexoLO'}.'</td>
                     <td style="display: none">'.$licencas[$i]->{'anexoProrrogacao'}.'</td>
                     <td style="display: none">'.$licencas[$i]->{'status'}.'</td>
+                    <td style="display: none">'.$licencas[$i]->{'dnpm1'}.'</td>
+                    <td style="display: none">'.$licencas[$i]->{'dnpm2'}.'</td>
+                    <td style="display: none">'.$licencas[$i]->{'dnpm3'}.'</td>
+                    <td style="display: none">'.$licencas[$i]->{'dnpm4'}.'</td>
+                    <td style="display: none">'.$licencas[$i]->{'dnpm5'}.'</td>
+                    <td style="display: none">'.$licencas[$i]->{'dnpm6'}.'</td>
                     <td data-label="Ações">
                         <button class="btn btnActions" data-toggle="modal" data-target="#editarRegistro" onclick="editarLO(this)"><i class="fas fa-edit fa-1x"></i></button>
                         <button class="btn btnActions" data-toggle="modal" data-target="#deletarUsuario" onclick="abrirLO(this)"><i class="fas fa-file-alt fa-1x"></i></button>

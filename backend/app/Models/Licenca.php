@@ -15,7 +15,13 @@ class Licenca {
         $anexoLO,
         $anexoProrrogacao,
         $nomeDraga,
-        $dnpm){
+        $dnpm,
+        $dnpm1,
+        $dnpm2, 
+        $dnpm3, 
+        $dnpm4, 
+        $dnpm5,
+        $dnpm6){
         
         // validação (bem simples, só pra evitar dados vazios)
        if (empty($nLO)
@@ -59,9 +65,16 @@ class Licenca {
 
                 $DB = new DB;
                 //insere na tabela LO    
-                $sql = "INSERT into area(dnpm, id_licenca) VALUES (:dnpm, :idLO)";
+                $sql = "INSERT into area(dnpm, dnpm1, dnpm2, dnpm3, dnpm4, dnpm5, dnpm6, id_licenca) 
+                VALUES (:dnpm, :dnpm1, :dnpm2, :dnpm3, :dnpm4, :dnpm5, :dnpm6, :idLO)";
                 $stmt = $DB->prepare($sql);
                 $stmt->bindParam(':dnpm', $dnpm);
+                $stmt->bindParam(':dnpm1', $dnpm1);
+                $stmt->bindParam(':dnpm2', $dnpm2);
+                $stmt->bindParam(':dnpm3', $dnpm3);
+                $stmt->bindParam(':dnpm4', $dnpm4);
+                $stmt->bindParam(':dnpm5', $dnpm5);
+                $stmt->bindParam(':dnpm6', $dnpm6);
                 $stmt->bindParam(':idLO', $idLO);
             
                 if ($stmt->execute()){
@@ -167,7 +180,7 @@ class Licenca {
            $DB = new DB;
            //insere na tabela LO    
            $sql = "SELECT l.id as idLicenca, l.tipo, l.nlicenca, l.empresa, l.dtaVenc, l.anexoLO, l.anexoProrrogacao, 
-           l.tipo, l.idUser, l.idEmpresa, l.status, a.dnpm, a.id as idArea
+           l.tipo, l.idUser, l.idEmpresa, l.status, a.dnpm, a.dnpm1, a.dnpm2, a.dnpm3, a.dnpm4, a.dnpm5, a.dnpm6, a.id as idArea
            FROM licenca as l INNER JOIN area AS a ON a.id_licenca = l.id
            WHERE l.tipo = 1 AND idUser=:idUser or idEmpresa=:idEmpresa";
            $stmt = $DB->prepare($sql);
@@ -189,6 +202,12 @@ class Licenca {
                            'anexoLO' => $licencas['anexoLO'],
                            'anexoProrrogacao' => $licencas['anexoProrrogacao'],
                            'dnpm' => $licencas['dnpm'],
+                           'dnpm1' => $licencas['dnpm1'],
+                           'dnpm2' => $licencas['dnpm2'],
+                           'dnpm3' => $licencas['dnpm3'],
+                           'dnpm4' => $licencas['dnpm4'],
+                           'dnpm5' => $licencas['dnpm5'],
+                           'dnpm6' => $licencas['dnpm6'],
                            'idArea' => $licencas['idArea'],
 
                           
@@ -302,7 +321,8 @@ class Licenca {
 
     public static function editarLO(
         $nLO, $dtaVenc, $empresa, $tipo, $status, $idArea, $idDraga,
-        $idTerminal, $nomeDraga, $dnpm, $anexoLO, $anexoProrrogacao, $idEmpresa, $idUser, $idLO){
+        $idTerminal, $nomeDraga, $dnpm, $dnpm1, $dnpm2, $dnpm3, $dnpm4, $dnpm5, 
+        $dnpm6, $anexoLO, $anexoProrrogacao, $idEmpresa, $idUser, $idLO){
         
         // validação (bem simples, só pra evitar dados vazios)
        if (empty($nLO)
@@ -382,9 +402,16 @@ class Licenca {
             if($tipo == 1){
                 $DB = new DB;
                 //atualiza na tabela LO    
-                $sql = "UPDATE area SET dnpm=:dnpm WHERE id_licenca = :idLO";
+                $sql = "UPDATE area SET dnpm=:dnpm, dnpm1=:dnpm1, dnpm2=:dnpm2, dnpm3=:dnpm3, dnpm4=:dnpm4,
+                dnpm5=:dnpm5, dnpm6=:dnpm6 WHERE id_licenca = :idLO";
                 $stmt = $DB->prepare($sql);
                 $stmt->bindParam(':dnpm', $dnpm);
+                $stmt->bindParam(':dnpm1', $dnpm1);
+                $stmt->bindParam(':dnpm2', $dnpm2);
+                $stmt->bindParam(':dnpm3', $dnpm3);
+                $stmt->bindParam(':dnpm4', $dnpm4);
+                $stmt->bindParam(':dnpm5', $dnpm5);
+                $stmt->bindParam(':dnpm6', $dnpm6);
                 $stmt->bindParam(':idLO', $idLO);
         
                 if ($stmt->execute()){

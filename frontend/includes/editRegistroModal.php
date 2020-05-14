@@ -72,11 +72,18 @@
 
               <div class="divDNPM" <?php if($_SESSION['tipoURL']==2 || $_SESSION['tipoURL']==3 ){echo 'style="display: none"';}?> >
                  <!-- DNPM -->
-                <div class="md-form mt-7">
-                <input type="number" id="dnpmEdit" name="dnpm"class="form-control">
-                <label for="materialRegisterFormFirstName">DNPM</label>
+                <div class="md-form formDNPMEditar mt-7">
+                  <input type="number" id="dnpmEdit" name="dnpm"class="form-control">
+                  <label for="materialRegisterFormFirstName">DNPM</label>
                 </div>
+                <div id="addDnpmEditar" >
+                </div>
+                <button type="button" class="btnAddCampo" id="addCampoEditar"  onclick="addDnpmEditar()">Adicionar DNPM <i class="fas fa-plus"></i></button>
+                <button type="button" class="btnAddCampo" id="removerCampoEditar" style="display: none" onclick="removerDnpmEditar()">Remover DNPM <i class="fas fa-plus"></i></button>
               </div>
+  
+
+              
 
                 
                

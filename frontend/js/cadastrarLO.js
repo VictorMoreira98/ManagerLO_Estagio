@@ -70,6 +70,11 @@ function addDnpm(){
     var content = '<div class="md-form formDNPM mt-7"id="dnpm'+qtd+'"><input type="number" id="dnpm" name="dnpm'+qtd+'"class="form-control"><label for="materialRegisterFormFirstName">DNPM' + qtd + '</label></div>';
     $("#addDnpm").append(content);
     $("#removerCampo").show();
+    
+    if(qtd == 6){
+        $('#addCampo').hide();
+    }
+    
 }
 
 function removerDnpm(){
@@ -80,9 +85,10 @@ function removerDnpm(){
     if(qtd == 1){
         $('#removerCampo').hide();
     }
-    if(qtd == 6){
-        $('#addCampo').hide();
+    if(qtd < 7){
+        $('#addCampo').show();
     }
+    
 
 }
 

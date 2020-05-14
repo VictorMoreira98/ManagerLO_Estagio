@@ -18,9 +18,14 @@ class LicencaController {
         $anexoProrrogacao =  $dir . basename($_FILES['anexoProrrogacao']['name']);
         $nomeDraga = isset($_POST['nomeDraga']) ? $_POST['nomeDraga'] : null;
         $dnpm = isset($_POST['dnpm']) ? $_POST['dnpm'] : null;
-        //if(isset($_POST['dnpm1']))
+        $dnpm1 = isset($_POST['dnpm1']) ? $_POST['dnpm1'] : null;
+        $dnpm2 = isset($_POST['dnpm2']) ? $_POST['dnpm2'] : null;
+        $dnpm3 = isset($_POST['dnpm3']) ? $_POST['dnpm3'] : null;
+        $dnpm4 = isset($_POST['dnpm4']) ? $_POST['dnpm4'] : null;
+        $dnpm5 = isset($_POST['dnpm5']) ? $_POST['dnpm5'] : null;
+        $dnpm6 = isset($_POST['dnpm6']) ? $_POST['dnpm6'] : null;
         echo Licenca::save($nLO, $dtaVenc, $empresa, $tipo, $status, $idEmpresa, $idUser, $anexoLO, $anexoProrrogacao,
-        $nomeDraga, $dnpm);
+        $nomeDraga, $dnpm, $dnpm1, $dnpm2, $dnpm3, $dnpm4, $dnpm5, $dnpm5, $dnpm6);
         
     }
 
@@ -52,6 +57,12 @@ class LicencaController {
         $idTerminal = isset($_POST['idTerminal']) ? $_POST['idTerminal'] : null;
         $nomeDraga = isset($_POST['nomeDraga']) ? $_POST['nomeDraga'] : null;
         $dnpm = isset($_POST['dnpm']) ? $_POST['dnpm'] : null;
+        $dnpm1 = isset($_POST['dnpm1']) ? $_POST['dnpm1'] : null;
+        $dnpm2= isset($_POST['dnpm2']) ? $_POST['dnpm2'] : null;
+        $dnpm3 = isset($_POST['dnpm3']) ? $_POST['dnpm3'] : null;
+        $dnpm4 = isset($_POST['dnpm4']) ? $_POST['dnpm4'] : null;
+        $dnpm5 = isset($_POST['dnpm5']) ? $_POST['dnpm5'] : null;
+        $dnpm6 = isset($_POST['dnpm6']) ? $_POST['dnpm6'] : null;
         $dir = "../anexos/";
         if(!$_FILES['anexoLO']['error'] == 4) { $anexoLO = $dir . basename($_FILES['anexoLO']['name']);} else{$anexoLO=null;}
         if(!$_FILES['anexoProrrogacao']['error'] == 4) { $anexoProrrogacao = $dir . basename($_FILES['anexoProrrogacao']['name']);} else{$anexoProrrogacao=null;}
@@ -59,7 +70,8 @@ class LicencaController {
         $idUser = isset($_POST['idUser']) ? $_POST['idUser'] : null;
         $idLO = isset($_POST['idLO']) ? $_POST['idLO'] : null;
         echo Licenca::editarLO($nLO, $dtaVenc, $empresa, $tipo, $status, $idArea, $idDraga,
-        $idTerminal, $nomeDraga, $dnpm, $anexoLO, $anexoProrrogacao, $idEmpresa, $idUser, $idLO);
+        $idTerminal, $nomeDraga, $dnpm, $dnpm1, $dnpm2, $dnpm3, $dnpm4, 
+        $dnpm5, $dnpm6,$anexoLO, $anexoProrrogacao, $idEmpresa, $idUser, $idLO);
         //echo "$nLO $dtaVenc $empresa $tipo $idEmpresa $idUser";
     }
 
