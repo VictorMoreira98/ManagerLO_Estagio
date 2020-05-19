@@ -100,6 +100,7 @@ body{
     padding: 20px;
   }
   
+  
  
   .card-header{
     background: rgb(44, 172, 140);
@@ -118,8 +119,7 @@ body{
 
 /*-------------Anexos-------------------*/
 .input-file-container {
-  position: relative;
-  width: 225px;
+  width: 250px;
 } 
 .js .input-file-trigger {
   display: block;
@@ -169,18 +169,14 @@ body{
   font-weight: normal;
 }
 
-.anexoArea {
-  padding-left: 45px;
-}
-.anexoProrrogacao{
-  padding-left: 45px;
-}
-
-
-
 .input-file-container{
-  width: 55%;
+  text-align: left;
+
 }
+.file-return{
+  text-align: left;
+}
+
 /*----------------Fim Anexo-----------*/
 
 
@@ -274,5 +270,13 @@ label[for=favcity] select:focus {
 
 @media only screen and (min-width: 700px){
   
- 
+  .cadastrarLO{
+    width: 700px;
+  }
+
+  .conteudoModal{
+    width: 900px;
+    right: 20%;
+    
+  }
 }
