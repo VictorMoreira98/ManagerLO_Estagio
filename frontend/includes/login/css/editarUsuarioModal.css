@@ -1,20 +1,22 @@
-.camposEdit label{
+.camposEditarUser{
     color: #26a69a;
-  font-size: 15px;
-  top: 0px;
-  pointer-events: none;
-  margin-right: 500px;
-  
-}
-
-
-#editarUsuarioEmpresa{
-  width: 400px;
+  text-align: left; 
   
 }
 
 @media only screen and (max-width: 500px) {
   #editarUsuarioEmpresa {
     width: auto;
+  }
+}
+
+@media only screen and (min-width: 700px){
+  .editarUsuarioEmpresa {
+    width: 700px;
+  }
+
+  .conteudoModalEditUser{
+    width: 800px;
+    right: 25%;
   }
 }

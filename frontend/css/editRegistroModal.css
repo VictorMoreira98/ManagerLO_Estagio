@@ -16,7 +16,24 @@ margin-right: 500px;
 }
 
 .divAnexos{
-  padding-left: 45px;
+  text-align: left;
   font-size: 13px;
 }
 
+
+@media only screen and (min-width: 700px){
+  
+  .editarLO{
+    width: 700px;
+  }
+
+  .conteudoModalEdit{
+    width: 900px;
+    right: 20%;
+    
+  }
+
+  .nLO{
+    top: 10px;
+  }
+}

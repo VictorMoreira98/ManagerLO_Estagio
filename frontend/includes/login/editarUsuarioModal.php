@@ -4,7 +4,7 @@
 <!-- Modal -->
 <div class="modal fade" id="editarUsuario" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+    <div class="modal-content conteudoModalEditUser">
     <div class="card">
 
 <h5 class="card-header white-text text-center py-4">
@@ -15,7 +15,7 @@
 <div class="card-body px-lg-5 pt-0">
 
     <!-- Form -->
-    <form id="editarUsuarioEmpresa" class="text-center" style="color: #757575;" method="post">
+    <form id="editarUsuarioEmpresa" class="text-center editarUsuarioEmpresa" style="color: #757575;" method="post">
 
        
     
@@ -28,21 +28,27 @@
    
 
     <br>
-     <div class="camposEdit">
+     <div class="camposEditarUser" >
 
-      
-         <!-- Nome -->
-        <label id="labelNome">Nome</label>
-        <div class="md-form mt-0" >
-        <input type="text" id="nomeEdit" name="nome" class="form-control mt-6 " >
-         </div>
-         
-          <!-- Usuario -->
-        <label >Usuário</label>
-            <div class="md-form mt-0">
-                <input type="text" id="usuarioEdit" name="usuario" class="form-control">
+     <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <!-- Nome -->
+                <label id="labelNome">Nome</label>
+                <div class="md-form mt-0" >
+                <input type="text" id="nomeEdit" name="nome" class="form-control mt-6 " >
+                </div>
             </div>
-             
+                
+            <div class="col-sm">
+                <!-- Usuario -->
+                <label >Usuário</label>
+                    <div class="md-form mt-0">
+                        <input type="text" id="usuarioEdit" name="usuario" class="form-control">
+                    </div>
+            </div>
+        </div>
+        
             
 
         <!-- E-mail -->
@@ -65,7 +71,7 @@
         <div class="md-form mt-0" id="cpf">
             <input type="number" id="cpfEdit" name="cpf" class="form-control" aria-describedby="materialRegisterFormPhoneHelpBlock">
         </div>
-    </div> 
+    
         
 
       
@@ -86,6 +92,8 @@
        
         <hr>
 
+    </div>
+    
        
     </form>
     <!-- Form -->

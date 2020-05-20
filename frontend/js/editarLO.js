@@ -64,7 +64,7 @@ function addDnpmEditar(){
     var divs = $('.formDNPMEditar');
     var qtd = divs.length; 
     
-    var content = '<div class="md-form formDNPMEditar mt-7" id="formdnpmedit'+qtd+'"><input type="number" id="dnpmEdit'+qtd+'" name="dnpm'+qtd+'"class="form-control"><label for="materialRegisterFormFirstName">DNPM' + qtd + '</label></div>';
+    var content = '<div class="col-sm" id="formdnpmedit'+qtd+'"><div class="md-form formDNPMEditar" ><input type="number" id="dnpmEdit'+qtd+'" name="dnpm'+qtd+'"class="form-control"><label for="materialRegisterFormFirstName">DNPM' + qtd + '</label></div></div>';
     $("#addDnpmEditar").append(content);
     $("#removerCampoEditar").show();
     

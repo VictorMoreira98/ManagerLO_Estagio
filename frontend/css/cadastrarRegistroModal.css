@@ -279,4 +279,8 @@ label[for=favcity] select:focus {
     right: 20%;
     
   }
+
+  .nLO{
+    top: 10px;
+  }
 }

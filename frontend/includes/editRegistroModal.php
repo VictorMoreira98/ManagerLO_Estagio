@@ -3,7 +3,7 @@
 <!-- Modal -->
 <div class="modal fade" id="editarRegistro" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+    <div class="modal-content conteudoModalEdit">
       <!-- Material form register -->
         <div class="card cardLO">
 
@@ -15,7 +15,7 @@
         <div class="card-body px-lg-5 pt-0">
 
           <!-- Form -->
-          <form id="editarLO" class="text-center" style="color: #757575;" method="post" >
+          <form id="editarLO" class="text-center editarLO" style="color: #757575;" method="post" >
 
             <input type="hidden" id="idLOEdit" name="idLO"  >
             <input type="hidden" id="idAreaEdit" name="idArea"  >
@@ -24,43 +24,49 @@
             <input type="hidden" id="idUser" name="idUser" value="<?php echo $_SESSION['id']?>" >
             <input type="hidden" id="idEmpresa" name="idEmpresa" value="<?php echo $_SESSION['idEmpresa']?>" >
             
-
-
-            <!--Tipo--->
-            <div class="md-form">
-              <label for="favcity">
-                <select class="classSelect" id="tipoEdit" name="tipo">
-                <option value="1">Área</option>
-                <option value="2">Draga</option>
-                <option value="3">Terminal</option>
-                </select>
-              </label>
-            </div>
+          <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                  <!--Tipo--->
+                  <div class="md-form">
+                    <label for="favcity">
+                      <select class="classSelect" id="tipoEdit" name="tipo">
+                      <option value="1">Área</option>
+                      <option value="2">Draga</option>
+                      <option value="3">Terminal</option>
+                      </select>
+                    </label>
+                  </div>
+                </div>
 
             
            
 
             <!-- Status -->
-            <div class="md-form">
-              <label for="favcity">
-                <select class="classSelect" id="statusEdit" name="status">
-                <option value="1">LO Vigor</option>
-                <option value="2">LO Prorrogada</option>
-                <option value="3">LO Vencida</option>
-                <option value="4">LO Solicitada</option>
-                <option value="5">LO Suspensa</option>
-                </select>
-              </label>
-            </div>
+              <div class="col-sm">
+                <div class="md-form">
+                  <label for="favcity">
+                    <select class="classSelect" id="statusEdit" name="status">
+                    <option value="1">LO Vigor</option>
+                    <option value="2">LO Prorrogada</option>
+                    <option value="3">LO Vencida</option>
+                    <option value="4">LO Solicitada</option>
+                    <option value="5">LO Suspensa</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
 
             
 
-
+            <div class="col-sm">
             <!-- LO -->
-                <div class="md-form mt-7">
+                <div class="md-form nLO">
                 <input type="number" id="nLOEdit" name="nLO"class="form-control"  >
                 <label for="materialRegisterFormFirstName">Nº LO</label>
                 </div>
+            </div>
+          </div> <!-- final row -->
 
                 <div class="divNomeDraga" <?php if($_SESSION['tipoURL']==1 || $_SESSION['tipoURL']==3 ){echo 'style="display: none"';}?>>
             <!-- Nome Draga -->
@@ -71,16 +77,25 @@
             </div>
 
               <div class="divDNPM" <?php if($_SESSION['tipoURL']==2 || $_SESSION['tipoURL']==3 ){echo 'style="display: none"';}?> >
-                 <!-- DNPM -->
-                <div class="md-form formDNPMEditar mt-7">
-                  <input type="number" id="dnpmEdit" name="dnpm"class="form-control">
-                  <label for="materialRegisterFormFirstName">DNPM</label>
+                
+              <div class="row">
+                <div class="col-sm">
+                  <!-- DNPM -->
+                    <div class="md-form formDNPMEditar mt-7">
+                      <input type="number" id="dnpmEdit" name="dnpm"class="form-control">
+                      <label for="materialRegisterFormFirstName">DNPM</label>
+                    </div>
+                  </div>
                 </div>
-                <div id="addDnpmEditar" >
-                </div>
-                <button type="button" class="btnAddCampo" id="addCampoEditar"  onclick="addDnpmEditar()">Adicionar DNPM <i class="fas fa-plus"></i></button>
-                <button type="button" class="btnAddCampo" id="removerCampoEditar" style="display: none" onclick="removerDnpmEditar()">Remover DNPM <i class="fas fa-plus"></i></button>
-              </div>
+
+
+                    <div id="addDnpmEditar" class="row" >
+                    </div>
+
+
+                    <button type="button" class="btnAddCampo" id="addCampoEditar"  onclick="addDnpmEditar()">Adicionar DNPM <i class="fas fa-plus"></i></button>
+                    <button type="button" class="btnAddCampo" id="removerCampoEditar" style="display: none" onclick="removerDnpmEditar()">Remover DNPM <i class="fas fa-plus"></i></button>
+                  </div>
   
 
               
@@ -88,20 +103,29 @@
                 
                
                   <!-- Nome Empresa -->
-                <div class="md-form mt-2">
-                <input type="text" id="empresaEdit" name="empresa" class="form-control" >
-                <label for="materialRegisterFormFirstName">Empresa</label>
-                </div>  
+              <div class="row">
+                 <div class="col-sm">
+                    <div class="md-form mt-2">
+                    <input type="text" id="empresaEdit" name="empresa" class="form-control" >
+                    <label for="materialRegisterFormFirstName">Empresa</label>
+                    </div>
+                  </div>
+              </div>  
                     
 
                 <!-- Data Vencimento -->
-                <div class="md-form mt-2">
-                    <input type="date" id="dtaVencEdit" name="dtaVenc" class="form-control" >
-                    <label for="materialRegisterFormEmail">Data Vencimento</label>
+              <div class="row">
+               <div class="col-sm">
+                  <div class="md-form mt-2">
+                      <input type="date" id="dtaVencEdit" name="dtaVenc" class="form-control" >
+                      <label for="materialRegisterFormEmail">Data Vencimento</label>
+                  </div>
+                  </div>
                 </div>
-
                 </div>
            
+            <div class="row">
+               <div class="col-sm">
                 <div class="anexoArea">
                     <div class="input-file-container">  
                       <input class="input-file input-anexo-lo-edit" id="anexoLOEdit" name="anexoLO" type="file" >
@@ -114,7 +138,9 @@
                 <div id="linkAnexo" class="divAnexos">
                
                 </div>
-                
+               </div>
+
+               <div class="col-sm">
                 <div class="anexoProrrogacao" style="display: none"> 
                     <div class="input-file-container">  
                       <input class="input-file input-file-prorrogacao-edit" id="anexoProrrogacaoEdit" name="anexoProrrogacao" type="file">
@@ -126,12 +152,16 @@
                 <div id="linkAnexoProrrogacao" class="divAnexos">
                
                </div>
+               </div>
+            </div>
+
+         
               
                     <div class="btnCadastrarLO">
                     <!-- Sign up button -->
                     <button class="btn md-4 btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0 " type="submit">Salvar Alterações</button>
                     </div>
-                
+          </div> <!-- Final Container -->    
                 
               
             </form>

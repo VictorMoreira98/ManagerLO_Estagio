@@ -60,11 +60,15 @@
 
                 <div class="col-sm">
                           <!-- LO -->
-                      <div class="md-form">
+                      <div class="md-form nLO">
                       <input type="number" id="nLO" name="nLO"class="form-control">
                       <label for="materialRegisterFormFirstName">Nº LO</label>
                       </div>
                 </div>
+
+
+
+                
             </div>
         
            
@@ -168,14 +172,14 @@
                 </div>
               </div>
              </div>
-          </div><!-- Encerramento container -->
+        
                     
                     <div class="btnCadastrarLO">
                    
                     <!-- Sign up button -->
                     <button class="btn md-4 btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0 " type="submit">Cadastrar</button>
                     </div>
-                
+            </div><!-- Encerramento container -->     
                 
               
             </form>
