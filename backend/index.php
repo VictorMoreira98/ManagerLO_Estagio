@@ -105,5 +105,11 @@ $app->post('/editar/lo', function (){
 });
 
 
+$app->post('/deletar/licenca', function (){
+    $LicencaController = new \App\Controllers\LicencaController;
+    $LicencaController->deletarLicenca();
+});
+
+
 
 $app->run();

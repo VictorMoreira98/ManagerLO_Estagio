@@ -50,6 +50,7 @@
             <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/editRegistroModal.css">
             <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/table.css">
             <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/growl.css">
+            <link rel="stylesheet" href="<?php echo SITE_URL; ?>css/deleteLicenca.css">
             <script type="text/javascript" src="<?php echo SITE_URL; ?>js/buttonMenu.js"></script>
             <script type="text/javascript" src="<?php echo SITE_URL; ?>js/table.js"></script>
             <script type="text/javascript" src="<?php echo SITE_URL; ?>js/functionEditarLO.js"></script>
@@ -64,7 +65,10 @@
     <div class="wrapper">   
 
     <?php 
-            
+     $url = (isset($_GET['url'])) ? $_GET['url'] :'';
+     $url = array_filter(explode('/',$url));
+     
+        if(isset($_SESSION['logado'])){
             $url = (isset($_GET['url'])) ? $_GET['url'] :'';
             $url = array_filter(explode('/',$url));
            
@@ -89,6 +93,7 @@
                 require_once 'includes/table.php'; 
                 require_once 'includes/cadastrarRegistroModal.php';       
                 require_once 'includes/editRegistroModal.php';  
+                require_once 'includes/deleteLicenca.php';  
                
            
                 
@@ -110,6 +115,11 @@
                     echo 'error 404';
                 }
             }
+        } else{
+            include "./includes/login/index.php";
+                 
+            //header("Location:  http://localhost/frontend/login");
+        }
         ?>
         </div>
     </div>

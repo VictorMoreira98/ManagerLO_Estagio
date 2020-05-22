@@ -75,4 +75,11 @@ class LicencaController {
         //echo "$nLO $dtaVenc $empresa $tipo $idEmpresa $idUser";
     }
 
+    public function deletarLicenca() { 
+        $idLicenca = isset($_POST['idLicenca']) ? $_POST['idLicenca'] : null;
+        $idTipo = isset($_POST['idTipo']) ? $_POST['idTipo'] : null;
+        $tipo = isset($_POST['tipo']) ? $_POST['tipo'] : null;
+        echo Licenca::deletarLicenca($idLicenca, $idTipo, $tipo);
+    }
+
 }

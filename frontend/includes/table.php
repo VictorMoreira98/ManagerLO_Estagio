@@ -80,8 +80,9 @@
                     <td style="display: none">'.$licencas[$i]->{'dnpm5'}.'</td>
                     <td style="display: none">'.$licencas[$i]->{'dnpm6'}.'</td>
                     <td data-label="Ações">
-                        <button class="btn btnActions" data-toggle="modal" data-target="#editarRegistro" onclick="editarLO(this)"><i class="fas fa-edit fa-1x"></i></button>
-                        <button class="btn btnActions" data-toggle="modal" data-target="#deletarUsuario" onclick="abrirLO(this)"><i class="fas fa-file-alt fa-1x"></i></button>
+                        <button class="btn btnActions " data-toggle="modal" data-target="#editarRegistro" onclick="editarLO(this)"><i class="fas fa-edit fa-1x"></i></button>
+                        <button class="btn btnActions" data-toggle="modal" data-target="" onclick="abrirLO(this)"><i class="fas fa-file-alt fa-1x"></i></button>
+                        <button class="btn btnActions " data-toggle="modal" data-target="#deletarLicenca" onclick="deleteLicenca(this)"><i class="fas fa-trash-alt fa-1x"></i></button>
                              
                     </td>
                   </tr>
@@ -152,7 +153,7 @@
                     <td data-label="Ações">
                         <button class="btn btnActions" data-toggle="modal" data-target="#editarRegistro" onclick="editarLO(this)"><i class="fas fa-edit fa-1x"></i></button>
                         <button class="btn btnActions" data-toggle="modal" data-target="#deletarUsuario" onclick="abrirLO(this)"><i class="fas fa-file-alt fa-1x"></i></button>
-                             
+                        <button class="btn btnActions " data-toggle="modal" data-target="#deletarLicenca" onclick="deleteLicenca(this)"><i class="fas fa-trash-alt fa-1x"></i></button>    
                     </td>
                   </tr>'; }}
     }      
@@ -222,6 +223,7 @@
                     <td data-label="Ações">
                         <button class="btn btnActions" data-toggle="modal" data-target="#editarRegistro" onclick="editarLO(this)"><i class="fas fa-edit fa-1x"></i></button>
                         <button class="btn btnActions" data-toggle="modal" data-target="#deletarUsuario" onclick="abrirLO(this)"><i class="fas fa-file-alt fa-1x"></i></button>
+                        <button class="btn btnActions " data-toggle="modal" data-target="#deletarLicenca" onclick="deleteLicenca(this)"><i class="fas fa-trash-alt fa-1x"></i></button>
                     </td>
                   </tr>'; }}
     }      

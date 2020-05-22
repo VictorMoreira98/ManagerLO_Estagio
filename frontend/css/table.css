@@ -135,6 +135,9 @@ table th {
   background: linear-gradient(bottom,  rgb(190, 39, 39), #f87272);
 }
 
+
+
+
 @media screen and (max-width: 600px) {
   table {
     border: 0;

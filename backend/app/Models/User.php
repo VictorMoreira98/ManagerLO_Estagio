@@ -240,6 +240,7 @@ class User {
 
                     session_abort();
                     session_start();
+                    $_SESSION['logado'] = true;
                     $_SESSION['id'] = $user['id'];
                     $_SESSION['nomeUsuario'] = $user['usuario'];
                     $_SESSION['idEmpresa'] = $user['idEmpresa'];

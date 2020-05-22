@@ -232,9 +232,10 @@
                     </ul>
             </nav>
         </div>
+        <?php require "alertDeleteUsuario.php"; ?>
         <?php require "cadastrarUsuarioModal.php"; ?>
         <?php require "editarUsuarioModal.php"; ?>
-        <?php require "alertDeleteUsuario.php"; ?>
+       
     </div>
 
 

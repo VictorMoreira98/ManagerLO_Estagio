@@ -12,6 +12,7 @@ loginForm.onsubmit = event => {
             }
             else{
                 console.error(`Erro: ${response.message}`);
+                displayGrowl("E-mail ou senha inválidos!!");
             }
         });
     }

@@ -446,4 +446,89 @@ class Licenca {
     }
 
 
+    public static function deletarLicenca(
+        $idLicenca,
+        $idTipo,
+        $tipo){
+        
+            // validação (bem simples, só pra evitar dados vazios)
+            if (empty($idLicenca)
+            ||  empty($idTipo)
+            ||  empty($tipo)
+            ){
+                return getJsonResponse(false, 'Campos não informados');
+            } 
+
+
+            if($tipo == 1){
+    
+                $DB = new DB;
+                //deleta licenca na tabela area   
+                $sql = "DELETE from area where id = :idTipo";
+                $stmt = $DB->prepare($sql);
+                $stmt->bindParam(':idTipo', $idTipo);
+            
+                if ($stmt->execute()){
+                    $controlador = true;
+                } else{
+                    $controlador = false;
+                }
+    
+            } else if($tipo == 2){
+    
+                $DB = new DB;
+                //deleta licenca na tabela draga   
+                $sql = "DELETE from draga where id = :idTipo";
+                $stmt = $DB->prepare($sql);
+                $stmt->bindParam(':idTipo', $idTipo);
+            
+                if ($stmt->execute()){
+                    $controlador = true;
+                } else{
+                    $controlador = false;
+                }
+    
+            }else if($tipo == 3){
+    
+                $DB = new DB;
+                //deleta licenca na tabela terminal   
+                $sql = "DELETE from terminal where id = :idTipo";
+                $stmt = $DB->prepare($sql);
+                $stmt->bindParam(':idTipo', $idTipo);
+            
+                if ($stmt->execute()){
+                    $controlador = true;
+                } else{
+                    $controlador = false;
+                }
+    
+            }
+    
+            if($controlador){
+                $DB = new DB;
+                //deleta licenca na tabela Licenca    
+                $sql = "DELETE from licenca where id = :idLicenca";
+                $stmt = $DB->prepare($sql);
+                $stmt->bindParam(':idLicenca', $idLicenca);
+               
+                if ($stmt->execute()){
+                    $controlador1 = true;
+                } else{
+                    $controlador1 = false;
+                }
+            }
+           
+    
+            
+    
+    
+            if ($controlador && $controlador1 == true)
+            {
+                return getJsonResponse(true, 'Deletado com sucesso');
+            }
+            else return getJsonResponse(false, 'Erro ao deletar licença - ' . $stmt->errorInfo());
+    
+        }
+
+
 }

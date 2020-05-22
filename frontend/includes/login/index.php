@@ -36,8 +36,12 @@
 	
 	
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('./includes/login/images/bg-01.jpg');">
+		<div class="container-login100" style="background-image: url('<?php echo SITE_URL; ?>/includes/login/images/bg-01.jpg');">
 		<?php 
+
+	
+	
+		
 			 $url = (isset($_GET['url'])) ? $_GET['url'] :'';
 			 $url = array_filter(explode('/',$url));
 
@@ -55,6 +59,7 @@
                     echo 'error 404';
                 }
 			 }
+		
 		
 		?>
 			
