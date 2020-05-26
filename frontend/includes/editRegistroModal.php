@@ -8,7 +8,7 @@
         <div class="card cardLO">
 
         <h5 class="card-header white-text text-center py-4">
-            <strong>Editar LO</strong>
+            <strong>Editar Licença</strong>
         </h5>
 
         <!--Card content-->
@@ -47,11 +47,11 @@
                 <div class="md-form">
                   <label for="favcity">
                     <select class="classSelect" id="statusEdit" name="status">
-                    <option value="1">LO Vigor</option>
-                    <option value="2">LO Prorrogada</option>
-                    <option value="3">LO Vencida</option>
-                    <option value="4">LO Solicitada</option>
-                    <option value="5">LO Suspensa</option>
+                    <option value="1">Licença Vigor</option>
+                    <option value="2">Licença Prorrogada</option>
+                    <option value="3">Licença Vencida</option>
+                    <option value="4">Licença Solicitada</option>
+                    <option value="5">Licença Suspensa</option>
                     </select>
                   </label>
                 </div>
@@ -63,7 +63,7 @@
             <!-- LO -->
                 <div class="md-form nLO">
                 <input type="number" id="nLOEdit" name="nLO"class="form-control"  >
-                <label for="materialRegisterFormFirstName">Nº LO</label>
+                <label for="materialRegisterFormFirstName">Nº Licença</label>
                 </div>
             </div>
           </div> <!-- final row -->
@@ -130,7 +130,7 @@
                     <div class="input-file-container">  
                       <input class="input-file input-anexo-lo-edit" id="anexoLOEdit" name="anexoLO" type="file" >
                  
-                      <label tabindex="0" for="my-file" class="input-file-trigger input-anexo-lo-trigger-edit" >Anexar LO</label>
+                      <label tabindex="0" for="my-file" class="input-file-trigger input-anexo-lo-trigger-edit" >Anexar Licença</label>
                     </div>
                     <p class="file-return anexo-lo-return-edit" ></p>
                     

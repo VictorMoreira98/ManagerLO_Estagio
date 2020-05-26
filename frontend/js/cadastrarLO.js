@@ -18,7 +18,7 @@ cadastrarFormLO.onsubmit = event => {
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'LO adicionada',
+                    title: 'Licença adicionada',
                     showConfirmButton: false,
                     timer: 1500
                   })

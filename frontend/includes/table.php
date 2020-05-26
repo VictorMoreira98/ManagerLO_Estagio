@@ -12,7 +12,7 @@
     echo '
   <thead>
     <tr class="cabecalho" >
-      <th scope="col">LO</th>
+      <th scope="col">Licença</th>
       <th scope="col">DNPM</th>
       <th scope="col">Data Vencimento</th>
       <th scope="col">Empresa</th>
@@ -63,7 +63,7 @@
                     echo '
                   <tr id="id_registro-'.$licencas[$i]->{'idLicenca'}.'">
                     <td style="display: none">'.$licencas[$i]->{'tipo'}.'</td>
-                    <td data-label="LO">'.$licencas[$i]->{'nlicenca'}.'</td>
+                    <td data-label="Licença">'.$licencas[$i]->{'nlicenca'}.'</td>
                     <td data-label="DNPM">'.$licencas[$i]->{'dnpm'}.'</td>
                     <td data-label="Data Vencimento">'.$licencas[$i]->{'dtaVenc'}.'</td>
                     <td data-label="Empresa">'.$licencas[$i]->{'empresa'}.'</td>
@@ -95,7 +95,7 @@
     echo '
   <thead>
     <tr class="cabecalho" >
-      <th scope="col">LO</th>
+      <th scope="col">Licença</th>
       <th scope="col">Draga</th>
       <th scope="col">Data Vencimento</th>
       <th scope="col">Empresa</th>
@@ -140,7 +140,7 @@
                   <tr id="id_registro-'.$licencas[$i]->{'idLicenca'}.'">
                     
                   <td style="display: none">'.$licencas[$i]->{'tipo'}.'</td>
-                  <td data-label="LO">'.$licencas[$i]->{'nlicenca'}.'</td>
+                  <td data-label="Licença">'.$licencas[$i]->{'nlicenca'}.'</td>
                   <td data-label="Draga">'.$licencas[$i]->{'nomeDraga'}.'</td>
                   <td data-label="Data Vencimento">'.$licencas[$i]->{'dtaVenc'}.'</td>
                   <td data-label="Empresa">'.$licencas[$i]->{'empresa'}.'</td>
@@ -164,7 +164,7 @@
     echo '
   <thead>
     <tr class="cabecalho" >
-      <th scope="col">LO</th>
+      <th scope="col">Licença</th>
       <th scope="col">Data Vencimento</th>
       <th scope="col">Empresa</th>
       <th scope="col">Status</th>
@@ -210,7 +210,7 @@
                   <tr id="id_registro-'.$licencas[$i]->{'idLicenca'}.'">
                     
                   <td style="display: none">'.$licencas[$i]->{'tipo'}.'</td>
-                  <td data-label="LO">'.$licencas[$i]->{'nlicenca'}.'</td>
+                  <td data-label="Licença">'.$licencas[$i]->{'nlicenca'}.'</td>
                   <td style="display: none">padrao</td>
                   <td data-label="Data Vencimento">'.$licencas[$i]->{'dtaVenc'}.'</td>
                   <td data-label="Empresa">'.$licencas[$i]->{'empresa'}.'</td>
@@ -277,4 +277,4 @@
   </ul>
 </nav>
 
-<h4 style="display: none; text-align: center" id="nenhumLicenca">Nenhuma licenca encontrada!</h4>
+<h4 style="display: none; text-align: center" id="nenhumLicenca">Nenhuma licença encontrada!</h4>

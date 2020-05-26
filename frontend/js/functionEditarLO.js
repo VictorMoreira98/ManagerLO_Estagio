@@ -104,7 +104,7 @@ function editarLO(e){
     //$("#anexoProrrogacaoEdit").val(anexoProrrogacao);
     
     if(nomeAnexoLO!=""){{
-        var a = " <p>LO Anexada: <a href='" + anexoLO + "' target='_blank' class='linkLO' id='link'><strong>" + nomeAnexoLO + "</strong></a></p>";
+        var a = " <p>Licença Anexada: <a href='" + anexoLO + "' target='_blank' class='linkLO' id='link'><strong>" + nomeAnexoLO + "</strong></a></p>";
         $("#linkAnexo").html(a);
     }}
     if(nomeAnexoProrrogacao!=""){{

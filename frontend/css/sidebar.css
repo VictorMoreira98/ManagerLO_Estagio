@@ -63,11 +63,7 @@ span {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: rgb(44, 172, 140);
-    background: -webkit-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
-    background: -o-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
-    background: -moz-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
-    background: linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
+    background:rgb(44, 172, 140);
     color: #fff;
     transition: all 0.3s;
 }
@@ -120,10 +116,10 @@ span {
 #sidebar .sidebar-header {
     padding: 20px;
     background: rgb(44, 172, 140);
-    background: -webkit-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
-    background: -o-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
-    background: -moz-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
-    background: linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
+    background: -webkit-linear-gradient(bottom, rgb(44, 172, 140), #317975);
+    background: -o-linear-gradient(bottom, rgb(44, 172, 140), #317975);
+    background: -moz-linear-gradient(bottom, rgb(44, 172, 140), #317975);
+    background: linear-gradient(bottom, rgb(44, 172, 140), #317975);
 }
 
 #sidebar .sidebar-header strong {

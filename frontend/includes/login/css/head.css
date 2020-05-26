@@ -1,9 +1,9 @@
 #head{
     background: rgb(44, 172, 140);
-    background: -webkit-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
-    background: -o-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
-    background: -moz-linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
-    background: linear-gradient(bottom, rgb(44, 172, 140), #68f5ee);
+    background: -webkit-linear-gradient(bottom, rgb(44, 172, 140), #317975);
+    background: -o-linear-gradient(bottom, rgb(44, 172, 140), #317975);
+    background: -moz-linear-gradient(bottom, rgb(44, 172, 140), #317975);
+    background: linear-gradient(bottom, rgb(44, 172, 140), #317975);
     
 }
 

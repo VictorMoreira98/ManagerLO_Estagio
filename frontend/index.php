@@ -65,17 +65,31 @@
     <div class="wrapper">   
 
     <?php 
-     $url = (isset($_GET['url'])) ? $_GET['url'] :'';
-     $url = array_filter(explode('/',$url));
+    
+    $url = (isset($_GET['url'])) ? $_GET['url'] :'';
+    $url = array_filter(explode('/',$url));
      
-        if(isset($_SESSION['logado'])){
-            $url = (isset($_GET['url'])) ? $_GET['url'] :'';
-            $url = array_filter(explode('/',$url));
+        if(!isset($_SESSION['logado'])){
+           
+            if($url[0] =="login"){
+                
+                include "./includes/login/index.php";
+            }else{
+                
+                //header("login");
+               echo '<script language= "JavaScript">
+               location.href="/login"
+               </script>';
+            }
+                
+        } else{
+           
            
             if(empty($url[0]) || !empty($url[1]) && !$url[0] == "usuarios" || $url[0] == "areas" ||  $url[0] == "dragas" || $url[0] == "terminais")
            
             {
                 if(empty($url[0]) || $url[0] == "areas"){
+                    
                     $_SESSION['tipoURL'] = 1;
                 } else if($url[0] =="dragas"){
                     $_SESSION['tipoURL'] = 2;
@@ -115,10 +129,6 @@
                     echo 'error 404';
                 }
             }
-        } else{
-            include "./includes/login/index.php";
-                 
-            //header("Location:  http://localhost/frontend/login");
         }
         ?>
         </div>

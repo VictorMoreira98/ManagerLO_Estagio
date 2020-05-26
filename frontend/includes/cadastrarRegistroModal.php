@@ -47,11 +47,11 @@
                       <div class="md-form">
                         <label for="favcity">
                           <select class="classSelect" id="status" name="status">
-                          <option value="1">LO Vigor</option>
-                          <option value="2">LO Prorrogada</option>
-                          <option value="3">LO Vencida</option>
-                          <option value="4">LO Solicitada</option>
-                          <option value="5">LO Suspensa</option>
+                          <option value="1">Licença Vigor</option>
+                          <option value="2">Licença Prorrogada</option>
+                          <option value="3">Licença Vencida</option>
+                          <option value="4">Licença Solicitada</option>
+                          <option value="5">Licença Suspensa</option>
                           </select>
                         </label>
                       </div>
@@ -62,7 +62,7 @@
                           <!-- LO -->
                       <div class="md-form nLO">
                       <input type="number" id="nLO" name="nLO"class="form-control">
-                      <label for="materialRegisterFormFirstName">Nº LO</label>
+                      <label for="materialRegisterFormFirstName">Nº Licença</label>
                       </div>
                 </div>
 
@@ -156,7 +156,7 @@
                 <div class="anexoArea">
                     <div class="input-file-container">  
                       <input class="input-file input-anexo-lo" id="anexo" name="anexoLO" type="file" >
-                      <label tabindex="0" for="my-file" class="input-file-trigger input-anexo-lo-trigger" >Anexar LO</label>
+                      <label tabindex="0" for="my-file" class="input-file-trigger input-anexo-lo-trigger" >Anexar Licença</label>
                     </div>
                     <p class="file-return anexo-lo-return" ></p>
                 </div>

@@ -2,8 +2,8 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Manager LO</h3>
-                <strong>ML</strong>
+                <h3>Tua Licença</h3>
+                <strong>TL</strong>
             </div>
 
             <ul class="list-unstyled components">
