@@ -93,8 +93,8 @@
                     </div>
 
 
-                    <button type="button" class="btnAddCampo" id="addCampoEditar"  onclick="addDnpmEditar()">Adicionar DNPM <i class="fas fa-plus"></i></button>
-                    <button type="button" class="btnAddCampo" id="removerCampoEditar" style="display: none" onclick="removerDnpmEditar()">Remover DNPM <i class="fas fa-plus"></i></button>
+                    <button type="button" class="btnAddCampo" id="addCampoEditar"  onclick="addDnpmEditar()"><i class="fas fa-plus"></i> DNPM </button>
+                    <button type="button" class="btnAddCampo" id="removerCampoEditar" style="display: none" onclick="removerDnpmEditar()"><i class="fas fa-minus"></i> DNPM </button>
                   </div>
   
 

@@ -21,6 +21,13 @@ margin-right: 500px;
 }
 
 
+
+.js .anexo-prorrogacao-return-edit:not(:empty):before {
+  content: "Prorrogação anexada: "!important;
+  font-style: normal;
+  font-weight: normal;
+}
+
 @media only screen and (min-width: 700px){
   
   .editarLO{

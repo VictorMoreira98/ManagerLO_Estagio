@@ -154,7 +154,7 @@ body{
   font-weight: bold;
 }
 .js .file-return:not(:empty):before {
-  content: "LO anexada: ";
+  content: "Licença anexada: ";
   font-style: normal;
   font-weight: normal;
 }
@@ -179,7 +179,7 @@ body{
 .divDNPM button{
   margin-right: 85%;
   height: auto;
-  width: 132px;
+  width: 80px;
   text-align: center;
   font-size: 13px;
   color:rgb(255, 255, 255);
