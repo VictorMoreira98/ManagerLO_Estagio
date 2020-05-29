@@ -15,7 +15,7 @@
         <div class="card cardLO" >
 
         <h5 class="card-header white-text text-center py-4">
-            <strong>Cadastrar LO</strong>
+            <strong>Cadastrar Licença</strong>
         </h5>
 
         <!--Card content-->

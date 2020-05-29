@@ -25,7 +25,12 @@
 							Login
 						</button>
 					</div>
-
+					
+					<div class="text-center p-t-90 " >
+						<a class="txt1" href="/cadastrar">
+							Criar conta?
+						</a>
+					</div>
 					
 				</form>
 				<?php  require_once 'includes/growl.php'; ?>

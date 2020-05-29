@@ -71,7 +71,7 @@
      
         if(!isset($_SESSION['logado'])){
            
-            if($url[0] =="login"){
+            if($url[0] =="login" || $url[0] =="cadastrar" ){
                 
                 include "./includes/login/index.php";
             }else{

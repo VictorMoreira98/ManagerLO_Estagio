@@ -2,7 +2,7 @@
 <div class="card">
 
     <h5 class="card-header white-text text-center py-4">
-        <strong>Sign up</strong>
+        <strong>Cadastro</strong>
     </h5>
 
     <!--Card content-->
@@ -87,7 +87,7 @@
            
 
             <!-- Sign up button -->
-            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Cadastrar</button>
 
            
             <hr>
