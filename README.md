@@ -1,4 +1,4 @@
-# ManagerLO_Estagio
+# Website Gerenciamento de Licenças
 ## :page_with_curl: Descrição
 Projeto de estágio SI 2020
 
